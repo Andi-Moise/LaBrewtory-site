@@ -120,8 +120,8 @@ fetch(apiUrl)
       beerTitle.textContent = words[0]
       alcohol.textContent = data[imageIndex].alcohol + " %"
       bitterness.textContent = data[imageIndex].bitterness + " IBU"
-      // beerImage.src = data[imageIndex].beerimg;
-      // bannerImages.style.transform = `translateX(-${100 * imageIndex}%)`;
+      beerImage.src = data[imageIndex].beerimg;
+      bannerImages.src = data[imageIndex].bannerimg ;
 
       document.querySelectorAll(".indicator").forEach((el, index) => {
         el.classList.toggle("active", index === imageIndex)

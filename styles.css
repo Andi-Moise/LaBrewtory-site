@@ -23,8 +23,10 @@ a{
     --white: #FFF8eb;
     --black: #1B1B1B;
     --yellow: #FFBC04;
+    --gray: #C9C9C9;
     --text-xl: 4.5rem;
     --text-lg: 3.5rem;
+    --text-mdx2: 2.5rem;
     --text-md: 1.8rem;
     --text-sm: 1.2rem;
     --text-smx2: 1.3rem;
@@ -322,6 +324,11 @@ nav{
   background-color: var(--white);
 }
 
+.slider .v2{
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+}
 .slider .back {
   z-index: -1;
   width: 100%;
@@ -592,14 +599,9 @@ nav{
     max-width: 100%;
     gap: 20px;
 }
-.catalog .card-container{
-    /* border: 2px solid;
-    display: grid;
-    grid-template-columns: 2fr 3fr;
-    
-    border-radius: var(--border-radius);
-    padding: 20px; */
-}
+/* .catalog .card-container{
+   
+} */
 
 .catalog .left{
     display: flex;
@@ -687,7 +689,7 @@ nav{
 
 
    
-   /* .product-card {
+   /* .viewMoreCard {
     display: flex;
   
     border: 1px solid #ccc;
@@ -868,6 +870,19 @@ nav{
     display: flex;
     flex-direction: column;
     gap: 12px;
+    position: relative;
+  }
+
+  .card-container .special{
+    position: absolute;
+    background-color: #ffa633;
+    top: 20px;
+    right: -10px;
+    color: var(--white);
+    text-transform: uppercase;
+    font-weight: 500;
+    padding: 5px;
+    border-radius: 5px;
   }
   
   .card-container .card-title {
@@ -991,54 +1006,56 @@ nav{
     color: var(--black);
     position: relative;
   }
-  .more .main i{
+  #close{
     position: absolute;
     right: 20px;
     top: 20px;
     color: var(--black);
     font-size: 20px;
     z-index: 22;
+    cursor: pointer;
   }
   .hidden { display: none; }
 
-  .product-card {
+  .viewMoreCard {
     background-color: #fff;
     border-radius: 15px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     display: flex;
-    padding: 30px;
+    padding: 40px;
     max-width: 900px;
     width: 100%;
-    gap: 30px;
+    gap: 40px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     
 }
-.product-card .images{
+.viewMoreCard .images{
   display: flex;flex-direction: column;
   gap: 10px;
 }
-.product-card .image-gallery {
+.viewMoreCard .image-gallery {
     display: flex;
     
-    gap: 10px;
+    justify-content: space-between;
 }
 
-.product-card .image-gallery img {
+.viewMoreCard .image-gallery img {
     width: 70px;
     height: 70px;
     object-fit: cover;
     border-radius: 10px;
     cursor: pointer;
-    border: 2px solid transparent;
+    border: 2px solid var(--black);
 }
 
-.product-card .image-gallery img.active {
+.viewMoreCard .image-gallery img.active {
     border-color: #ffa500;
 }
 
-.product-card .main-image{
+.viewMoreCard .main-image{
   height:500px;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1048,86 +1065,146 @@ nav{
   /* object-fit: contain; */
 }
 
-.product-card .main-image img {
+.viewMoreCard .main-image img {
    height: 100%;
+   width: 100%;
+   object-fit: cover;
     border-radius: 10px;
 }
 
-.product-card .details {
+.viewMoreCard .details {
     flex: 1;
     display: flex;
-    
+    justify-content: space-between
+    ;
     flex-direction: column;
     gap: 10px;
 }
 
-.product-card .details h1 {
-    font-size: 24px;
+.viewMoreCard .details h1 {
+    font-size: var(--text-mdx2);
+    text-align: center;
     margin: 0;
+    font-weight: 400;
+    line-height: 0.9;
+}
+.viewMoreCard .details .top{
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 }
 
-.product-card .details .info {
+.viewMoreCard .details .info {
     display: flex;
-    gap: 20px;
+    /* gap: 20px; */
     font-size: 14px;
-    color: #555;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--black);
 }
 
-.product-card .details .info div {
+.viewMoreCard .details .info div {
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
+    padding: 10px 20px;
+    border: 2px solid var(--gray);
+    border-left: none;
+}
+.viewMoreCard .details .info .right{
+  border-right: none;
 }
 
-.product-card .details .description {
-    font-size: 14px;
-    color: #333;
+.viewMoreCard .details .info div span{
+  font-size: 12px;
+  text-transform: uppercase;
+
+}
+.viewMoreCard .details .info div strong{
+  font-size: var(--text-md);
+  font-weight: 400;
+  line-height: 0.9;
 }
 
-.product-card .details .price {
+.viewMoreCard .details .description {
+    font-size: 20px;
+    /* color: #333; */
+}
+
+.viewMoreCard .details .price {
     font-size: 18px;
     color: #000;
     font-weight: bold;
 }
 
-.product-card .details .actions {
+.viewMoreCard .details .actions {
     display: flex;
     align-items: center;
+    
     gap: 10px;
 }
 
-.product-card .details .actions button {
-    background-color: #ffa500;
+.viewMoreCard .details .actions button {
+    /* background-color: #ffa500; */
     border: none;
     color: #fff;
-    padding: 10px 15px;
+    /* padding: 10px 15px; */
     border-radius: 5px;
     cursor: pointer;
     font-size: 14px;
 }
 
-.product-card .details .actions button:hover {
-    background-color: #cc8400;
+.viewMoreCard .details .actions button:hover {
+    /* background-color: #cc8400; */
 }
 
-.product-card .details .actions .quantity {
+.viewMoreCard .details .actions .quantity {
     display: flex;
+    border: calc(1.5*1px)  solid var(--gray);
+    padding: 5px 25px;
+    height: 50px;
+    border-radius: var(--border-radius);
     align-items: center;
-    gap: 5px;
+    gap: 30px;
 }
 
-.product-card .details .actions .quantity button {
-    background-color: #ddd;
+.viewMoreCard .details .actions .quantity small{
+  font-size: 30px ; 
+  font-weight: 300;
+}
+
+.viewMoreCard .details .actions .quantity button {
+   background: none;
+   display: flex;
+
+   color: var(--black);
+   font-size: var(--text-mdx2);
     border: none;
-    padding: 5px;
+    /* padding: 5px; */
     border-radius: 3px;
     cursor: pointer;
 }
 
-.product-card .details .actions .quantity button:hover {
-    background-color: #bbb;
+.viewMoreCard .details .actions .quantity button:hover {
+    /* background-color: #bbb; */
+}
+.viewMoreCard .details .actions .cart{
+    height: 50px;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    background-color: var(--black);
+    border-radius: var(--border-radius);
 }
 
-.product-card .details .actions .quantity span {
-    font-size: 14px;
-    font-weight: bold;
+.viewMoreCard .details .actions .cart i{
+    /* background-color: var(--black); */
+    /* padding: 15px; */
+    font-size: 20px;
+    border-radius: var(--border-radius);
+
 }
