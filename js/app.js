@@ -24,7 +24,7 @@ window.addEventListener('scroll', () => {
     logoNav.style.display = 'flex'
     logoNav.style.zIndex = "2"
     logo.style.display = 'none'
-    nav.style.background = "#191919"
+    nav.style.background = "#1b1b1b"
     
   } 
   else {
@@ -120,7 +120,7 @@ fetch(apiUrl)
       beerTitle.textContent = words[0]
       alcohol.textContent = data[imageIndex].alcohol + " %"
       bitterness.textContent = data[imageIndex].bitterness + " IBU"
-      beerImage.src = data[imageIndex].beerimg;
+      beerImage.src = data[imageIndex].catalogimg;
       bannerImages.src = data[imageIndex].bannerimg ;
 
       document.querySelectorAll(".indicator").forEach((el, index) => {
@@ -128,16 +128,16 @@ fetch(apiUrl)
       });
     }
 
-    // function nextSlide() {
-    //   imageIndex = (imageIndex + 1) % data.length;
-    //   updateSlider();
-    // }
+    function nextSlide() {
+      imageIndex = (imageIndex + 1) % Math.min(data.length, 5);
+      updateSlider();
+    }
     
-    // let sliderInterval = setInterval(nextSlide, 5000); 
-    // function resetTimer() {
-    //   clearInterval(sliderInterval);
-    //   sliderInterval = setInterval(nextSlide, 5000);
-    // }
+    let sliderInterval = setInterval(nextSlide, 4000); 
+    function resetTimer() {
+      clearInterval(sliderInterval);
+      sliderInterval = setInterval(nextSlide, 4000);
+    }
     
     updateSlider()
 
