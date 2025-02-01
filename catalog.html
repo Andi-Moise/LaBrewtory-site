@@ -5,12 +5,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LaBrewtory</title>
     <link rel="stylesheet" href="styles.css">
-    <script defer src="catalog.js"></script>
+    <!-- <script defer src="catalog.js"></script> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- <script defer src="js/app.js"></script> -->
+    <script defer src="js/app.js"></script>
 </head>
 <body>
     <!-- <div class="test"></div> -->
+    <div class="cart-container hidden" id="cart-container">
+        <div class="cart">
+            <i class="fa-solid fa-xmark" id="closeCart"></i>
+            <h1>Your Cart</h1>
+            <div class="line"></div>
+            <div class="elements">
+                <div class="box">
+                    <img src="images/AmericanAmberAle.png" alt="">
+                    <div class="side">
+                        <div class="top">
+                            <p>American Pale Ale</p>
+                            <small>1 x 330 ml <span>- 40mdl</span> </small>
+                        </div>
+                        <div class="bottom">
+                            <div class="quantity">
+                                    <button><i class="fa-solid fa-minus"></i></button>
+                                  <small>1</small>
+                                  <button><i class="fa-solid fa-plus"></i></button>
+                            </div>
+                            <button class="remove"><i class="fa-solid fa-xmark"></i></button>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="line"></div>
+            <div class="cont">
+                <h2>Livrare:</h2>
+                <h2 class="strong">MDL 50</h2>
+            </div>
+            <div class="line"></div>
+            <div class="cont">
+                <h2>Subtotal:</h2>
+                <h2 class="strong">MDL 90</h2>
+            </div>
+            <div class="line"></div>
+            <div class="end">
+                <div class="pay">
+                    <p>Ready to Checkout</p>
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
     <header>
         <nav id="nav" class="pages">
             <div class="container navbar">
@@ -18,13 +63,17 @@
                 <div class="left">
                     <a href="catalog.html">Beers</a>
                     <a href="">Events</a>
+                    <a href="">Gallery</a>
                 </div>
                 <a class="center" href="index.html">
                     <img src="images/logo.png" id="logoNav" class="logoNav pagesNav" alt="" >
                 </a>
                 <div class="right">
-                    <a href="">Gallery</a>
+                    
                     <a href="">Contact</a>
+                    <a href="">Ro <i class="fa-solid fa-chevron-down"></i></a>
+                    <i class="fa-solid fa-cart-shopping" id="openCart"></i>
+
                 </div>
                 
             </div>

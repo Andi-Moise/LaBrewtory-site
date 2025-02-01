@@ -225,9 +225,6 @@ fetch(apiUrl)
     catalog.innerHTML += dataHTML.join("")
   
     console.log(data);
-    // const words = item.name.split(" ")
-    //   catalogTitle.textContent = words.slice(1).join(" ")
-    //   beerTitle.textContent = words[0]
     
   })
   .catch(error => {
