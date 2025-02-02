@@ -10,31 +10,14 @@
     <script defer src="js/app.js"></script>
 </head>
 <body>
-    <!-- <div class="test"></div> -->
+
     <div class="cart-container hidden" id="cart-container">
         <div class="cart">
             <i class="fa-solid fa-xmark" id="closeCart"></i>
             <h1>Your Cart</h1>
             <div class="line"></div>
-            <div class="elements">
-                <div class="box">
-                    <img src="images/AmericanAmberAle.png" alt="">
-                    <div class="side">
-                        <div class="top">
-                            <p>American Pale Ale</p>
-                            <small>1 x 330 ml <span>- 40mdl</span> </small>
-                        </div>
-                        <div class="bottom">
-                            <div class="quantity">
-                                    <button><i class="fa-solid fa-minus"></i></button>
-                                  <small>1</small>
-                                  <button><i class="fa-solid fa-plus"></i></button>
-                            </div>
-                            <button class="remove"><i class="fa-solid fa-xmark"></i></button>
-                        </div>
-                    </div>
-                    
-                </div>
+            <div class="elements" id="cart-main">
+                
             </div>
             <div class="line"></div>
             <div class="cont">
@@ -44,11 +27,11 @@
             <div class="line"></div>
             <div class="cont">
                 <h2>Subtotal:</h2>
-                <h2 class="strong">MDL 90</h2>
+                <h2 class="strong" id="total-price"></h2>
             </div>
             <div class="line"></div>
             <div class="end">
-                <div class="pay">
+                <div class="pay" id="cart-buy-btn">
                     <p>Ready to Checkout</p>
                 </div>
             </div>
@@ -56,8 +39,13 @@
             
         </div>
     </div>
+    <div class="added hidden" id="added">
+        <i class="fa-solid fa-check"></i>
+        <h2>Item added succesfully in the cart </h2>
+
+    </div>
     <header>
-        <nav id="nav" class="pages">
+        <nav  class="pages">
             <div class="container navbar">
                 
                 <div class="left">
@@ -66,13 +54,17 @@
                     <a href="">Gallery</a>
                 </div>
                 <a class="center" href="index.html">
-                    <img src="images/logo.png" id="logoNav" class="logoNav pagesNav" alt="" >
+                    <img src="images/logo.png"  class="logoNav pagesNav" alt="" >
                 </a>
                 <div class="right">
                     
                     <a href="">Contact</a>
                     <a href="">Ro <i class="fa-solid fa-chevron-down"></i></a>
-                    <i class="fa-solid fa-cart-shopping" id="openCart"></i>
+                    <div class="cart-icon">
+                        <i class="fa-solid fa-cart-shopping" id="openCart"></i>
+                        <div class="dot hidden" id="dot-cart"></div>
+                    </div>
+                    
 
                 </div>
                 
@@ -85,8 +77,38 @@
     <main>
         <div class="catalog-page container">
             <div class="side">
-<!-- hfgdj -->
-            </div>
+                <section class="filters">
+                    <h2>Filters</h2>
+                    <div class="filter">
+                        <h3>Alcohol</h3>
+                        <div id="alcohol-filter" class="filter-options">
+        
+                        </div>
+                    </div>
+                    <div class="filter">
+                        <h3>Type</h3>
+                        <div id="type-filter" class="filter-options">
+        
+                        </div>
+                    </div>  
+                    
+                    <div class="filter">
+                        <h3>Bitterness</h3>
+                        <div id="bitterness-filter" class="filter-options">
+        
+                        </div>
+                    </div>  
+                    
+                    <div class="filter">
+                        <h3>Price</h3>
+                        <div class="price-filter">
+                            <input type="number" id="min-price">
+                            <input type="number" id="max-price">
+                        </div>
+                    </div>
+                </section>
+                </div>
+            
             <div id="catalog" class="catalog">
                 
                 

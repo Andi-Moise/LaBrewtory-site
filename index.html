@@ -10,51 +10,40 @@
     <script defer src="js/app.js"></script>
 </head>
 <body>
-    <div class="cart-container hidden" id="cart-container">
-        <div class="cart">
-            <i class="fa-solid fa-xmark" id="closeCart"></i>
-            <h1>Your Cart</h1>
-            <div class="line"></div>
-            <div class="elements">
-                <div class="box">
-                    <img src="images/AmericanAmberAle.png" alt="">
-                    <div class="side">
-                        <div class="top">
-                            <p>American Pale Ale</p>
-                            <small>1 x 330 ml <span>- 40mdl</span> </small>
-                        </div>
-                        <div class="bottom">
-                            <div class="quantity">
-                                    <button><i class="fa-solid fa-minus"></i></button>
-                                  <small>1</small>
-                                  <button><i class="fa-solid fa-plus"></i></button>
-                            </div>
-                            <button class="remove"><i class="fa-solid fa-xmark"></i></button>
-                        </div>
-                    </div>
+    <!-- <div class="cart-container hidden" id="cart-container"> -->
+        <div class="cart-container hidden" id="cart-container">
+            <div class="cart">
+                <i class="fa-solid fa-xmark" id="closeCart"></i>
+                <h1>Your Cart</h1>
+                <div class="line"></div>
+                <div class="elements" id="cart-main">
                     
                 </div>
-            </div>
-            <div class="line"></div>
-            <div class="cont">
-                <h2>Livrare:</h2>
-                <h2 class="strong">MDL 50</h2>
-            </div>
-            <div class="line"></div>
-            <div class="cont">
-                <h2>Subtotal:</h2>
-                <h2 class="strong">MDL 90</h2>
-            </div>
-            <div class="line"></div>
-            <div class="end">
-                <div class="pay">
-                    <p>Ready to Checkout</p>
+                <div class="line"></div>
+                <div class="cont">
+                    <h2>Livrare:</h2>
+                    <h2 class="strong">MDL 50</h2>
                 </div>
+                <div class="line"></div>
+                <div class="cont">
+                    <h2>Subtotal:</h2>
+                    <h2 class="strong" id="total-price"></h2>
+                </div>
+                <div class="line"></div>
+                <div class="end">
+                    <div class="pay" id="cart-buy-btn">
+                        <p>Ready to Checkout</p>
+                    </div>
+                </div>
+                
+                
             </div>
-            
-            
         </div>
-    </div>
+        <div class="added hidden" id="added">
+            <i class="fa-solid fa-check"></i>
+            <h2>Item added succesfully in the cart </h2>
+    
+        </div>
     
     <div class="header">
         
@@ -76,7 +65,10 @@
                     
                     <a href="">Contact</a>
                     <a href="">Ro <i class="fa-solid fa-chevron-down"></i></a>
-                    <i class="fa-solid fa-cart-shopping" id="openCart"></i>
+                    <div class="cart-icon">
+                        <i class="fa-solid fa-cart-shopping" id="openCart"></i>
+                        <div class="dot hidden" id="dot-cart"></div>
+                    </div>
 
                 </div>
                 
@@ -133,9 +125,10 @@
                 
                     <div class="part v2">
                       <img id="bannerImages" src="" class="banner">
-                      <div class="image2">
+                      <a class="image2" href="catalog.html">
+                        
                         <img id="beerImage" src="" alt="beerImage">
-                      </div>
+                      </a>
                     </div>
                   </div>
                 

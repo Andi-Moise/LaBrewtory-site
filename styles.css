@@ -214,6 +214,30 @@ font-weight: 300;
   top: 0 !important;
 }
 
+.added{
+  height: 100px;
+  border-radius: var(--border-radius);
+  width: 500px;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -5%);
+  background-color: var(--white);
+  z-index: 24;
+  display: flex;
+  color: var(--black);
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  /* transition: width 2s; */
+}
+.added i{
+  color: green;
+  background-color: white;
+  padding: 10px;
+  border-radius: 1000px;
+  font-size: 20px;
+}
 
 /* HEADER */
 .header{
@@ -300,7 +324,18 @@ nav{
   justify-content: right;
   align-items: center;
   gap: calc(3*var(--gap)) ;
+  position: relative;
 
+}
+
+.navbar .right .cart-icon .dot{
+  height: 10px;
+  width: 10px;
+  background-color: #ffa633;
+  position: absolute;
+  border-radius: 100%;
+  top: -2px;
+  right: -6px;
 }
 
 .navbar .left a, .navbar .right a{
@@ -510,6 +545,7 @@ nav{
   background-color: var(--white);
   width: 60px; 
   border-radius: 50%; 
+  cursor: pointer;
 }
 
 .slider .part .container2 .indicators .indicator.active {
