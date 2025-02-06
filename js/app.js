@@ -18,7 +18,8 @@ const cartBuyBtn = document.getElementById("cart-buy-btn")
 const totalPrice = document.getElementById("total-price")
 const dotCart = document.getElementById("dot-cart")
 const added = document.getElementById("added")
-  
+
+// const rest = document.querySelectorAll(".rest")
 
 openCart.addEventListener("click", ()=>{
   cartContainer.classList.toggle("hidden")
@@ -27,6 +28,8 @@ openCart.addEventListener("click", ()=>{
 closeCart.addEventListener("click", ()=>{
   cartContainer.classList.toggle("hidden")
 })
+
+
   
 window.addEventListener('scroll', () => {
   logoNav.style.display = 'none'
@@ -34,7 +37,7 @@ window.addEventListener('scroll', () => {
   logoNav.style.display = 'none'
   if (scrollPosition > 30 && scrollPosition < 250 ) {
     logo.style.transform = 'translate(-50%, -100%)'
-    logo.style.height = '100px'; 
+    logo.classList.add("logoHeightAfter")
     logo.style.transition = '1s'
     logoNav.style.transition = '1s'
      nav.style.background = "none"
@@ -52,14 +55,25 @@ window.addEventListener('scroll', () => {
   else {
     logo.style.display = 'flex'
     logo.style.transform = 'translate(-50%, -50%)'
-    logo.style.height = '200px'
-    logo.style.transition = '1s'
+    logo.classList.add("logoHeightInitial")
+    logo.classList.remove("logoHeightAfter")
     logoNav.style.display = 'none'
     nav.style.background = "none"
   }
 });
 
+function toggleMore(button) {
+  const beerCard = button.closest('.beer-card'); // Get the whole beer card
+  const moreSection = beerCard.querySelector('.more'); // Find its corresponding .more section
 
+  if (moreSection) {
+    moreSection.classList.toggle('hidden');
+  }
+}
+function updateMainImage(imgElement) {
+  const mainImage = imgElement.closest('.viewMoreCard').querySelector('#mainImage');
+  mainImage.src = imgElement.src;
+}
 
 //  SLIDER
 fetch(apiUrl)
@@ -145,212 +159,153 @@ fetch(apiUrl)
   .then(data => {
     function showCatalog(data){
       const dataHTML = data.slice(0,5).map((item) =>`
-          <div class="card-container">
-            <div class="card-image">
-              <img
-              src=${item.catalogimg}
-                alt="Flying Mamaliga"
-              
-                />
-              <img src=${item.bannerimg}  class="banner"/>
-            </div>
-
-            <div>
-              <h2 class="card-title">${item.name.split(" ")[0]}</h2>
-              <h2 class="card-title">${item.name.split(" ").slice(1).join(" ")}</h2>
-            </div>
-
-            <div class="info">
-              <div class="box type2">
-                <p>Price</p>
-                <small>${item.price} MDL</small>
+          <div class="beer-card">
+            <div class="card-container">
+              <div class="card-image">
+                <img src=${item.catalogimg} alt="Flying Mamaliga" />
+                <img src=${item.bannerimg} class="banner" />
               </div>
-              <div class="box">
-                <p>Alcohol</p>
-                <small>${item.alcohol} %</small>
+
+              <div>
+                <h2 class="card-title">${item.name.split(" ")[0]}</h2>
+                <h2 class="card-title">${item.name.split(" ").slice(1).join(" ")}</h2>
+              </div>
+
+              <div class="info">
+                <div class="box type2">
+                  <p>Price</p>
+                  <small>${item.price} MDL</small>
+                </div>
+                <div class="box">
+                  <p>Alcohol</p>
+                  <small>${item.alcohol} %</small>
+                </div>
+              </div>
+
+              <div class="grid">
+                <button onclick="toggleMore(this)" class="card-button card-button-primary">View More</button>
+                <button class="item-cart-btn card-button card-button-secondary" data-item-id='${item.id}'>Add to Cart</button>
               </div>
             </div>
 
-            <div class="grid">
-      
-              <button onclick="document.querySelector('.more').classList.toggle('hidden')" class="card-button card-button-primary">View More</button>
-    
-      
-              <button class="item-cart-btn card-button card-button-secondary" data-item-id='${item.id}'>Add to Cart</button>
-      
-            </div>
-          </div>
-
-          <div class="more hidden">
-              
+            <div class="more hidden">
               <div class="main">
-                      <i onclick="document.querySelector('.more').classList.toggle('hidden')" class="fa-solid fa-xmark" id="close"></i>
-                      <div class="viewMoreCard">
-                        <div class="images">
-                          <div class="main-image">
-                            <img src="${item.catalogimg}" alt="American Pale Ale" id="mainImage">
-                          </div>
-                          <div class="image-gallery">
-                          
-                          <img onClick="document.getElementById('mainImage').src = this.src" 
-                          src="${item.catalogimg}" 
-                            alt="" >
+                <i onclick="toggleMore(this)" class="fa-solid fa-xmark" id="close"></i>
+                <div class="viewMoreCard">
+                  <div class="images">
+                    <div class="main-image">
+                      <img src="${item.viewmore1}" alt="American Pale Ale" id="mainImage">
+                    </div>
+                    <div class="image-gallery">
+                      <img onclick="updateMainImage(this)" src="${item.viewmore1}" alt="" />
+                      <img onclick="updateMainImage(this)" src="${item.viewmore2}" />
+                      <img onclick="updateMainImage(this)" src="${item.viewmore3}" alt="" />
+                      <img onclick="updateMainImage(this)" src="${item.viewmore4}" alt="" />
+                    </div>
+                  </div>
 
-                            <img onClick="document.getElementById('mainImage').src = this.src"  src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRHDHjmD-Mtr8WvWqMOZf-bTsQ2DrWrypxIMo2eTGuFht53AabF_euIygAdbXLLyGfbvIpuL0vvaYKqsTXID53Wtw" alt="">
-                            <img onClick="document.getElementById('mainImage').src = this.src" 
-                          src="${item.catalogimg}" 
-                            alt="" >
-                            <img onClick="document.getElementById('mainImage').src = this.src" 
-                          src="${item.catalogimg}" 
-                            alt="" >
-                          </div>
-                        </div>
-                        
-                        <div class="details">
-                            <div class="top">
-                                <div>
-                                  <h1 class="">${item.name.split(" ")[0]}</h1>
-                                  <h1 class="">${item.name.split(" ").slice(1).join(" ")}</h1>
-                                </div>
-                              
-                                <div class="info">
-                                    <div>
-                                        <span>ALC</span>
-                                        <strong>4.6%</strong>
-                                    </div>
-                                    <div>
-                                        <span>Price (MDL)</span>
-                                        <strong>40</strong>
-                                    </div>
-                                    <div class="right">
-                                        <span>Bitterness</span>
-                                        <strong>15 IBU</strong>
-                                    </div>
-                                </div>
-                                <p class="description">
-                                    ${item.description}
-                                </p>
-                            </div>
-                            
-                            <div class="actions">
-                                <div class="quantity">
-                                    <button><i class="fa-solid fa-minus"></i></button>
-                                    <small>1</small>
-                                    <button><i class="fa-solid fa-plus"></i></button>
-                                </div >
-                                <button class="cart"><i class="fa-solid fa-cart-shopping "></i></button>
-                            </div>
-                        </div>
+                  <div class="details">
+                    <div class="top">
+                      <h1>${item.name}</h1>
+                      <div class="info">
+                        <div><span>ALC</span><strong>${item.alcohol}%</strong></div>
+                        <div><span>Price (MDL)</span><strong>${item.price}</strong></div>
+                        <div class="right"><span>Bitterness</span><strong>15 IBU</strong></div>
                       </div>
+                      <p class="description">${item.description}</p>
+                    </div>
+
+                    <div class="actions">
+                      <div class="quantity">
+                        <button><i class="fa-solid fa-minus"></i></button>
+                        <small>1</small>
+                        <button><i class="fa-solid fa-plus"></i></button>
+                      </div>
+                      <button class="cart item-cart-btn" data-item-id="${item.id}"><i class="fa-solid fa-cart-shopping"></i></button>
+                    </div>
+                  </div>
+                </div>
               </div>
+            </div>
           </div>
+
 
 
      
   `);
   const dataSpecialHTML = data.slice(5,20).map((item) =>`
-      <div class="card-container">
-        <div class="special">
-          <p>Special One</p>
-        </div>
-        <div class="card-image">
-          <img
-          src=${item.catalogimg}
-            alt="Flying Mamaliga"
-          
-            />
-          <img src=${item.bannerimg}  class="banner"/>
-        </div>
+      <div class="beer-card">
+            <div class="card-container">
+              <div class="special">
+                <p>Special One</p>
+              </div>
+              <div class="card-image">
+                <img src=${item.catalogimg} alt="Flying Mamaliga" />
+                <img src=${item.bannerimg} class="banner" />
+              </div>
 
-        <div>
-          <h2 class="card-title">${item.name.split(" ")[0]}</h2>
-          <h2 class="card-title">${item.name.split(" ").slice(1).join(" ")}</h2>
-        </div>
+              <div>
+                <h2 class="card-title">${item.name.split(" ")[0]}</h2>
+                <h2 class="card-title">${item.name.split(" ").slice(1).join(" ")}</h2>
+              </div>
 
-        <div class="info">
-          <div class="box type2">
-            <p>Price</p>
-            <small>${item.price} MDL</small>
-          </div>
-          <div class="box">
-            <p>Alcohol</p>
-            <small>${item.alcohol} %</small>
-          </div>
-        </div>
+              <div class="info">
+                <div class="box type2">
+                  <p>Price</p>
+                  <small>${item.price} MDL</small>
+                </div>
+                <div class="box">
+                  <p>Alcohol</p>
+                  <small>${item.alcohol} %</small>
+                </div>
+              </div>
 
-        <div class="grid">
-  
-          <button onclick="document.querySelector('.more').classList.toggle('hidden')" class="card-button card-button-primary">View More</button>
- 
-  
-          <button class="item-cart-btn card-button card-button-secondary" data-item-id='${item.id}'>Add to Cart</button>
-  
-        </div>
-      </div>
+              <div class="grid">
+                <button onclick="toggleMore(this)" class="card-button card-button-primary">View More</button>
+                <button class="item-cart-btn card-button card-button-secondary" data-item-id='${item.id}'>Add to Cart</button>
+              </div>
+            </div>
 
-      <div class="more hidden">
-          
-          <div class="main">
-                  <i onclick="document.querySelector('.more').classList.toggle('hidden')" class="fa-solid fa-xmark" id="close"></i>
-                  <div class="viewMoreCard">
-                    <div class="images">
-                      <div class="main-image">
-                        <img src="${item.viewmore1}" alt="American Pale Ale" id="mainImage">
-                      </div>
-                      <div class="image-gallery">
-                      
-                       <img onClick="document.getElementById('mainImage').src = this.src" 
-                       src="${item.viewmore1}" 
-                        alt="" >
-
-                        <img onClick="document.getElementById('mainImage').src = this.src"  src="${item.viewmore2}">
-                        <img onClick="document.getElementById('mainImage').src = this.src" 
-                       src="${item.viewmore3}" 
-                        alt="" >
-                        <img onClick="document.getElementById('mainImage').src = this.src" 
-                       src="${item.viewmore4}" 
-                        alt="" >
-                      </div>
+            <div class="more hidden">
+              <div class="main">
+                <i onclick="toggleMore(this)" class="fa-solid fa-xmark" id="close"></i>
+                <div class="viewMoreCard">
+                  <div class="images">
+                    <div class="main-image">
+                      <img src="${item.viewmore1}" alt="American Pale Ale" id="mainImage">
                     </div>
-                    
-                    <div class="details">
-                        <div class="top">
-                            <div>
-                              <h1 class="">${item.name.split(" ")[0]}</h1>
-                              <h1 class="">${item.name.split(" ").slice(1).join(" ")}</h1>
-                            </div>
-                          
-                            <div class="info">
-                                <div>
-                                    <span>ALC</span>
-                                    <strong>4.6%</strong>
-                                </div>
-                                <div>
-                                    <span>Price (MDL)</span>
-                                    <strong>40</strong>
-                                </div>
-                                <div class="right">
-                                    <span>Bitterness</span>
-                                    <strong>15 IBU</strong>
-                                </div>
-                            </div>
-                            <p class="description">
-                                ${item.description}
-                            </p>
-                        </div>
-                        
-                        <div class="actions">
-                            <div class="quantity">
-                                <button><i class="fa-solid fa-minus"></i></button>
-                                <small>1</small>
-                                <button><i class="fa-solid fa-plus"></i></button>
-                            </div >
-                            <button class="cart"><i class="fa-solid fa-cart-shopping"></i></button>
-                        </div>
+                    <div class="image-gallery">
+                      <img onclick="updateMainImage(this)" src="${item.viewmore1}" alt="" />
+                      <img onclick="updateMainImage(this)" src="${item.viewmore2}" />
+                      <img onclick="updateMainImage(this)" src="${item.viewmore3}" alt="" />
+                      <img onclick="updateMainImage(this)" src="${item.viewmore4}" alt="" />
                     </div>
                   </div>
+
+                  <div class="details">
+                    <div class="top">
+                      <h1>${item.name}</h1>
+                      <div class="info">
+                        <div><span>ALC</span><strong>${item.alcohol}%</strong></div>
+                        <div><span>Price (MDL)</span><strong>${item.price}</strong></div>
+                        <div class="right"><span>Bitterness</span><strong>15 IBU</strong></div>
+                      </div>
+                      <p class="description">${item.description}</p>
+                    </div>
+
+                    <div class="actions">
+                      <div class="quantity">
+                        <button><i class="fa-solid fa-minus"></i></button>
+                        <small>1</small>
+                        <button><i class="fa-solid fa-plus"></i></button>
+                      </div>
+                      <button class="cart item-cart-btn" data-item-id="${item.id}"><i class="fa-solid fa-cart-shopping"></i></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-      </div>
 
 
      
@@ -358,32 +313,35 @@ fetch(apiUrl)
     catalog.innerHTML = dataSpecialHTML.join("")
     catalog.innerHTML += dataHTML.join("")
     addToCart()
-
+    
+    
 
     }
     
-      function getBeerAlcohols(data){
-        let alcohols = [...new Set(data.map(beer => beer.alcohol))]
-        let filter = alcohols.map(alcohol => `  
-              <div class='filter-item'>
-                    <input type='checkbox' name='alcohol-filter' value='${alcohol}' id='${alcohol}'>
-                    <label for='${alcohol}'>${alcohol}</label>
-                </div>
-          `)
-        alcoholFilterDiv.innerHTML = filter.join("")
-      }
-      getBeerAlcohols(data)
-      function getBeerBitterness(data){
-        let bitternesses = [...new Set(data.map(beer => beer.bitterness))]
-        let filter = bitternesses.map(bitterness => `  
-              <div class='filter-item'>
-                    <input type='checkbox' name='bitterness-filter' value='${bitterness}' id='${bitterness}'>
-                    <label for='${bitterness}'>${bitterness}</label>
-                </div>
-          `)
-        bitternessFilterDiv.innerHTML = filter.join("")
-      }
-      getBeerBitterness(data)
+
+    
+      // function getBeerAlcohols(data){
+      //   let alcohols = [...new Set(data.map(beer => beer.alcohol))]
+      //   let filter = alcohols.map(alcohol => `  
+      //         <div class='filter-item'>
+      //               <input type='checkbox' name='alcohol-filter' value='${alcohol}' id='${alcohol}'>
+      //               <label for='${alcohol}'>${alcohol}</label>
+      //           </div>
+      //     `)
+      //   alcoholFilterDiv.innerHTML = filter.join("")
+      // }
+      // getBeerAlcohols(data)
+      // function getBeerBitterness(data){
+      //   let bitternesses = [...new Set(data.map(beer => beer.bitterness))]
+      //   let filter = bitternesses.map(bitterness => `  
+      //         <div class='filter-item'>
+      //               <input type='checkbox' name='bitterness-filter' value='${bitterness}' id='${bitterness}'>
+      //               <label for='${bitterness}'>${bitterness}</label>
+      //           </div>
+      //     `)
+      //   bitternessFilterDiv.innerHTML = filter.join("")
+      // }
+      // getBeerBitterness(data)
       
       function getBeerTypes(data){
         let types = [...new Set(data.map(beer => beer.type))]
@@ -423,9 +381,9 @@ fetch(apiUrl)
     
     }
     
-    getFilters("alcohol-filter", "alcohols")
+    // getFilters("alcohol-filter", "alcohols")
     getFilters("type-filter", "types")
-    getFilters("bitterness-filter", "bitternesses")
+    // getFilters("bitterness-filter", "bitternesses")
     
     
     function getFilteredBeers(data, filters){
@@ -607,12 +565,11 @@ fetch(apiUrl)
 
     alert("Order placed successfully");
     cart = []; 
+    dotCart.classList.add("hidden")
     displayCart();
 });
   
-  function calculateTotalPrice() {
-    return cart.reduce((total, item) => total + (item.quantity * item.price), 0);
-}
+  
     showCatalog(data)
   
     console.log(data);
