@@ -50,21 +50,29 @@
         <div class="back">
             <img src="images/headerBack.png"  alt="beeer-craft">
         </div>
+        
         <nav id="nav">
+          <i class="fa-solid fa-bars burger-btn" id="burger-btn"></i>
             <div class="container navbar">
                 
                 <div class="left">
                     <a href="catalog.html">Beers</a>
-                    <a href="">Events</a>
-                    <a href="">Gallery</a>
+                    <a href="aboutus.html">About us</a>
+                    <!-- <a href="">Gallery</a> -->
                 </div>
                 <a class="center" href="index.html">
                     <img src="images/logo.png" id="logoNav" class="logoNav pagesNav" alt="" >
                 </a>
                 <div class="right">
                     
-                    <a href="">Contact</a>
-                    <a href="">Ro <i class="fa-solid fa-chevron-down"></i></a>
+                    <a href="contact.html">Contact</a>
+                    <select id="langSelector" class="langSelector">
+                      <option value="en">En</option>
+                      <option value="ro" >Ro</option>
+                      <option value="ru">Ru</option>
+                      
+                      
+                  </select>
                     <div class="cart-icon">
                         <i class="fa-solid fa-cart-shopping" id="openCart"></i>
                         <div class="dot hidden" id="dot-cart"></div>
@@ -74,18 +82,27 @@
                 
             </div>
         </nav>
+        <div class="half-navbar  hidden" id="half-navbar">
+          <i class="fa-solid fa-xmark" id="close-half-navbar"></i>
+          <div class="links">
+            <a href="index.html">Home</a>
+            <a href="catalog.html">Beers</a>
+            <a href="aboutus.html">About us</a>
+            <a href="contact.html">Contact</a>
+          </div>
+        </div>
         <img src="images/logo.png" id="logo" class="logo" alt="">
     </div>
     <main>
         <div class="about">
             <div class="container">
                 <div>
-                    <small>SINCE 2013</small>
+                    <small class="lang lang-it">SINCE 2013</small>
                     <h1>Moldova's first American craft beer</h1>
                 </div>
                 
                 <p>Just a 5-minute drive from Chisinau train station, you can enjoy all our beers and cider, along with a selection of non-alcoholic beverages and  snacks, inside our taproom or on the outdoor terrace.</p>
-                <p class="button">EXPLORE OUR BEERS</p>
+                <a href="catalog.html" class="button">EXPLORE OUR BEERS</a>
               </div>
               
                 <img src="images/Vector1.png"  alt="">
@@ -147,13 +164,13 @@
 
         </div>
         <div class="bento">
-            <div class="container">
+            <!-- <div class="container"> -->
                 <div class='text'>
                     <p class="title">Our</p>
                     <p class="title">Hospitality</p>
                 </div>
                 
-                <div class="grid-bento ">
+                <div class="grid-bento container">
                     <div class="box part1"><img src="images/bento2.JPG" alt="" /></div>
                     <div class="box part2"><img src="images/bento3.JPG" alt="" /></div>
                     <div class="box part3"><img src="images/bento4.JPG" alt="" /></div>
@@ -161,177 +178,143 @@
                     <div class="box part5"><img src="images/bento6.JPG" alt="" /></div>
                     <div class="box part6"><img src="images/bento5.JPG" alt="" /></div>
                     <div class="box part7">
-                      <p>SEE MORE OF OUR VIBE</p>
+                      <a href="aboutus.html">SEE MORE OF OUR VIBE</a>
                     </div>
                 </div>
-            </div>
-        </div>
-        <!-- <div class="space">
-
-        </div>
-        <div class="space">
-
-        </div> -->
-        <div class="history">
-          <img src="images/Test.png" alt="" class="back">
-            <!-- <div class='text'>
-                <p class="title">HISTORY &</p>
-                <p class="title">VALUES</p>
-            </div> -->
-            <div class="video">
-              <iframe 
-                src="https://www.youtube.com/embed/tgbNymZ7vqY">
-              </iframe>
-            </div>
+            <!-- </div> -->
         </div>
         <div class="space">
 
         </div>
-        <!-- <div class="review container">
-          <div class="title">OUR LOVED CLIENTS REVIEWS</div>
-          <div>
+        <div class="space">
 
+        </div>
+        <div class="events-info">
+          <div class="container content">
+            <div class="title">
+              <p>EVENTS</p>
+              <h1>ENJOY OUR ATMOSPHERE</h1>
+            </div>
+            <div id="events" class="events">
+              
+            </div>
+          </div>
+          <div class="back">
+            <img src="images/Test.png" alt="">
           </div>
           
-          <div class="reviews">
-              <div class="review-card">
-                  <strong>EXCELLENT</strong><br>
-                  <span class="stars">★★★★★</span><br>
-                  Based on <strong>160 reviews</strong><br>
-                  <span class="google-logo">Google</span>
-              </div>
-              <div class="review-card">
-                <div class="tagembed-widget" style="" data-widget-id="2151514" data-tags="false"  view-url="https://widget.tagembed.com/2151514"></div><script src="https://widget.tagembed.com/embed.min.js" type="text/javascript"></script>
-              </div>
-              <div class="review-card">
-                <div class="tagembed-widget" style="width:100%;height:100%" data-widget-id="2151514" data-tags="false"  view-url="https://widget.tagembed.com/2151514"></div><script src="https://widget.tagembed.com/embed.min.js" type="text/javascript"></script>
-              </div>
-              <div class="review-card">
-                <div class="tagembed-widget" style="width:100%;height:100%" data-widget-id="2151514" data-tags="false"  view-url="https://widget.tagembed.com/2151514"></div><script src="https://widget.tagembed.com/embed.min.js" type="text/javascript"></script>
-              </div>
-          </div>
-      </div> -->
-        <div class="last">
-            <div class='map container'>
-                <div class='title'>
-                    <h1 >WE'VE GOT A COLD</h1>
-                    <h1>ONE FOR YA!</h1>
-                </div>
-                <div class="maps">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2721.512189325876!2d28.898644899999997!3d46.990915199999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40c97bdf9b813a13%3A0x9106dd42cb63aaba!2sLitra%20Brewing%20Company!5e0!3m2!1sen!2s!4v1733949560257!5m2!1sen!2s" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade "></iframe>
-                </div>
-        
-            </div>
-            
-            <div class='thirsty '>
-                <img src="" alt=""/>
-                <img src="" alt="" />
-                <div class='text'>
-                    <div class="heading">
-                      <h1>THIRSTY</h1>
-                      <h1>YET ?</h1>
-                    </div>
-                    <p class="button">COME TO GET A BEER</p>
-                    <!-- <div class="tagembed-widget" style="width:100%;height:100%" data-widget-id="2151514" data-tags="false"  view-url="https://widget.tagembed.com/2151514"></div><script src="https://widget.tagembed.com/embed.min.js" type="text/javascript"></script> -->
-                </div>
-            </div>
-            <img src="images/Vector1.png"  alt="" class="back2">
-            <img src="images/Vector2.png"  alt="" class="back1">
         </div>
-        <!-- <img src="images/Vector1.png"  alt=""> -->
+        <div class="contact-map">
+          <div class="content container">
+              <p>LOCATION</p>
+              <h1>HOW TO GET HERE</h1>
+              <h2>Planning a trip to LABREWTORY? We’re here to help.
+                  sos Muncesti 77, Chisinau, Moldova</h2>
+              <a  href="https://www.google.com/maps/place/LaBREWtory+Brewing+Company/data=!4m2!3m1!1s0x0:0x39366b5792aab849?sa=X&ved=1t:2428&ictx=111" target="_blank">VIEW MAP</a>
+          </div>
+          <div class="back">
+              <img src="images/Map.png" alt="">
+          </div>
+      </div>
+
         
+       
         
           
     </main>
     <footer>
-        <img src="images/Test.png" alt="" class="back">
+      <img src="images/Test.png" alt="" class="back">
 
-        <!-- <div style="height: 40px;"></div> -->
-      
-        <div class="test container">
-          <div class="top">
-            <h1>Connect with Labrewtory</h1>
-            <div class="links">
-              <div>
-                <i class="fa-brands fa-instagram"></i>
-              </div>
-              <div>
-                <i class="fa-brands fa-facebook-f"></i>
-              </div>
-              <div>
-                <i class="fa-brands fa-x-twitter"></i>
-              </div>
+      <!-- <div style="height: 40px;"></div> -->
+    
+      <div class="test container">
+        <div class="top">
+          <h1>Connect with Labrewtory</h1>
+          <div class="links">
+            <div>
+              <i class="fa-brands fa-instagram"></i>
+            </div>
+            <div>
+              <i class="fa-brands fa-facebook-f"></i>
+            </div>
+            <div>
+              <i class="fa-brands fa-x-twitter"></i>
             </div>
           </div>
-      
-          <!-- <div style="height: 70px;"></div> -->
-      
-          <div class="middle">
-            <div class="box">
-              <div>
-                <h1>Service</h1>
-              </div>
-              <div class="service">
-                <p>Blonde</p>
-                <p>Brune</p>
-                <p>Sezon</p>
-                <p>Special</p>
-              </div>
-            </div>
-            <div class="box">
-              <div>
-                <h1>Service</h1>
-              </div>
-              <div class="service">
-                <p>Litra Ipa</p>
-                <p>Craft Beer</p>
-                <p>Discover</p>
-              </div>
-            </div>
-            <div class="box">
-              <div>
-                <h1>Service</h1>
-              </div>
-              
-              <div class="service">
-                <p>Beers</p>
-                <p>Excursii</p>
-                <p>Gallery</p>
-                <p>Contact</p>
-                <p>Cart</p>
-              </div>
-            </div>
-            <div class="box">
-              <div>
-                <h1>Service</h1>
-              </div>
-              <div class="service">
-                <p>Mihai Eminescu</p>
-                <p>Get Directions</p>
-              </div>
-            </div>
-          </div>
-      
-          <!-- <div style="height: 40px;"></div> -->
-      
-          <div class="end">
-            <div class="upper">
-              <p>Privacy</p>
-              <p>Policy</p>
-              <p>Do not sell our information</p>
-            </div>
-            <p>© 2025 Slash</p>
-          </div>
-
-      
-          
         </div>
-      
-        <!-- <div style="height: 50px;"></div> -->
-      </footer>
-      <div class="end">
+    
+        <!-- <div style="height: 70px;"></div> -->
+    
+        <div class="middle">
+          <div class="box">
+            <div>
+              <h1>Pages</h1>
+            </div>
+            <div class="service">
+              <a href="index.html">Home</a>
+              <a href="catalog.html">Beers</a>
+              <a href="aboutus.html">About us</a>
+              <a href="contact.html">Contact</a>
+              
+              
+            </div>
+          </div>
+          <div class="box">
+            <div>
+              <h1>Beers</h1>
+            </div>
+            <div class="service">
+              <p>Brune</p>
+              <p>Blonde</p>
+            </div>
+          </div>
+          <div class="box">
+            <div>
+              <h1>Services</h1>
+            </div>
+            
+            <div class="service">
+              <p>BBQs</p>
+              <p>Visits</p>
+              <p>Events</p>
+              
+            </div>
+          </div>
+          <div class="box">
+            <div>
+              <h1>Contact</h1>
+            </div>
+            <div class="service">
+              <p>Șoseaua Muncești 77</p>
+              <p>0682 41 522</p>
+              <p>info@labrewtory.md</p>
+            </div>
+          </div>
+        </div>
+    
+    
+        <div class="end">
+          <div class="upper">
+            <!-- <p>Privacy</p> -->
+            <a href="policy.html">Policy</a>
+            <p>Do not sell our information</p>
+          </div>
+          <p>© 2025 Slash</p>
+        </div>
 
+    
+        
       </div>
+
+    
+        
+      </div>
+    
+      <!-- <div style="height: 50px;"></div> -->
+    </footer>
+    <div class="end">
+
+    </div>
       <!-- FontAwesome CDN for Icons (if not already included) -->
       
       

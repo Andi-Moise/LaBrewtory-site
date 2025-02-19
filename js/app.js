@@ -18,8 +18,38 @@ const cartBuyBtn = document.getElementById("cart-buy-btn")
 const totalPrice = document.getElementById("total-price")
 const dotCart = document.getElementById("dot-cart")
 const added = document.getElementById("added")
+// SELECT
+const selectElement = document.getElementById('langSelector')
+// FAQ
+const faqs =document.querySelectorAll(".faq")
+const answer =document.querySelectorAll(".answer")
+// EVENTS
+const events = document.getElementById("events")
+const apiUrl2 = 'https://679b802733d3168463241458.mockapi.io/events';
+const burgerBtn = document.getElementById("burger-btn")
+const closeHalfNavbarBtn = document.getElementById("close-half-navbar")
+const halfNavbar = document.getElementById("half-navbar")
+const filterDisappear = document.getElementById("filter-disappear")
+const disappear = document.getElementById("disappear")
 
-// const rest = document.querySelectorAll(".rest")
+// filterDisappear.addEventListener("click", ()=>{
+//   disappear.classList.toggle("hidden")
+// })
+
+burgerBtn.addEventListener("click", ()=>{
+  halfNavbar.classList.toggle("hidden")
+})
+closeHalfNavbarBtn.addEventListener("click", ()=>{
+  halfNavbar.classList.toggle("hidden")
+})
+
+
+faqs.forEach(faq =>{
+  faq.addEventListener("click", () =>{
+    faq.classList.toggle("active")
+  })
+})
+
 
 openCart.addEventListener("click", ()=>{
   cartContainer.classList.toggle("hidden")
@@ -96,7 +126,7 @@ fetch(apiUrl)
     const beerImage = document.getElementById("beerImage")
 
 
-    data.slice(0,5).forEach((beer, index) => {
+    data.slice(0,0).forEach((beer, index) => {
       const button = document.createElement("button")
       button.className = "indicator"
       
@@ -159,153 +189,83 @@ fetch(apiUrl)
   .then(data => {
     function showCatalog(data){
       const dataHTML = data.slice(0,5).map((item) =>`
-          <div class="beer-card">
-            <div class="card-container">
-              <div class="card-image">
-                <img src=${item.catalogimg} alt="Flying Mamaliga" />
-                <img src=${item.bannerimg} class="banner" />
-              </div>
-
-              <div>
-                <h2 class="card-title">${item.name.split(" ")[0]}</h2>
+          <div class="catalog-box">
+            <div class="images">
+                <img src=${item.catalogimg} alt="Flying Mamaliga" class="beer"/>
+                <img src="images/banner.png" class="banner" />
+            </div>
+            <div class="info">
+                <div class="title">
+                    <h2 class="card-title">${item.name.split(" ")[0]}</h2>
                 <h2 class="card-title">${item.name.split(" ").slice(1).join(" ")}</h2>
-              </div>
-
-              <div class="info">
-                <div class="box type2">
-                  <p>Price</p>
-                  <small>${item.price} MDL</small>
                 </div>
-                <div class="box">
-                  <p>Alcohol</p>
-                  <small>${item.alcohol} %</small>
+                <div class="details">
+                    <div class="column">
+                        <small>Type</small>
+                        <p>Bruna</p>
+                    </div>
+                    
+                    <div class="column">
+                        <small>ALC</small>
+                        <p>${item.alcohol}%</p>
+                    </div>
+                    
+                    <div class="column">
+                        <small>Bitterness</small>
+                        <p>${item.bitterness} IBU</p>
+                    </div>
                 </div>
-              </div>
-
-              <div class="grid">
-                <button onclick="toggleMore(this)" class="card-button card-button-primary">View More</button>
-                <button class="item-cart-btn card-button card-button-secondary" data-item-id='${item.id}'>Add to Cart</button>
-              </div>
+                <p class="description">
+                  Soaring with Flavor. Brewed with golden corn, this crisp, smooth ale blends tradition with a bold, refreshing twist. Light, malty, and ready for takeoff!
+                </p>
+                <div class="buttons">
+                    <p class="price">${item.price} Lei</p>
+                    <p  class="item-cart-btn add-to-cart" data-item-id='${item.id}' >ADD TO CART</p>
+                </div>
             </div>
-
-            <div class="more hidden">
-              <div class="main">
-                <i onclick="toggleMore(this)" class="fa-solid fa-xmark" id="close"></i>
-                <div class="viewMoreCard">
-                  <div class="images">
-                    <div class="main-image">
-                      <img src="${item.viewmore1}" alt="American Pale Ale" id="mainImage">
-                    </div>
-                    <div class="image-gallery">
-                      <img onclick="updateMainImage(this)" src="${item.viewmore1}" alt="" />
-                      <img onclick="updateMainImage(this)" src="${item.viewmore2}" />
-                      <img onclick="updateMainImage(this)" src="${item.viewmore3}" alt="" />
-                      <img onclick="updateMainImage(this)" src="${item.viewmore4}" alt="" />
-                    </div>
-                  </div>
-
-                  <div class="details">
-                    <div class="top">
-                      <h1>${item.name}</h1>
-                      <div class="info">
-                        <div><span>ALC</span><strong>${item.alcohol}%</strong></div>
-                        <div><span>Price (MDL)</span><strong>${item.price}</strong></div>
-                        <div class="right"><span>Bitterness</span><strong>15 IBU</strong></div>
-                      </div>
-                      <p class="description">${item.description}</p>
-                    </div>
-
-                    <div class="actions">
-                      <div class="quantity">
-                        <button><i class="fa-solid fa-minus"></i></button>
-                        <small>1</small>
-                        <button><i class="fa-solid fa-plus"></i></button>
-                      </div>
-                      <button class="cart item-cart-btn" data-item-id="${item.id}"><i class="fa-solid fa-cart-shopping"></i></button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-
+            
+        </div>
 
      
   `);
   const dataSpecialHTML = data.slice(5,20).map((item) =>`
-      <div class="beer-card">
-            <div class="card-container">
-              <div class="special">
-                <p>Special One</p>
-              </div>
-              <div class="card-image">
-                <img src=${item.catalogimg} alt="Flying Mamaliga" />
-                <img src=${item.bannerimg} class="banner" />
-              </div>
-
-              <div>
-                <h2 class="card-title">${item.name.split(" ")[0]}</h2>
+      <div class="catalog-box">
+            <div class="images">
+                <img src=${item.catalogimg} alt="Flying Mamaliga" class="beer"/>
+                <img src="images/banner.png" class="banner" />
+                <p class="special-one">SPECIAL ONE</p>
+            </div>
+            <div class="info">
+                <div class="title">
+                    <h2 class="card-title">${item.name.split(" ")[0]}</h2>
                 <h2 class="card-title">${item.name.split(" ").slice(1).join(" ")}</h2>
-              </div>
-
-              <div class="info">
-                <div class="box type2">
-                  <p>Price</p>
-                  <small>${item.price} MDL</small>
                 </div>
-                <div class="box">
-                  <p>Alcohol</p>
-                  <small>${item.alcohol} %</small>
+                <div class="details">
+                    <div class="column">
+                        <small>Type</small>
+                        <p>Bruna</p>
+                    </div>
+                    
+                    <div class="column">
+                        <small>ALC</small>
+                        <p>${item.alcohol}%</p>
+                    </div>
+                    
+                    <div class="column">
+                        <small>Bitterness</small>
+                        <p>${item.bitterness} IBU</p>
+                    </div>
                 </div>
-              </div>
-
-              <div class="grid">
-                <button onclick="toggleMore(this)" class="card-button card-button-primary">View More</button>
-                <button class="item-cart-btn card-button card-button-secondary" data-item-id='${item.id}'>Add to Cart</button>
-              </div>
+                <p class="description">
+                  Soaring with Flavor. Brewed with golden corn, this crisp, smooth ale blends tradition with a bold, refreshing twist. Light, malty, and ready for takeoff!
+                </p>
+                <div class="buttons">
+                    <p class="price">${item.price} Lei</p>
+                    <p  class="item-cart-btn add-to-cart" data-item-id='${item.id}' >ADD TO CART</p>
+                </div>
             </div>
-
-            <div class="more hidden">
-              <div class="main">
-                <i onclick="toggleMore(this)" class="fa-solid fa-xmark" id="close"></i>
-                <div class="viewMoreCard">
-                  <div class="images">
-                    <div class="main-image">
-                      <img src="${item.viewmore1}" alt="American Pale Ale" id="mainImage">
-                    </div>
-                    <div class="image-gallery">
-                      <img onclick="updateMainImage(this)" src="${item.viewmore1}" alt="" />
-                      <img onclick="updateMainImage(this)" src="${item.viewmore2}" />
-                      <img onclick="updateMainImage(this)" src="${item.viewmore3}" alt="" />
-                      <img onclick="updateMainImage(this)" src="${item.viewmore4}" alt="" />
-                    </div>
-                  </div>
-
-                  <div class="details">
-                    <div class="top">
-                      <h1>${item.name}</h1>
-                      <div class="info">
-                        <div><span>ALC</span><strong>${item.alcohol}%</strong></div>
-                        <div><span>Price (MDL)</span><strong>${item.price}</strong></div>
-                        <div class="right"><span>Bitterness</span><strong>15 IBU</strong></div>
-                      </div>
-                      <p class="description">${item.description}</p>
-                    </div>
-
-                    <div class="actions">
-                      <div class="quantity">
-                        <button><i class="fa-solid fa-minus"></i></button>
-                        <small>1</small>
-                        <button><i class="fa-solid fa-plus"></i></button>
-                      </div>
-                      <button class="cart item-cart-btn" data-item-id="${item.id}"><i class="fa-solid fa-cart-shopping"></i></button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+            
+        </div>
 
 
      
@@ -347,7 +307,7 @@ fetch(apiUrl)
         let types = [...new Set(data.map(beer => beer.type))]
         let filter = types.map(type => `  
               <div class='filter-item'>
-                    <input type='checkbox' name='type-filter' value='${type}' id='${type}'>
+                    <input type='checkbox' name='type-filter' class="checkmark" value='${type}' id='${type}'>
                     <label for='${type}'>${type}</label>
                 </div>
           `)
@@ -583,4 +543,170 @@ fetch(apiUrl)
 
 
 
+  fetch(apiUrl)
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.json();
+  })
+  .then(data => {
+
+    let imageIndex = 0;
+
+    const beerName = document.getElementById("beerName");
+    const beerTitle = document.getElementById("beerTitle");
+    const alcohol = document.getElementById("alcohol");
+    const bitterness = document.getElementById("bitterness");
+    const indicators = document.getElementById("indicators");
+    const bannerImages = document.getElementById("bannerImages");
+    const beerImage = document.getElementById("beerImage")
+
+
+    data.slice(0,5).forEach((beer, index) => {
+      const button = document.createElement("button")
+      button.className = "indicator"
+      
+      button.addEventListener("click", () => {
+        imageIndex = index
+        updateSlider()
+      });
+      indicators.appendChild(button)
+    });
+    function updateSlider() {
+      const words = data[imageIndex].name.split(" ")
+      beerName.textContent = words.slice(1).join(" ")
+      beerTitle.textContent = words[0]
+      alcohol.textContent = data[imageIndex].alcohol + " %"
+      bitterness.textContent = data[imageIndex].bitterness + " IBU"
+      beerImage.src = data[imageIndex].catalogimg;
+      bannerImages.src = data[imageIndex].bannerimg ;
+
+      document.querySelectorAll(".indicator").forEach((el, index) => {
+        el.classList.toggle("active", index === imageIndex)
+      });
+    }
+
+    function nextSlide() {
+      imageIndex = (imageIndex + 1) % Math.min(data.length, 5);
+      updateSlider();
+    }
+    
+    let sliderInterval = setInterval(nextSlide, 4000); 
+    function resetTimer() {
+      clearInterval(sliderInterval);
+      sliderInterval = setInterval(nextSlide, 4000);
+    }
+    
+    updateSlider()
+
+  })
+  .catch(error => {
+    console.log('Error:')
+  });
+
+
+
   
+
+
+    
+  fetch(apiUrl2)
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.json();
+  })
+  .then(data => {
+    const dataHTML = data.slice(0,4).map((item) =>`
+                  <div class="box">
+                      <img src="${item.img}" alt="">
+                      <p onClick="document.getElementById('more').classList.remove('hidden')" id="vm-events" class="link">View More</p>
+                      <div class="back"></div>
+                  </div>
+
+<div class="more hidden" id="more">
+    
+    <div class="view-more">
+        
+          <div class="headings">
+              <div>
+                  <h1>7th AnniBEERsary</h1>
+                  <p class="description">${item.description}</p>
+              </div>
+             
+          </div>
+          
+          <div class="tabel">
+            <div class="element">
+              <small>Where</small>
+              <p>sos Muncesti 77, Chisinau, Moldova</p>
+            </div>
+            <div class="element">
+              <small>Where</small>
+              <p>Gratuită</p>
+            </div>
+            <div class="element">
+              <small>Where</small>
+              <p>Info</p>
+            </div>
+            <div class="element">
+              <small>Where</small>
+              <p>Info</p>
+            </div>
+          </div>
+          <i class="fa-solid fa-xmark" onClick="document.getElementById('more').classList.add('hidden')" id="close"></i>
+        </div>
+        
+    
+    <div class="blur"></div>
+</div>
+
+
+                
+
+                  
+    `)
+    events.innerHTML = dataHTML.join("")
+  })
+  .catch(error => {
+    console.log('Error:')
+  });
+
+  function changeLanguage(languageCode) {
+    Array.from(document.getElementsByClassName('lang')).forEach(function (elem) {
+        if (elem.classList.contains('lang-' + languageCode)) {
+             elem.style.display = 'initial';
+        }
+        else {
+             elem.style.display = 'none';
+        }
+    });
+}
+
+
+function updateVisibility(selectedValue) {
+  const elementsEn = document.getElementsByClassName("en")
+  const elementsRo = document.getElementsByClassName("ro")
+  const elementsRu = document.getElementsByClassName("ru")
+
+
+  Array.from(elementsEn).forEach(element => element.classList.add("hidden"))
+  Array.from(elementsRo).forEach(element => element.classList.add("hidden"))
+  Array.from(elementsRu).forEach(element => element.classList.add("hidden"))
+
+
+  if (selectedValue === "en") {
+      Array.from(elementsEn).forEach(element => element.classList.remove("hidden"))
+  } else if (selectedValue === "ro") {
+      Array.from(elementsRo).forEach(element => element.classList.remove("hidden"))
+  } else if (selectedValue === "ru") {
+      Array.from(elementsRu).forEach(element => element.classList.remove("hidden"))
+  }
+}
+selectElement.value = "en"
+updateVisibility(selectElement.value)
+selectElement.addEventListener('change', function () {
+  updateVisibility(this.value)
+});

@@ -1,43 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="styles.css">
-    <script defer src="aboutus.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script defer src="js/aboutus.js"></script>
 </head>
 <body>
     <header>
-        <div class="header about-us ">
+        <div class="header page-us ">
         
             <div class="back">
                 <img src="images/Test.png"  alt="beeer-craft">
             </div>
             <nav id="nav" >
+              <i class="fa-solid fa-bars burger-btn" id="burger-btn"></i>
                 <div class="container navbar rest">
                     
-                    <div class="left">
-                        <a href="catalog.html">Beers</a>
-                        <a href="">Events</a>
-                        <a href="">Gallery</a>
+                  <div class="left">
+                    <a href="catalog.html">Beers</a>
+                    <a href="aboutus.html">About us</a>
+                    <!-- <a href="">Gallery</a> -->
+                </div>
+                <a class="center" href="index.html">
+                    <img src="images/logo.png" id="logoNav" class="logoNav pagesNav" alt="" >
+                </a>
+                <div class="right">
+                    
+                    <a href="contact.html">Contact</a>
+                    
+                    <!-- <label for="langSelector">Choose a language:</label> -->
+                    <select id="langSelector" class="langSelector">
+                      <option value="en">En</option>
+                      <option value="ro" >Ro</option>
+                      <option value="ru">Ru</option>
+                      
+                      
+                  </select>
+                    <div class="cart-icon">
+                        <i class="fa-solid fa-cart-shopping" id="openCart"></i>
+                        <div class="dot hidden" id="dot-cart"></div>
                     </div>
-                    <a class="center" href="index.html">
-                        <img src="images/logo.png" id="logoNav" class="logoNav pagesNav" alt="" >
-                    </a>
-                    <div class="right">
-                        
-                        <a href="">Contact</a>
-                        <a href="">Ro <i class="fa-solid fa-chevron-down"></i></a>
-                        <div class="cart-icon">
-                            <i class="fa-solid fa-cart-shopping" id="openCart"></i>
-                            <div class="dot hidden" id="dot-cart"></div>
-                        </div>
-    
-                    </div>
+
+                </div>
                     
                 </div>
             </nav>
+            <div class="half-navbar  hidden" id="half-navbar">
+              <i class="fa-solid fa-xmark" id="close-half-navbar"></i>
+              <div class="links">
+                <a href="index.html">Home</a>
+                <a href="catalog.html">Beers</a>
+                <a href="aboutus.html">About us</a>
+                <a href="contact.html">Contact</a>
+              </div>
+            </div>
             <div class="title"> 
                 <p>OUR BREWERY, OUR</p>
                 <small>PRIDE</small>
@@ -56,7 +75,7 @@
             <div class="info">
                 <img src="images/Intro-Style-icon.png" alt="">
                 <p>OVER 10 YEARS IN MAKING </p>
-                <small>Brewing beer and spirits that honor tradition, yet embrace tomorrow. Proudly crafted in Shiner, Texas</small>
+                <small>Brewing beer that honor tradition, yet embrace tomorrow. Proudly crafted in Chisinau, Moldova</small>
             </div>
         </div>
         <div class="space">
@@ -64,12 +83,15 @@
         </div>
         <div class="small-info container">
             <div class="title">
-                <p>A Decade of Shiner</p>
+                <p>A Decade of LaBRewtory</p>
                 <small>Small Town, Big Dreams.</small>
             </div>
 
-            <p class="para">
-                Our story is steeped in the rich history of brewing, rooted in the heart of Texas since 1909, but it’s also a tale of constant evolution and anticipation of what lies ahead. From our humble beginnings, we’ve upheld the time-honored traditions of quality brewing that put us on the map. But we’re not content with resting on our laurels. As we journey forward, we’re embracing innovation, exploring new flavors, and continuing to perfect our methods, promising an even brighter future for Shiner Beer.
+            <p class="para en" >
+              Founded in late 2017, by American couple Bill and DeEva and their hard working Moldovan team, Labrewtory is Moldova's first and only American owned craft microbrewery. The co-founders arrived in Moldova in 2011, and after some years of working here, decided to stay and start a business. Avid craft beer “home brewers” in America, they decided to put that knowledge to the test and Labrewtory Brewing Company was born.
+            </p>
+            <p class="para ro " class="hidden">
+                Castet
             </p>
         </div>
         <div class="space">
@@ -79,51 +101,178 @@
 
         </div>
             <div class="medium-info container">
-                <div class="box">
-                    <p class="year">2011</p>
-                    <img src="images/bento2.JPG" alt="">
-                    <small>THE BEGGING</small>
-                    <span>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error odio quae aspernatur expedita, quo possimus perferendis, nihil consequuntur illo exercitationem dolores corrupti officia.</span>
+                
+                <div class="title">
+                  <p>EVENTS</p>
+                  <h1>ENJOY OUR ATMOSPHERE</h1>
                 </div>
-                <div class="box">
-                    <p class="year">2017</p>
-                    <img src="images/bento2.JPG" alt="">
-                    <small>THE BEGGING</small>
-                    <span>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error odio quae aspernatur expedita, quo possimus perferendis, nihil consequuntur illo exercitationem dolores corrupti officia.</span>
-                </div>
-                <div class="box">
-                    <p class="year">NOW</p>
-                    <img src="images/bento2.JPG" alt="">
-                    <small>THE BEGGING</small>
-                    <span>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error odio quae aspernatur expedita, quo possimus perferendis, nihil consequuntur illo exercitationem dolores corrupti officia.</span>
+                <div id="events" class="events">
+                  
                 </div>
             </div>
         <div class="space">
-
+          
         </div>
         <div class="tour container">
             <div class="title">
                 <p>TOUR</p>
                 <small>VISIT OUR BREWERY</small>
-                <a href="">BOOK A TOUR</a>
+                <!-- <a href="">BOOK A TOUR</a> -->
             </div>
             <div class="images">
-                <img src="images/bento6.JPG" alt="" class="special">
-                <img src="images/bento6.JPG" alt="" class="max">
-                <img src="images/bento6.JPG" alt="" class="special">
+                <img src="images/visit1.JPG" alt="" class="special">
+                <img src="images/visit2.JPG" alt="" class="max">
+                <img src="images/visit3.JPG" alt="" class="special">
             </div>
         </div>
         <div class="space">
-
+          
+          
         </div>
+       
         <div class="full-photo">
             <div class="image">
-                <img src="images/bento2.JPG" alt="">
+                <img src="images/bbq.jpg" alt="">
             </div>
             <div class="text">
-
+                <p>CHISINAU MD</p>
+                <h1>Cleanest little city with a heart as big as Texas</h1>
+                <small>Whether you're hosting a backyard party, a corporate event, or a family gathering, our professional BBQ catering service brings the sizzle to your celebration with perfectly grilled meats, mouthwatering sides, and top-tier service, ensuring that you and your guests enjoy a stress-free, flavor-packed experience without lifting a finger.</small>
             </div>
         </div>
+        <div class="crew ">
+            <div class="container">
+                <div class="title">
+                    <p>LABREWTORY CREW</p>
+                    <small>OUR PRIDE, ENJOY!</small>
+                </div>
+                
+            <div class="people">
+                <div class="box">
+                    <div>
+                        <img src="images/person1.png" alt="">
+                    </div>
+                    
+                    <p>Bill</p>
+                    <small>Founder</small>
+                </div>
+                <div class="box">
+                    <div>
+                        <img src="images/person2.png" alt="">
+                    </div>
+                    
+                    <p>DeEva</p>
+                    <small>CEO</small>
+                </div>
+                <div class="box">
+                    <div>
+                        <img src="images/person3.png" alt="">
+                    </div>
+                    
+                    <p>Maxim</p>
+                    <small>Brewmaster</small>
+                </div>
+                <div class="box">
+                    <div>
+                        <img src="images/person4.png" alt="">
+                    </div>
+                    
+                    <p>Vitalie</p>
+                    <small>Brewmaster</small>
+                </div>
+
+            </div>
+            </div>
+            
+        </div>
     </main>
+    <footer class="full-footer">
+        <img src="images/Test.png" alt="" class="back">
+
+
+      
+        <div class="test container">
+          <div class="top">
+            <h1>Connect with Labrewtory</h1>
+            <div class="links">
+              <div>
+                <i class="fa-brands fa-instagram"></i>
+              </div>
+              <div>
+                <i class="fa-brands fa-facebook-f"></i>
+              </div>
+              <div>
+                <i class="fa-brands fa-x-twitter"></i>
+              </div>
+            </div>
+          </div>
+      
+
+      
+          <div class="middle">
+            <div class="box">
+              <div>
+                <h1>Pages</h1>
+              </div>
+              <div class="service">
+                <a href="index.html">Home</a>
+                <a href="catalog.html">Beers</a>
+                <a href="aboutus.html">About us</a>
+                <a href="contact.html">Contact</a>
+                
+                
+              </div>
+            </div>
+            <div class="box">
+              <div>
+                <h1>Beers</h1>
+              </div>
+              <div class="service">
+                <p>Brune</p>
+                <p>Blonde</p>
+              </div>
+            </div>
+            <div class="box">
+              <div>
+                <h1>Services</h1>
+              </div>
+              
+              <div class="service">
+                <p>BBQs</p>
+                <p>Visits</p>
+                <p>Events</p>
+                
+              </div>
+            </div>
+            <div class="box">
+              <div>
+                <h1>Contact</h1>
+              </div>
+              <div class="service">
+                <p>Șoseaua Muncești 77</p>
+                <p>0682 41 522</p>
+                <p>info@labrewtory.md</p>
+              </div>
+            </div>
+          </div>
+      
+      
+          <div class="end">
+            <div class="upper">
+              <!-- <p>Privacy</p> -->
+              <a href="policy.html">Policy</a>
+              <p>Do not sell our information</p>
+            </div>
+            <p>© 2025 Slash</p>
+          </div>
+
+      
+          
+        </div>
+
+      </footer>
+      <div class="end">
+
+      </div>
 </body>
 </html>

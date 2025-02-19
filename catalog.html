@@ -45,48 +45,67 @@
 
     </div>
     <header>
-        <nav  class="pages">
-            <div class="container navbar">
-                
-                <div class="left">
-                    <a href="catalog.html">Beers</a>
-                    <a href="">Events</a>
-                    <a href="">Gallery</a>
-                </div>
-                <a class="center" href="index.html">
-                    <img src="images/logo.png"  class="logoNav pagesNav" alt="" >
-                </a>
-                <div class="right">
+        <div class="contact-us">
+            <nav  class="pages" class="navigation">
+              <i class="fa-solid fa-bars burger-btn" id="burger-btn"></i>
+                <div class="container navbar">
                     
-                    <a href="">Contact</a>
-                    <a href="">Ro <i class="fa-solid fa-chevron-down"></i></a>
-                    <div class="cart-icon">
-                        <i class="fa-solid fa-cart-shopping" id="openCart"></i>
-                        <div class="dot hidden" id="dot-cart"></div>
+                    <div class="left">
+                        <a href="catalog.html">Beers</a>
+                        <a href="aboutus.html">About us</a>
+                        <!-- <a href="">Gallery</a> -->
+                    </div>
+                    <a class="center" href="index.html">
+                        <img src="images/logo.png"  class="logoNav pagesNav" alt="" >
+                    </a>
+                    <div class="right">
+                        
+                        <a href="contact.html">Contact</a>
+                        <select id="langSelector" class="langSelector">
+                            <option value="en">En</option>
+                            <option value="ro" >Ro</option>
+                            <option value="ru">Ru</option>
+                            
+                            
+                        </select>
+                        <div class="cart-icon">
+                            <i class="fa-solid fa-cart-shopping" id="openCart"></i>
+                            <div class="dot hidden" id="dot-cart"></div>
+                        </div>
+    
                     </div>
                     
-
                 </div>
-                
+            </nav>
+            <div class="half-navbar  hidden" id="half-navbar">
+              <i class="fa-solid fa-xmark" id="close-half-navbar"></i>
+              <div class="links">
+                <a href="index.html">Home</a>
+                <a href="catalog.html">Beers</a>
+                <a href="aboutus.html">About us</a>
+                <a href="contact.html">Contact</a>
+              </div>
             </div>
-        </nav>
+        </div>
+        
     </header>
     <div class="space">
-
+        
     </div>
     
     <main>
         <div class="catalog-page container">
             <div class="side">
                 <section class="filters">
-                    <h2>Filters </h2>
+                    <h2 id="filter-disappear">Filters <i class="fa-solid fa-filter"></i></h2>
                     <!-- <div class="filter">
                         <h3>Alcohol</h3>
                         <div id="alcohol-filter" class="filter-options">
         
                         </div>
                     </div> -->
-                    <div class="filter type">
+                    <div id="disappear">
+                      <div class="filter type" >
                         <h3>Type</h3>
                         <div id="type-filter" class="filter-options">
         
@@ -109,6 +128,8 @@
                             <p>lei</p>
                         </div>
                     </div>
+                    </div>
+                    
                 </section>
                 </div>
             
@@ -131,6 +152,99 @@
             </div>
             <p class="button">COME TO GET A BEER</p>
         </div>
+      </div>
+      <footer>
+        <img src="images/Test.png" alt="" class="back">
+
+        <!-- <div style="height: 40px;"></div> -->
+      
+        <div class="test container">
+          <div class="top">
+            <h1>Connect with Labrewtory</h1>
+            <div class="links">
+              <div>
+                <i class="fa-brands fa-instagram"></i>
+              </div>
+              <div>
+                <i class="fa-brands fa-facebook-f"></i>
+              </div>
+              <div>
+                <i class="fa-brands fa-x-twitter"></i>
+              </div>
+            </div>
+          </div>
+      
+          <!-- <div style="height: 70px;"></div> -->
+      
+          <div class="middle">
+            <div class="box">
+              <div>
+                <h1>Pages</h1>
+              </div>
+              <div class="service">
+                <a href="index.html">Home</a>
+                <a href="catalog.html">Beers</a>
+                <a href="aboutus.html">About us</a>
+                <a href="contact.html">Contact</a>
+                
+                
+              </div>
+            </div>
+            <div class="box">
+              <div>
+                <h1>Beers</h1>
+              </div>
+              <div class="service">
+                <p>Brune</p>
+                <p>Blonde</p>
+              </div>
+            </div>
+            <div class="box">
+              <div>
+                <h1>Services</h1>
+              </div>
+              
+              <div class="service">
+                <p>BBQs</p>
+                <p>Visits</p>
+                <p>Events</p>
+                
+              </div>
+            </div>
+            <div class="box">
+              <div>
+                <h1>Contact</h1>
+              </div>
+              <div class="service">
+                <p>Șoseaua Muncești 77</p>
+                <p>0682 41 522</p>
+                <p>info@labrewtory.md</p>
+              </div>
+            </div>
+          </div>
+      
+      
+          <div class="end">
+            <div class="upper">
+              <!-- <p>Privacy</p> -->
+              <a href="policy.html">Policy</a>
+              <p>Do not sell our information</p>
+            </div>
+            <p>© 2025 Slash</p>
+          </div>
+
+      
+          
+        </div>
+
+      
+          
+        </div>
+      
+        <!-- <div style="height: 50px;"></div> -->
+      </footer>
+      <div class="end">
+
       </div>
 </body>
 </html>
