@@ -11,11 +11,14 @@ const burgerBtn = document.getElementById("burger-btn")
 const closeHalfNavbarBtn = document.getElementById("close-half-navbar")
 const halfNavbar = document.getElementById("half-navbar")
 
+
 burgerBtn.addEventListener("click", ()=>{
   halfNavbar.classList.toggle("hidden")
+  burgerBtn.classList.add("hidden")
 })
 closeHalfNavbarBtn.addEventListener("click", ()=>{
   halfNavbar.classList.toggle("hidden")
+  burgerBtn.classList.remove("hidden")
 })
 
 document.addEventListener("DOMContentLoaded", () => {

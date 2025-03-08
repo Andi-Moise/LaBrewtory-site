@@ -312,6 +312,14 @@ font-weight: 300;
   transform: translate(-50%, -50%);
   /* transform: translateX(%); */
 }
+.logo2{
+  display: none;
+  position: absolute;
+  top: 50%;  
+  left: 50%; 
+
+  transform: translate(-50%, -50%);
+}
 
 .logoHeightInitial{
   height: 200px;
@@ -425,10 +433,11 @@ nav{
 #burger-btn{
   display: none;
   z-index: 4;
+  width: 100%;
   justify-content: end;
   font-size: 25px;
   /* padding: 10px 15px; */
-
+ 
   color: var(--white);
 
 }
@@ -437,7 +446,7 @@ nav{
   position: fixed;
   width: 100%;
   height: 100vh;
-  right: 0;
+  /* right: 0; */
   background-color: var(--black);
   z-index: 20;
   
@@ -917,6 +926,7 @@ nav{
 
 }
 .events-info .content{
+  height: 100%;
   display: flex;
   flex-direction: column;
   gap: 50px;
@@ -2551,6 +2561,16 @@ color: var(--black);
     .space{
       height: 40px;
     }
+    .events-info {
+      height: 120vh;
+      background-color: var(--black);
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+    .events-info .content{
+      height: fit-content;
+    }
     .events-info .title p,
 .medium-info .title p{
   font-family: var(--coustard);
@@ -2630,6 +2650,12 @@ color: var(--black);
     .navbar{
       display: none;
     }
+    .page-us .back {
+      display: none;
+    }
+    .header {
+      height: 100vh !important;
+    }
     #burger-btn {
       display: flex;
       padding: 10px 15px;
@@ -2637,11 +2663,39 @@ color: var(--black);
     .half-navbar{
       display: flex;
     }
-    .events {
+    .events-info .title h1{
+      font-size: var(--text-5xl);
+    }
+    .medium-info , .events-info {
+      height: 120vh;
+      background-color: var(--black);
+      display: flex;
+      align-items: center;
+      
+
+      justify-content: space-between;
+    }
+    .events-info{
+      padding: 70px 0;
+      height: auto;
+    }
+    .medium-info{
+      background: none !important;
+      /* height: 100vh !important; */
+      /* justify-content: start; */
+    }
+    .events-info .events,
+    .medium-info .events {
       display: grid;
       grid-template-columns: 1fr;
       grid-template-rows: repeat(2, 1fr);
-      height: 400px;
+      height: 90% !important;
+    }
+    .medium-info .events{
+      height: 90% !important;
+    }
+    .events .box{
+      height: auto;
     }
     .slider .content{
       display: flex;
@@ -2773,6 +2827,8 @@ color: var(--black);
     .grid-bento{
       display: flex;
       flex-direction: column;
+      height: 120vh;
+      padding: 0 10px;
     }
     .grid-bento .part2 {
       grid-area: part2;
@@ -2784,7 +2840,7 @@ color: var(--black);
       display: none;
     }
     
-    .grid-bento .part4 {
+    .grid-bento .part7 {
       grid-area: part4;display: none;
     }
     .logoHeightInitial{
@@ -2795,6 +2851,22 @@ color: var(--black);
     }
     .header .logo{
       height: 100px;
+    }
+    footer img{
+      display: none;
+      /* background-color: var(--black); */
+    }
+    /* .nav .center{
+      display: none;
+    } */
+    /* .header .logo{
+      display: none !important;} */
+    /* }
+    .logo2{
+      display: flex;
+    } */
+    .logoHeightInitial{
+      display: none;
     }
   }
   @media (max-width: 480px) { 
@@ -2809,8 +2881,7 @@ color: var(--black);
   
   }
   .about img{
-    top: -20%;
-    height: 70%;
+    display: none;
   }
   .about .container small {
     font-size: var(--text-xsD1);
@@ -2844,6 +2915,15 @@ color: var(--black);
   .slider .image2{
     height: 300px;
     top: 5%;
+  }
+  .slider {
+    background-color: var(--black);
+  }
+  .slider .back{
+    display: none;
+  }
+  .bento .title{
+      font-size: var(--text-5xl) !important;
   }
   .crew .container .people .box div{
     height: 270px;
