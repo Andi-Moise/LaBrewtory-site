@@ -56,8 +56,12 @@
             <div class="container navbar">
                 
                 <div class="left">
-                    <a href="catalog.html">Beers</a>
-                    <a href="aboutus.html">About us</a>
+                  <a href="catalog.html" class="en">Beers</a>
+                  <a href="catalog.html" class="ro">Bere</a>
+                  <a href="catalog.html" class="ru">Пиво</a>
+                  <a href="aboutus.html" class="en">About us</a>
+                  <a href="aboutus.html" class="ro">Despre noi</a>
+                  <a href="aboutus.html" class="ru">О нас</a>
                     <!-- <a href="">Gallery</a> -->
                 </div>
                 <a class="center" href="index.html">
@@ -65,7 +69,9 @@
                 </a>
                 <div class="right">
                     
-                    <a href="contact.html">Contact</a>
+                  <a href="contact.html" class="en">Contact</a>
+                  <a href="contact.html" class="ro">Contacte</a>
+                  <a href="contact.html" class="ru">Контакты</a>
                     <select id="langSelector" class="langSelector">
                       <option value="en">En</option>
                       <option value="ro" >Ro</option>
@@ -83,12 +89,17 @@
             </div>
         </nav>
         <div class="half-navbar  hidden" id="half-navbar">
-          <i class="fa-solid fa-xmark" id="close-half-navbar"></i>
+          <i class="fa-solid fa-xmark close" id="close-half-navbar"></i>
           <div class="links">
-            <a href="index.html">Home</a>
+            <a href="index.html">Home </a>
             <a href="catalog.html">Beers</a>
             <a href="aboutus.html">About us</a>
             <a href="contact.html">Contact</a>
+            <div class="language-options">
+              <button onclick="selectLanguage('en')" class="selected">En</button>
+              <button onclick="selectLanguage('ro')">Ro</button>
+              <button onclick="selectLanguage('ru')">Ru</button>
+          </div>
           </div>
         </div>
         <img src="images/logo.png" id="logo" class="logo" alt="">
@@ -101,7 +112,9 @@
                     <h1>Moldova's first American craft beer</h1>
                 </div>
                 
-                <p>Just a 5-minute drive from Chisinau train station, you can enjoy all our beers and cider, along with a selection of non-alcoholic beverages and  snacks, inside our taproom or on the outdoor terrace.</p>
+                <p class="en">Just a 5-minute drive from Chisinau train station, you can enjoy all our beers and cider, along with a selection of non-alcoholic beverages and  snacks, inside our taproom or on the outdoor terrace.</p>
+                <p class="ro">La doar 5 minute de mers cu mașina de la gara Chișinău, poți savura toate berile și cidrul nostru, alături de o selecție de băuturi non-alcoolice și gustări, fie în taproom-ul nostru, fie pe terasa în aer liber.</p>
+                <p class="ru">Всего в 5 минутах езды от железнодорожного вокзала Кишинева вы можете насладиться всем нашим пивом и сидром, а также выбором безалкогольных напитков и закусок, в нашем тапруме или на открытой террасе.</p>
                 <a href="catalog.html" class="button">EXPLORE OUR BEERS</a>
               </div>
               
@@ -124,11 +137,15 @@
                 
                         <div class="info">
                           <div class="box type2">
-                            <p>ALC</p>
+                            <p class="en">ALC</p>
+                            <p class="ro">ALC</p>
+                            <p class="ru">Алк</p>
                             <small id="alcohol">0</small>
                           </div>
                           <div class="box">
-                            <p>BITTERNESS</p>
+                            <p class="en">BITTERNESS</p>
+                            <p class="ro">AMĂRĂCIUNE</p>
+                            <p class="ru">ГОРЕЧЬ</p>
                             <small id="bitterness">0 IBU</small>
                           </div>
                         </div>
@@ -183,9 +200,7 @@
                 </div>
             <!-- </div> -->
         </div>
-        <div class="space">
-
-        </div>
+        
         <div class="space">
 
         </div>
@@ -208,8 +223,12 @@
           <div class="content container">
               <p>LOCATION</p>
               <h1>HOW TO GET HERE</h1>
-              <h2>Planning a trip to LABREWTORY? We’re here to help.
+              <h2 class="en">Planning a trip to LABREWTORY? We’re here to help.
                   sos Muncesti 77, Chisinau, Moldova</h2>
+              <h2 class="ro">Planifici o vizită la LABREWTORY? Suntem aici să te ajutăm.
+                sos Muncesti 77, Chișinău, Moldova</h2>
+              <h2 class="ru">Планируете поездку в LABREWTORY? Мы здесь, чтобы помочь.
+                sos Muncesti 77, Кишинёв, Молдова</h2>
               <a  href="https://www.google.com/maps/place/LaBREWtory+Brewing+Company/data=!4m2!3m1!1s0x0:0x39366b5792aab849?sa=X&ved=1t:2428&ictx=111" target="_blank">VIEW MAP</a>
           </div>
           <div class="back">
@@ -296,8 +315,12 @@
         <div class="end">
           <div class="upper">
             <!-- <p>Privacy</p> -->
-            <a href="policy.html">Policy</a>
-            <p>Do not sell our information</p>
+            <a href="policy.html" class="en">Policy</a>
+            <a href="policy.html" class="ro">Politica</a>
+            <a href="policy.html" class="ru">Политика</a>
+            <p class="en">Do not sell our information</p>
+            <p class="ro">Nu vindeți informațiile noastre</p>
+            <p class="ru">Не продавайте нашу информацию</p>
           </div>
           <p>© 2025 Slash</p>
         </div>

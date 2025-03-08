@@ -18,6 +18,27 @@ closeHalfNavbarBtn.addEventListener("click", ()=>{
   halfNavbar.classList.toggle("hidden")
 })
 
+document.addEventListener("DOMContentLoaded", () => {
+  const langSelector = document.getElementById("langSelector");
+
+  // Load language from localStorage
+  const savedLang = localStorage.getItem("selectedLanguage");
+  if (savedLang) {
+    langSelector.value = savedLang;
+    applyLanguage(savedLang);
+  }
+
+  // Event listener for language change
+  langSelector.addEventListener("change", (event) => {
+    const selectedLang = event.target.value;
+    localStorage.setItem("selectedLanguage", selectedLang);
+    applyLanguage(selectedLang);
+  });
+
+  function applyLanguage(lang) {
+    console.log(`Language changed to: ${lang}`);
+    // You can add logic here to dynamically update text content if needed
+  }})
 
 window.addEventListener('scroll', () => {
     logoNav.style.display = 'none'

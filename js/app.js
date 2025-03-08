@@ -36,6 +36,28 @@ const disappear = document.getElementById("disappear")
 //   disappear.classList.toggle("hidden")
 // })
 
+document.addEventListener("DOMContentLoaded", () => {
+  const langSelector = document.getElementById("langSelector");
+
+  // Load language from localStorage
+  const savedLang = localStorage.getItem("selectedLanguage");
+  if (savedLang) {
+    langSelector.value = savedLang;
+    applyLanguage(savedLang);
+  }
+
+  // Event listener for language change
+  langSelector.addEventListener("change", (event) => {
+    const selectedLang = event.target.value;
+    localStorage.setItem("selectedLanguage", selectedLang);
+    applyLanguage(selectedLang);
+  });
+
+  function applyLanguage(lang) {
+    console.log(`Language changed to: ${lang}`);
+    // You can add logic here to dynamically update text content if needed
+  }})
+
 burgerBtn.addEventListener("click", ()=>{
   halfNavbar.classList.toggle("hidden")
 })
@@ -115,7 +137,7 @@ fetch(apiUrl)
   })
   .then(data => {
 
-    let imageIndex = 0;
+    let imageIndex = 0
 
     const beerName = document.getElementById("beerName");
     const beerTitle = document.getElementById("beerTitle");
@@ -126,43 +148,46 @@ fetch(apiUrl)
     const beerImage = document.getElementById("beerImage")
 
 
-    data.slice(0,0).forEach((beer, index) => {
+    data.slice(0, 5).forEach((beer, index) => {
       const button = document.createElement("button")
       button.className = "indicator"
-      
+
       button.addEventListener("click", () => {
         imageIndex = index
         updateSlider()
+        resetTimer()
       });
-      indicators.appendChild(button)
+
+      // indicators.appendChild(button);
     });
+
     function updateSlider() {
       const words = data[imageIndex].name.split(" ")
       beerName.textContent = words.slice(1).join(" ")
       beerTitle.textContent = words[0]
       alcohol.textContent = data[imageIndex].alcohol + " %"
       bitterness.textContent = data[imageIndex].bitterness + " IBU"
-      beerImage.src = data[imageIndex].catalogimg;
-      bannerImages.src = data[imageIndex].bannerimg ;
+      beerImage.src = data[imageIndex].catalogimg
+      bannerImages.src = data[imageIndex].bannerimg
 
       document.querySelectorAll(".indicator").forEach((el, index) => {
         el.classList.toggle("active", index === imageIndex)
-      });
+      })
     }
 
     function nextSlide() {
-      imageIndex = (imageIndex + 1) % Math.min(data.length, 5);
-      updateSlider();
+      imageIndex = (imageIndex + 1) % Math.min(data.length, 5)
+      updateSlider()
     }
-    
-    let sliderInterval = setInterval(nextSlide, 4000); 
-    function resetTimer() {
-      clearInterval(sliderInterval);
-      sliderInterval = setInterval(nextSlide, 4000);
-    }
-    
-    updateSlider()
 
+    let sliderInterval = setInterval(nextSlide, 4000)
+
+    function resetTimer() {
+      clearInterval(sliderInterval)
+      sliderInterval = setInterval(nextSlide, 4000)
+    }
+
+    updateSlider()
   })
   .catch(error => {
     console.log('Error:')
