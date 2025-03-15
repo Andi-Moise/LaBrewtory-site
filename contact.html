@@ -3,40 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Labrewtory</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script defer src="js/app.js"></script>
+    
+    <link rel="icon" type="image/x-icon" href="images/pageicon.png">
+    <script defer src="js/app.js"></script>   
 </head>
 <body>
     <header>
         <div class="contact-us">
             <nav  class="pages" class="navigation">
-              <i class="fa-solid fa-bars burger-btn" id="burger-btn"></i>
+              <div class="half-div">
+                
+                <!-- <div class="cart-icon">
+                  <i class="fa-solid fa-cart-shopping" id="openCart"></i>
+                  <div class="dot hidden" id="dot-cart"></div>
+                </div> -->
+                <img src="images/logo.png" id="logoNav" class="logoNavMini" alt="" >
+                <i class="fa-solid fa-bars burger-btn" id="burger-btn"></i>
+              </div>
                 <div class="container navbar">
                     
-                    <div class="left">
-                        <a href="catalog.html">Beers</a>
-                        <a href="aboutus.html">About us</a>
-                        <!-- <a href="">Gallery</a> -->
-                    </div>
+                  <div class="left">
+                    <a href="catalog.html" class="ro">Beri</a>
+                    <a href="catalog.html" class="ru">Пиво</a>
+                    <a href="catalog.html" class="en">Beers</a>
+                    <a href="aboutus.html" class="ro">Despre noi</a>
+                    <a href="aboutus.html" class="ru">О нас</a>
+                    <a href="aboutus.html" class="en">About us</a>
+                    <!-- <a href="">Gallery</a> -->
+                </div>
                     <a class="center" href="index.html">
                         <img src="images/logo.png"  class="logoNav pagesNav" alt="" >
                     </a>
                     <div class="right">
                         
-                        <a href="contact.html">Contact</a>
-                        <select id="langSelector" class="langSelector">
-                            <option value="en">En</option>
-                            <option value="ro" >Ro</option>
-                            <option value="ru">Ru</option>
-                            
-                            
-                        </select>
-                        <div class="cart-icon">
+                      <a href="contact.html" class="ro">Contacte</a>
+                      <a href="contact.html" class="ru">Контакты</a>
+                      <a href="contact.html" class="en">Contact</a>
+                     
+                      <select id="langSelector" class="langSelector2">
+                        <option value="ro" >Ro</option>
+                        <option value="ru">Ру</option>
+                        <option value="en">En</option>
+  
+                    </select>
+                        <!-- <div class="cart-icon">
                             <i class="fa-solid fa-cart-shopping" id="openCart"></i>
                             <div class="dot hidden" id="dot-cart"></div>
-                        </div>
+                        </div> -->
     
                     </div>
                     
@@ -45,14 +61,22 @@
             <div class="half-navbar  hidden" id="half-navbar">
               <i class="fa-solid fa-xmark close" id="close-half-navbar"></i>
               <div class="links">
-                <a href="index.html">Home </a>
-                <a href="catalog.html">Beers</a>
-                <a href="aboutus.html">About us</a>
-                <a href="contact.html">Contact</a>
+                <a href="index.html" class="ro">Acasă</a>
+                <a href="index.html" class="ru">Главная</a>
+                <a href="index.html" class="en">Home</a>
+                <a href="catalog.html" class="ro">Beri</a>
+                <a href="catalog.html" class="ru">Пиво</a>
+                <a href="catalog.html" class="en">Beers</a>
+                <a href="aboutus.html" class="ro">Despre noi</a>
+                <a href="aboutus.html" class="ru">О нас</a>
+                <a href="aboutus.html" class="en">About us</a>
+                <a href="contact.html" class="ro">Contacte</a>
+                <a href="contact.html" class="ru">Контакты</a>
+                <a href="contact.html" class="en">Contact</a>
                 <div class="language-options">
-                  <button onclick="selectLanguage('en')" class="selected">En</button>
-                  <button onclick="selectLanguage('ro')">Ro</button>
-                  <button onclick="selectLanguage('ru')">Ru</button>
+                  <button onclick="selectLanguage('en')" id="btn-en">En</button>
+  <button onclick="selectLanguage('ro')" id="btn-ro">Ro</button>
+  <button onclick="selectLanguage('ru')" id="btn-ru">Ru</button>
               </div>
               </div>
             </div>
@@ -68,11 +92,18 @@
             <div class="content container">
                 <div class="part1">
                     <div class="text">
-                        <p>Adress</p>
-                        <small>Șos Muncești 77, Chișinău, Moldova</small>
+                      <p class="ro">Adresă</p>
+                      <p class="ru">Адрес</p>
+                      <p class="en">Address</p>
+                      <small class="ro">Șos Muncești 77, Chișinău, Moldova</small>
+                      <small class="ru">Șos Muncești 77, Кишинёв, Молдова</small>
+                      <small class="en">Șos Muncești 77, Chișinău, Moldova</small>
                     </div>
                     <div class="text">
-                        <p>Where to drink our beer ?</p>
+                      <p class="ro">Unde poți bea berea noastră?</p>
+                      <p class="ru">Где можно попробовать наше пиво?</p>
+                      <p class="en">Where to drink our beer?</p>
+                      
                        <div class="enum">
                             <small>M16 Beer Shop - Moscova 16</small>
                             <small>Steakhouse - C. Negruzzi 1</small>
@@ -87,7 +118,9 @@
                 </div>
                 <div class="part2">
                     <div class="text">
-                        <p>Contacts</p>
+                      <p class="ro">Contacte</p>
+                      <p class="ru">Контакты</p>
+                      <p class="en">Contacts</p>
                        <div class="enum">
                             <small>068 241 522</small>
                             <small>info@labrewtory.md</small>
@@ -97,32 +130,52 @@
                 </div>
                 <div class="part3">
                     <div class="text">
-                        <p>Monday</p>
-                        <small>Closed</small>
+                      <p class="ro">Luni</p>
+                      <p class="ru">Понедельник</p>
+                      <p class="en">Monday</p>
+                      <small class="ro">Închis</small>
+                      <small class="ru">Закрыто</small>
+                      <small class="en">Closed</small>
                     </div>
                     <div class="text">
-                        <p>Tuesday</p>
+                      <p class="ro">Marți</p>
+                      <p class="ru">Вторник</p>
+                      <p class="en">Tuesday</p> 
                         <small>16:00 - 20:00</small>
                     </div>
                     <div class="text">
-                        <p>Wednesday</p>
+                      <p class="ro">Miercuri</p>
+                      <p class="ru">Среда</p>
+                      <p class="en">Wednesday</p>
+                      
                         <small>16:00 - 20:00</small>
                     </div>
                     <div class="text">
-                        <p>Thursday</p>
+                      <p class="ro">Joi</p>
+                      <p class="ru">Четверг</p>
+                      <p class="en">Thursday</p>
                         <small>16:00 - 20:00</small>
                     </div>
                     <div class="text">
-                        <p>Friday</p>
+                      <p class="ro">Vineri</p>
+                      <p class="ru">Пятница</p>
+                      <p class="en">Friday</p>
                         <small>16:00 - 20:00</small>
                     </div>
                     <div class="text">
-                        <p>Saturday</p>
+                      <p class="ro">Sâmbătă</p>
+                      <p class="ru">Суббота</p>
+                      <p class="en">Saturday</p>
+
                         <small>16:00 - 20:00</small>
                     </div>
                     <div class="text">
-                        <p>Sunday</p>
-                        <small>Closed</small>
+                        <p class="ro">Duminică</p>
+                        <p class="ru">Воскресенье</p>
+                        <p class="en">Sunday</p>
+                        <small class="ro">Închis</small>
+                        <small class="ru">Закрыто</small>
+                        <small class="en">Closed</small>
                     </div>
                     
                 </div>
@@ -137,11 +190,15 @@
                     <div class="faq">
                    
                         <div class="question">
-                            <p>What makes Labrewtory unique?</p>
+                          <p class="ro">Ce face Labrewtory unic?</p>
+                          <p class="ru">Что делает Labrewtory уникальным?</p>
+                          <p class="en">What makes Labrewtory unique?</p>
                             <i class="fa-solid fa-chevron-down"></i>
                          </div>
                          <div class="answer">
-                            <p>We are Moldova’s first and only American-owned craft microbrewery, brewing 100% natural, unfiltered, and unpasteurized beer with unique styles from the U.S., Ireland, and the UK.</p>
+                          <p class="ro">Suntem prima și singura microberărie artizanală din Moldova deținută de americani, producând bere 100% naturală, nefiltrată și nepasteurizată, cu stiluri unice din SUA, Irlanda și Marea Britanie.</p>
+                          <p class="ru">Мы — первая и единственная крафтовая мини-пивоварня в Молдове, принадлежащая американцам, производящая 100% натуральное, нефильтрованное и непастеризованное пиво с уникальными стилями из США, Ирландии и Великобритании.</p>
+                          <p class="en">We are Moldova’s first and only American-owned craft microbrewery, brewing 100% natural, unfiltered, and unpasteurized beer with unique styles from the U.S., Ireland, and the UK.</p>
                          </div>
                     
 
@@ -150,11 +207,15 @@
                     <div class="faq">
                    
                         <div class="question">
-                            <p>What types of beer do you brew?</p>
+                          <p class="ro">Ce tipuri de bere producem?</p>
+                          <p class="ru">Какие виды пива вы варите?</p>
+                          <p class="en">What types of beer do you brew?</p>
                             <i class="fa-solid fa-chevron-down"></i>
                          </div>
                          <div class="answer">
-                            <p>We focus on American, Irish, and UK styles but also create Belgian, German, and Australian-inspired beers, with over 90 unique recipes so far.</p>
+                          <p class="ro">Ne concentrăm pe stiluri americane, irlandeze și britanice, dar creăm și beri inspirate din Belgia, Germania și Australia, având peste 90 de rețete unice până acum.</p>
+                          <p class="ru">Мы сосредоточены на американских, ирландских и британских стилях, но также создаем пиво, вдохновленное Бельгией, Германией и Австралией, с более чем 90 уникальными рецептами.</p>
+                          <p class="en">We focus on American, Irish, and UK styles but also create Belgian, German, and Australian-inspired beers, with over 90 unique recipes so far.</p>
                          </div>
                     
 
@@ -163,11 +224,16 @@
                     <div class="faq">
                    
                         <div class="question">
-                            <p>Where can I find Labrewtory beer?</p>
+                          <p class="ro">Unde pot găsi berea Labrewtory?</p>
+                          <p class="ru">Где можно найти пиво Labrewtory?</p>
+                          <p class="en">Where can I find Labrewtory beer?</p>
+                          
                             <i class="fa-solid fa-chevron-down"></i>
                          </div>
                          <div class="answer">
-                            <p>Our beers are available in select bars, restaurants, and specialty shops in Moldova—follow us on social media for updates!</p>
+                          <p class="ro">Berile noastre sunt disponibile în baruri, restaurante și magazine specializate din Moldova—urmărește-ne pe rețelele sociale pentru actualizări!</p>
+                          <p class="ru">Наше пиво доступно в барах, ресторанах и специализированных магазинах Молдовы — следите за нами в соцсетях для обновлений!</p>
+                          <p class="en">Our beers are available in select bars, restaurants, and specialty shops in Moldova—follow us on social media for updates!</p>
                          </div>
                     
 
@@ -182,17 +248,27 @@
             </div>
         </div>
         <div class="contact-map">
-            <div class="content container">
-                <p>LOCATION</p>
-                <h1>HOW TO GET HERE</h1>
-                <h2>Planning a trip to LABREWTORY? We’re here to help.
-                    sos Muncesti 77, Chisinau, Moldova</h2>
-                <a href="">VIEW MAP</a>
-            </div>
-            <div class="back">
-                <img src="images/Map.png" alt="">
-            </div>
-        </div>
+          <div class="content container">
+              <p class="en">LOCATION</p>
+              <p class="ro">LOCAȚIE</p>
+              <p class="ru">Местоположение</p>
+              <h1 class="en">HOW TO GET HERE</h1>
+              <h1 class="ro">CUM SĂ AJUNGI LA NOI</h1>
+              <h1 class="ru">КАК НАС НАЙТИ</h1>
+              <h2 class="en">Planning a trip to LABREWTORY? We’re here to help.
+                  sos Muncesti 77, Chisinau, Moldova</h2>
+              <h2 class="ro">Planifici o vizită la LABREWTORY? Suntem aici să te ajutăm.
+                sos Muncesti 77, Chișinău, Moldova</h2>
+              <h2 class="ru">Планируете поездку в LABREWTORY? Мы здесь, чтобы помочь.
+                sos Muncesti 77, Кишинёв, Молдова</h2>
+              <a  href="https://www.google.com/maps/place/LaBREWtory+Brewing+Company/data=!4m2!3m1!1s0x0:0x39366b5792aab849?sa=X&ved=1t:2428&ictx=111" target="_blank" class="en">VIEW MAP</a>
+              <a  href="https://www.google.com/maps/place/LaBREWtory+Brewing+Company/data=!4m2!3m1!1s0x0:0x39366b5792aab849?sa=X&ved=1t:2428&ictx=111" target="_blank" class="ro">VEZI HARTA</a>
+              <a  href="https://www.google.com/maps/place/LaBREWtory+Brewing+Company/data=!4m2!3m1!1s0x0:0x39366b5792aab849?sa=X&ved=1t:2428&ictx=111" target="_blank" class="ru">ПОСМОТРЕТЬ КАРТУ</a>
+          </div>
+          <div class="back">
+              <img src="images/Map.png" alt="">
+          </div>
+      </div>
         
     </main>
     <footer>
@@ -202,17 +278,19 @@
       
         <div class="test container">
           <div class="top">
-            <h1>Connect with Labrewtory</h1>
+            <h1 class="en">Connect with Labrewtory</h1>
+            <h1 class="ro">CONECTEAZĂ-TE CU Labrewtory</h1>
+            <h1 class="ru">СВЯЗАТЬСЯ С Labrewtory</h1>
             <div class="links">
-              <div>
+              <a href="https://www.instagram.com/labrewtorybrewingmd/">
                 <i class="fa-brands fa-instagram"></i>
-              </div>
-              <div>
+              </a>
+              <a href="https://www.facebook.com/LabrewtoryBrewingCo">
                 <i class="fa-brands fa-facebook-f"></i>
-              </div>
-              <div>
+              </a>
+              <a href="https://x.com/labrewtorymd?lang=en">
                 <i class="fa-brands fa-x-twitter"></i>
-              </div>
+              </a>
             </div>
           </div>
       
@@ -221,41 +299,70 @@
           <div class="middle">
             <div class="box">
               <div>
-                <h1>Pages</h1>
+                <h1 class="en">Pages</h1>
+                <h1 class="ro">Pagini</h1>
+                <h1 class="ru">Страницы
+                </h1>
               </div>
               <div class="service">
-                <a href="index.html">Home</a>
-                <a href="catalog.html">Beers</a>
-                <a href="aboutus.html">About us</a>
-                <a href="contact.html">Contact</a>
+                <a href="index.html" class="ro">Acasa</a>
+                  <a href="index.html" class="ru">Главная </a>
+                  <a href="index.html" class="en">Home </a>
+                  <a href="catalog.html" class="ro">Beri</a>
+                  <a href="catalog.html" class="ru">Пиво</a>
+                  <a href="catalog.html" class="en">Beers</a>
+                  <a href="aboutus.html" class="ro">Despre noi</a>
+                  <a href="aboutus.html" class="ru">О нас</a>
+                  <a href="aboutus.html" class="en">About us</a>
+                  <a href="contact.html" class="ro">Contacte</a>
+                  <a href="contact.html" class="ru">Контакты</a>
+                  <a href="contact.html" class="en">Contact</a>
                 
                 
               </div>
             </div>
             <div class="box">
               <div>
-                <h1>Beers</h1>
+                
+                <h1 class="ro">Beri</h1>
+                <h1 class="ru">Пиво</h1>
+                <h1 class="en">Beers</h1>
               </div>
               <div class="service">
-                <p>Brune</p>
-                <p>Blonde</p>
+                <p class="ro">Brune</p>
+                <p class="ru">Тёмное</p>
+                <p class="en">Brune</p>
+  
+                <p class="ro">Blonde</p>
+                <p class="ru">Светлое</p>
+                <p class="en">Blonde</p>
               </div>
             </div>
             <div class="box">
               <div>
-                <h1>Services</h1>
+                <h1 class="ro">Servicii</h1>
+                <h1 class="ru">Услуги</h1>
+                <h1 class="en">Services</h1>
+                
               </div>
               
               <div class="service">
-                <p>BBQs</p>
-                <p>Visits</p>
-                <p>Events</p>
-                
+                <p class="ro">Grătare</p>
+                <p class="ru">Барбекю</p>
+                <p class="en">BBQs</p>
+                <p class="ro">Vizite</p>
+                <p class="ru">Визиты</p>
+                <p class="en">Visits</p>
+                <p class="ro">Evenimente</p>
+                <p class="ru">События</p>
+                <p class="en">Events</p>
               </div>
             </div>
             <div class="box">
               <div>
-                <h1>Contact</h1>
+                <h1 class="en">Contact</h1>
+                <h1 class="ro">Contact</h1>
+                <h1 class="ru">Контакты</h1>
               </div>
               <div class="service">
                 <p>Șoseaua Muncești 77</p>
@@ -269,8 +376,12 @@
           <div class="end">
             <div class="upper">
               <!-- <p>Privacy</p> -->
-              <a href="policy.html">Policy</a>
-              <p>Do not sell our information</p>
+              <a href="policy.html" class="en">Policy</a>
+              <a href="policy.html" class="ro">Politica</a>
+              <a href="policy.html" class="ru">Политика</a>
+              <p class="en">Do not sell our information</p>
+              <p class="ro">Nu vindeți informațiile noastre</p>
+              <p class="ru">Не продавайте нашу информацию</p>
             </div>
             <p>© 2025 Slash</p>
           </div>

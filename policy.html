@@ -3,30 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Policy</title>
+    <title>LaBrewtory</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" /> 
+    <link rel="icon" type="image/x-icon" href="images/pageicon.png">
+    <script defer src="js/app.js"></script>
 </head>
 <body>
     <header>
         <div class="contact-us">
             <nav  class="pages" class="navigation">
+              <div class="half-div">
+                
+                <!-- <div class="cart-icon">
+                  <i class="fa-solid fa-cart-shopping" id="openCart"></i>
+                  <div class="dot hidden" id="dot-cart"></div>
+                </div> -->
+                <img src="images/logo.png" id="logoNav" class="logoNavMini" alt="" >
+                <i class="fa-solid fa-bars burger-btn" id="burger-btn"></i>
+              </div>
                 <div class="container navbar">
                     
-                    <div class="left">
-                        <a href="catalog.html">Beers</a>
-                        <a href="aboutus.html">About us</a>
-                    </div>
+                  <div class="left">
+                    <a href="catalog.html" class="ro">Beri</a>
+                    <a href="catalog.html" class="ru">Пиво</a>
+                    <a href="catalog.html" class="en">Beers</a>
+                    <a href="aboutus.html" class="ro">Despre noi</a>
+                    <a href="aboutus.html" class="ru">О нас</a>
+                    <a href="aboutus.html" class="en">About us</a>
+                    <!-- <a href="">Gallery</a> -->
+                </div>
                     <a class="center" href="index.html">
                         <img src="images/logo.png"  class="logoNav pagesNav" alt="" >
                     </a>
                     <div class="right">
                         
-                        <a href="contact.html">Contact</a>
+                      <a href="contact.html" class="ro">Contacte</a>
+                      <a href="contact.html" class="ru">Контакты</a>
+                      <a href="contact.html" class="en">Contact</a>
                         <select id="langSelector" class="langSelector">
-                            <option value="en">En</option>
-                            <option value="ro" >Ro</option>
-                            <option value="ru">Ru</option>
+                          <option value="ro" >Ro</option>
+                          <option value="ru">Ру</option>
+                          <option value="en">En</option>
                             
                             
                         </select>
@@ -48,28 +66,30 @@
     <main>
         <div class="policy container">
 
-            <h1>Politica de confidentialitate</h1>
-            <p>În conformitate cu prevederile Legii Nr.133/2011 privind protecția datelor cu caracter personal, furnizorul de servicii prelucrează date cu caracter personal. Datele cu caracter personal sunt prelucrate cu buna-credință și se face în temeiul și în conformitate cu prevederile legale. Prelucrarea datelor cu caracter personal se realizează prin mijloace mixte (automate și manuale), cu respectarea cerințelor legale și în condiții care să asigure securitatea, confidențialitatea și respectarea drepturilor persoanelor vizate.
-            </p>
-            <p>Furnizorul colectează și prelucrează doar datele personale furnizate de consumatori la efectuarea comenzii: nume, prenume, număr de telefon, adresa, adresa poștală.</p>
-            <p>Datele personale sunt utilizate exclusiv în scopul administrării site-ului, pentru a permite accesul la informații special, pentru livrarea comenzilor sau pentru a contacta consumatorul în vederea executării livrării. Prin prezenta informare, utilizatorii și consumatorii iau cunoștință despre faptul că li se vor prelucra și utiliza datele cu caracter personal (nume, prenume, număr de telefon, adresa, adresa poștală). Furnizorul de servicii prelucrează datele cu caracter personal ale utilizatorilor și consumatorilor care sunt furnizate prin navigarea, folosirea și înregistrarea pe site-ul https://www.labrewtory.md.
-            </p>
-            <p>Orice informație furnizată de către utilizatorii și consumatorii site-ului https://www.labrewtory.md va fi considerată și va reprezenta consimțământul expres ca datele personale să fie folosite de Furnizor.</p>
-            <p>Furnizorul nu va dezvălui unei terțe părți niciuna dintre datele deținute, fără acordul persoanelor vizate și nu va comercializa, schimba, divulga aceste date cu alte persoane, cu excepțiile prevăzute de legislația în vigoare (la solicitarea instituțiilor publice ale statului, organele de drept, instanțelor de judecată, de asemenea autorizate să prelucreze date cu caracter personal).
-            </p>
-            <p>Datele cu caracter personal pot fi prelucrate și utilizate de către Furnizor și în scopuri statistice și de promovare ulterioară. 
-            </p>
-            <p>Furnizorul de servicii îndeplinește cerințele de securitate a datelor cu caracter personal și asigură protecția datelor consumatorilor și le protejează pentru a nu fi pierdute, distruse, distorsionate/falsificate sau divulgate terțelor persoane.
-            </p>
-            <p>Angajații furnizorului de servicii sunt obligați să respecte confidențialitatea datelor personale ale consumatorilor. Prelucrarea datelor cu caracter personal va fi realizată de persoana împuternicită a Furnizorului.
-            </p>
-            <p>Furnizorul utilizează metode și tehnologii de securitate conform prevederilor legale în vigoare.
-            </p>
-            <p>Furnizorul nu colectează informații referitoare la tranzacții, cum ar fi nr. la card, data expirării, țara de origine.
-            </p>
-            <p>         
-Pentru mai multe detalii și informații orice persoană interesată se poate adresa printr-un email la info@labrewtory.md sau prin telefon la numărul +37368241522
-            </p>
+          <h1 class="ro">Politica de confidențialitate</h1>
+          <h1 class="ru">Политика конфиденциальности</h1>
+          <h1 class="en">Privacy Policy</h1>
+          
+          <p class="ro">În conformitate cu prevederile Legii Nr.133/2011 privind protecția datelor cu caracter personal, furnizorul de servicii prelucrează date cu caracter personal...</p>
+          <p class="ru">В соответствии с положениями Закона №133/2011 о защите персональных данных, поставщик услуг обрабатывает персональные данные...</p>
+          <p class="en">In accordance with the provisions of Law No. 133/2011 on the protection of personal data, the service provider processes personal data...</p>
+          
+          <p class="ro">Furnizorul colectează și prelucrează doar datele personale furnizate de consumatori la efectuarea comenzii: nume, prenume, număr de telefon, adresa, adresa poștală.</p>
+          <p class="ru">Поставщик собирает и обрабатывает только те персональные данные, которые предоставляют потребители при оформлении заказа: имя, фамилия, номер телефона, адрес, почтовый адрес.</p>
+          <p class="en">The provider collects and processes only personal data provided by consumers when placing an order: name, surname, phone number, address, postal address.</p>
+          
+          <p class="ro">Datele personale sunt utilizate exclusiv în scopul administrării site-ului, pentru a permite accesul la informații special, pentru livrarea comenzilor sau pentru a contacta consumatorul în vederea executării livrării...</p>
+          <p class="ru">Персональные данные используются исключительно для администрирования сайта, обеспечения доступа к специальной информации, доставки заказов или связи с потребителем для выполнения доставки...</p>
+          <p class="en">Personal data is used exclusively for site administration, allowing access to special information, order delivery, or contacting the consumer for order fulfillment...</p>
+          
+          <p class="ro">Orice informație furnizată de către utilizatorii și consumatorii site-ului <a href="https://www.labrewtory.md">https://www.labrewtory.md</a> va fi considerată și va reprezenta consimțământul expres...</p>
+          <p class="ru">Любая информация, предоставленная пользователями и потребителями сайта <a href="https://www.labrewtory.md">https://www.labrewtory.md</a>, будет считаться и представлять собой явное согласие...</p>
+          <p class="en">Any information provided by users and consumers of the website <a href="https://www.labrewtory.md">https://www.labrewtory.md</a> will be considered and represent explicit consent...</p>
+          
+          <p class="ro">Pentru mai multe detalii și informații orice persoană interesată se poate adresa printr-un email la <a href="mailto:info@labrewtory.md">info@labrewtory.md</a> sau prin telefon la numărul <a href="tel:+37368241522">+37368241522</a></p>
+          <p class="ru">Для получения дополнительной информации и деталей любой заинтересованный человек может обратиться по электронной почте <a href="mailto:info@labrewtory.md">info@labrewtory.md</a> или по телефону <a href="tel:+37368241522">+37368241522</a></p>
+          <p class="en">For more details and information, any interested person can contact us via email at <a href="mailto:info@labrewtory.md">info@labrewtory.md</a> or by phone at <a href="tel:+37368241522">+37368241522</a></p>
+          
         </div>
     </main>
     <footer>
@@ -79,17 +99,19 @@ Pentru mai multe detalii și informații orice persoană interesată se poate ad
       
         <div class="test container">
           <div class="top">
-            <h1>Connect with Labrewtory</h1>
+            <h1 class="en">Connect with Labrewtory</h1>
+            <h1 class="ro">CONECTEAZĂ-TE CU Labrewtory</h1>
+            <h1 class="ru">СВЯЗАТЬСЯ С Labrewtory</h1>
             <div class="links">
-              <div>
+              <a href="https://www.instagram.com/labrewtorybrewingmd/">
                 <i class="fa-brands fa-instagram"></i>
-              </div>
-              <div>
+              </a>
+              <a href="https://www.facebook.com/LabrewtoryBrewingCo">
                 <i class="fa-brands fa-facebook-f"></i>
-              </div>
-              <div>
+              </a>
+              <a href="https://x.com/labrewtorymd?lang=en">
                 <i class="fa-brands fa-x-twitter"></i>
-              </div>
+              </a>
             </div>
           </div>
       
@@ -98,41 +120,70 @@ Pentru mai multe detalii și informații orice persoană interesată se poate ad
           <div class="middle">
             <div class="box">
               <div>
-                <h1>Pages</h1>
+                <h1 class="en">Pages</h1>
+                <h1 class="ro">Pagini</h1>
+                <h1 class="ru">Страницы
+                </h1>
               </div>
               <div class="service">
-                <a href="index.html">Home</a>
-                <a href="catalog.html">Beers</a>
-                <a href="aboutus.html">About us</a>
-                <a href="contact.html">Contact</a>
+                <a href="index.html" class="ro">Acasa</a>
+                  <a href="index.html" class="ru">Главная </a>
+                  <a href="index.html" class="en">Home </a>
+                  <a href="catalog.html" class="ro">Beri</a>
+                  <a href="catalog.html" class="ru">Пиво</a>
+                  <a href="catalog.html" class="en">Beers</a>
+                  <a href="aboutus.html" class="ro">Despre noi</a>
+                  <a href="aboutus.html" class="ru">О нас</a>
+                  <a href="aboutus.html" class="en">About us</a>
+                  <a href="contact.html" class="ro">Contacte</a>
+                  <a href="contact.html" class="ru">Контакты</a>
+                  <a href="contact.html" class="en">Contact</a>
                 
                 
               </div>
             </div>
             <div class="box">
               <div>
-                <h1>Beers</h1>
+                
+                <h1 class="ro">Beri</h1>
+                <h1 class="ru">Пиво</h1>
+                <h1 class="en">Beers</h1>
               </div>
               <div class="service">
-                <p>Brune</p>
-                <p>Blonde</p>
+                <p class="ro">Brune</p>
+                <p class="ru">Тёмное</p>
+                <p class="en">Brune</p>
+  
+                <p class="ro">Blonde</p>
+                <p class="ru">Светлое</p>
+                <p class="en">Blonde</p>
               </div>
             </div>
             <div class="box">
               <div>
-                <h1>Services</h1>
+                <h1 class="ro">Servicii</h1>
+                <h1 class="ru">Услуги</h1>
+                <h1 class="en">Services</h1>
+                
               </div>
               
               <div class="service">
-                <p>BBQs</p>
-                <p>Visits</p>
-                <p>Events</p>
-                
+                <p class="ro">Grătare</p>
+                <p class="ru">Барбекю</p>
+                <p class="en">BBQs</p>
+                <p class="ro">Vizite</p>
+                <p class="ru">Визиты</p>
+                <p class="en">Visits</p>
+                <p class="ro">Evenimente</p>
+                <p class="ru">События</p>
+                <p class="en">Events</p>
               </div>
             </div>
             <div class="box">
               <div>
-                <h1>Contact</h1>
+                <h1 class="en">Contact</h1>
+                <h1 class="ro">Contact</h1>
+                <h1 class="ru">Контакты</h1>
               </div>
               <div class="service">
                 <p>Șoseaua Muncești 77</p>
@@ -146,12 +197,15 @@ Pentru mai multe detalii și informații orice persoană interesată se poate ad
           <div class="end">
             <div class="upper">
               <!-- <p>Privacy</p> -->
-              <a href="policy.html">Policy</a>
-              <p>Do not sell our information</p>
+              <a href="policy.html" class="en">Policy</a>
+              <a href="policy.html" class="ro">Politica</a>
+              <a href="policy.html" class="ru">Политика</a>
+              <p class="en">Do not sell our information</p>
+              <p class="ro">Nu vindeți informațiile noastre</p>
+              <p class="ru">Не продавайте нашу информацию</p>
             </div>
             <p>© 2025 Slash</p>
           </div>
-
       
           
         </div>

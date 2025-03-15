@@ -1,12 +1,16 @@
 
 const logo = document.getElementById('logo');
-const logoNav = document.getElementById('logoNav')
-const nav= document.getElementById("nav")
+const logoNav2 = document.getElementById('logoNav2')
+const nav2= document.getElementById("nav2")
 const curt1 =document.getElementById("curt1")
 const curt2 =document.getElementById("curt2")
 
 const events = document.getElementById("events")
 const apiUrl2 = 'https://679b802733d3168463241458.mockapi.io/events';
+
+
+
+
 const burgerBtn = document.getElementById("burger-btn")
 const closeHalfNavbarBtn = document.getElementById("close-half-navbar")
 const halfNavbar = document.getElementById("half-navbar")
@@ -44,25 +48,25 @@ document.addEventListener("DOMContentLoaded", () => {
   }})
 
 window.addEventListener('scroll', () => {
-    logoNav.style.display = 'none'
+    logoNav2.style.display = 'none'
     const scrollPosition = window.scrollY;
-    logoNav.style.display = 'none'
+    logoNav2.style.display = 'none'
     if (scrollPosition > 10 && scrollPosition < 150 ) {
       
       
       logo.style.transition = '1s'
     //   logoNav.style.transition = '1s'
-       nav.style.background = "none"
+       nav2.style.background = "none"
        
       
       
      
     } else if(scrollPosition > 170 && scrollPosition < 510 ){
-      logoNav.style.display = 'flex'
-      logoNav.style.zIndex = "2"
+      logoNav2.style.display = 'flex'
+      logoNav2.style.zIndex = "2"
       curt1.style.width = "100%"
     curt2.style.width = "100%"
-      nav.style.background = "#1b1b1b"
+      nav2.style.background = "#1b1b1b"
       
     } else if(scrollPosition > 500){
         // curt1.style.transform = "translate-x(20px)"
@@ -70,12 +74,12 @@ window.addEventListener('scroll', () => {
         curt1.style.transition = '1s'
         curt2.style.width = "50%"
         curt2.style.transition = '1s'
-        nav.style.background = "#1b1b1b"
-        logoNav.style.display = 'flex'
+        nav2.style.background = "#1b1b1b"
+        logoNav2.style.display = 'flex'
     }
     else {
     //   logoNav.style.display = 'none'
-      nav.style.background = "none"
+      nav2.style.background = "none"
     }
     console.log(scrollPosition)
   });
@@ -141,39 +145,76 @@ window.addEventListener('scroll', () => {
     console.log('Error:')
   })
 
-  function updateVisibility(selectedValue) {
-    const elementsEn = document.getElementsByClassName("en")
-    const elementsRo = document.getElementsByClassName("ro")
-    const elementsRu = document.getElementsByClassName("ru")
-
-
-    Array.from(elementsEn).forEach(element => element.classList.add("hidden"))
-    Array.from(elementsRo).forEach(element => element.classList.add("hidden"))
-    Array.from(elementsRu).forEach(element => element.classList.add("hidden"))
-
-
-    if (selectedValue === "en") {
-        Array.from(elementsEn).forEach(element => element.classList.remove("hidden"))
-    } else if (selectedValue === "ro") {
-        Array.from(elementsRo).forEach(element => element.classList.remove("hidden"))
-    } else if (selectedValue === "ru") {
-        Array.from(elementsRu).forEach(element => element.classList.remove("hidden"))
-    }
-}
-
-
-const selectElement = document.getElementById('langSelector')
-
-
-selectElement.value = "en"
-
-
-updateVisibility(selectElement.value)
-
-
-selectElement.addEventListener('change', function () {
-    updateVisibility(this.value)
-});
+  document.addEventListener("DOMContentLoaded", () => {
+    const selectElement = document.getElementById("langSelector");
   
+    // Get the saved language from localStorage, default to "en"
+    const savedLang = localStorage.getItem("selectedLanguage") || "en";
+    selectElement.value = savedLang; // Set the dropdown to the saved value
+    updateVisibility(savedLang); // Update UI based on saved language
+  
+    // Event listener to update selection and save to localStorage
+    selectElement.addEventListener("change", (event) => {
+      const selectedLang = event.target.value;
+      localStorage.setItem("selectedLanguage", selectedLang); // Save selected language
+      updateVisibility(selectedLang); // Update UI
+    });
+  });
+  
+  function updateVisibility(selectedValue) {
+    const elementsEn = document.getElementsByClassName("en");
+    const elementsRo = document.getElementsByClassName("ro");
+    const elementsRu = document.getElementsByClassName("ru");
+  
+    // Hide all language elements
+    Array.from(elementsEn).forEach(element => element.classList.add("hidden"));
+    Array.from(elementsRo).forEach(element => element.classList.add("hidden"));
+    Array.from(elementsRu).forEach(element => element.classList.add("hidden"));
+  
+    // Show only the selected language elements
+    if (selectedValue === "en") {
+      Array.from(elementsEn).forEach(element => element.classList.remove("hidden"));
+    } else if (selectedValue === "ro") {
+      Array.from(elementsRo).forEach(element => element.classList.remove("hidden"));
+    } else if (selectedValue === "ru") {
+      Array.from(elementsRu).forEach(element => element.classList.remove("hidden"));
+    }
+  }
 
 
+window.addEventListener('scroll', () => {
+  logoNav2.style.display = 'none'
+  const scrollPosition = window.scrollY;
+  logoNav2.style.display = 'none'
+  if (scrollPosition > 10 && scrollPosition < 150 ) {
+    
+    
+    logo.style.transition = '1s'
+  //   logoNav.style.transition = '1s'
+     nav2.style.background = "none"
+     
+    
+    
+   
+  } else if(scrollPosition > 170 && scrollPosition < 510 ){
+    logoNav2.style.display = 'flex'
+    logoNav2.style.zIndex = "2"
+    curt1.style.width = "100%"
+  curt2.style.width = "100%"
+    nav2.style.background = "#1b1b1b"
+    
+  } else if(scrollPosition > 500){
+      // curt1.style.transform = "translate-x(20px)"
+      curt1.style.width = "50%"
+      curt1.style.transition = '1s'
+      curt2.style.width = "50%"
+      curt2.style.transition = '1s'
+      nav2.style.background = "#1b1b1b"
+      logoNav2.style.display = 'flex'
+  }
+  else {
+  //   logoNav.style.display = 'none'
+    nav2.style.background = "none"
+  }
+  console.log(scrollPosition)
+});

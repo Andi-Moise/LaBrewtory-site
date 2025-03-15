@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>LaBrewtory</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" type="image/x-icon" href="images/pageicon.png">
     <script defer src="js/aboutus.js"></script>
 </head>
 <body>
@@ -15,40 +16,47 @@
             <div class="back">
                 <img src="images/Test.png"  alt="beeer-craft">
             </div>
-            <nav id="nav" >
-              <i class="fa-solid fa-bars burger-btn" id="burger-btn"></i>
+            <nav id="nav2" >
+              <div class="half-div">
+                
+                <!-- <div class="cart-icon">
+                  <i class="fa-solid fa-cart-shopping" id="openCart"></i>
+                  <div class="dot hidden" id="dot-cart"></div>
+                </div> -->
+                <img src="images/logo.png" id="logoNav2" class="logoNavMini" alt="" >
+                <i class="fa-solid fa-bars burger-btn" id="burger-btn"></i>
+              </div>
                 <div class="container navbar rest">
                     
                   <div class="left">
-                    <a href="catalog.html" class="en">Beers</a>
-                    <a href="catalog.html" class="ro">Bere</a>
+                    <a href="catalog.html" class="ro">Beri</a>
                     <a href="catalog.html" class="ru">Пиво</a>
-                    <a href="aboutus.html" class="en">About us</a>
+                    <a href="catalog.html" class="en">Beers</a>
                     <a href="aboutus.html" class="ro">Despre noi</a>
                     <a href="aboutus.html" class="ru">О нас</a>
+                    <a href="aboutus.html" class="en">About us</a>
                     <!-- <a href="">Gallery</a> -->
                 </div>
                 <a class="center" href="index.html">
-                    <img src="images/logo.png" id="logoNav" class="logoNav pagesNav" alt="" >
+                    <img src="images/logo.png" id="logoNav2" class="logoNav pagesNav" alt="" >
                 </a>
                 <div class="right">
                     
-                    <a href="contact.html" class="en">Contact</a>
-                    <a href="contact.html" class="ro">Contacte</a>
-                    <a href="contact.html" class="ru">Контакты</a>
+                  <a href="contact.html" class="ro">Contacte</a>
+                  <a href="contact.html" class="ru">Контакты</a>
+                  <a href="contact.html" class="en">Contact</a>
                     
                     <!-- <label for="langSelector">Choose a language:</label> -->
-                    <select id="langSelector" class="langSelector">
-                      <option value="en">En</option>
+                    <select id="langSelector" class="langSelector2">
                       <option value="ro" >Ro</option>
-                      <option value="ru">Ru</option>
-                      
-                      
+                      <option value="ru">Ру</option>
+                      <option value="en">En</option>
+
                   </select>
-                    <div class="cart-icon">
+                    <!-- <div class="cart-icon">
                         <i class="fa-solid fa-cart-shopping" id="openCart"></i>
                         <div class="dot hidden" id="dot-cart"></div>
-                    </div>
+                    </div> -->
 
                 </div>
                     
@@ -57,15 +65,23 @@
             <div class="half-navbar  hidden" id="half-navbar">
               <i class="fa-solid fa-xmark close" id="close-half-navbar"></i>
               <div class="links">
-                <a href="index.html">Home </a>
-                <a href="catalog.html">Beers</a>
-                <a href="aboutus.html">About us</a>
-                <a href="contact.html">Contact</a>
+                <a href="index.html" class="ro">Acasă</a>
+                <a href="index.html" class="ru">Главная</a>
+                <a href="index.html" class="en">Home</a>
+                <a href="catalog.html" class="ro">Beri</a>
+                <a href="catalog.html" class="ru">Пиво</a>
+                <a href="catalog.html" class="en">Beers</a>
+                <a href="aboutus.html" class="ro">Despre noi</a>
+                <a href="aboutus.html" class="ru">О нас</a>
+                <a href="aboutus.html" class="en">About us</a>
+                <a href="contact.html" class="ro">Contacte</a>
+                <a href="contact.html" class="ru">Контакты</a>
+                <a href="contact.html" class="en">Contact</a>
                 <div class="language-options">
-                  <button onclick="selectLanguage('en')" class="selected">En</button>
+                  <button onclick="selectLanguage('en')" >En</button>
                   <button onclick="selectLanguage('ro')">Ro</button>
                   <button onclick="selectLanguage('ru')">Ru</button>
-              </div>
+                </div>
               </div>
             
         </div>
@@ -75,11 +91,11 @@
                 <p>SINCE 2017</p>
             </div>
             <div class="title ro"> 
-                <p>BERĂRIA NOASTRĂ, OUR</p>
-                <small>PRIDE</small>
+                <p>BERĂRIA NOASTRĂ, MÂNDRIA</p>
+                <small>NOASTRĂ</small>
                 <p>DIN 2017</p>
             </div>
-            <div class="title ru"> 
+            <div class="title ru plus"> 
                 <p>НАША ПИВОВАРНЯ, НАША</p>
                 <small>ГОРДОСТЬ</small>
                 <p>С 2017 ГОДА</p>
@@ -96,18 +112,28 @@
             
             <div class="info">
                 <img src="images/Intro-Style-icon.png" alt="">
-                <p>OVER 10 YEARS IN MAKING </p>
-                <small>Brewing beer that honor tradition, yet embrace tomorrow. Proudly crafted in Chisinau, Moldova</small>
+                <p class="ro">PESTE 10 ANI DE EXPERIENȚĂ</p>
+                <p class="ru">БОЛЕЕ 10 ЛЕТ В СОЗДАНИИ</p>
+                <p class="en">OVER 10 YEARS IN MAKING</p>
+                <small class="ro">Preparăm bere care onorează tradiția, dar îmbrățișează viitorul. Fabricată cu mândrie în Chișinău, Moldova.</small>
+                <small class="ru">Варим пиво, которое чтит традиции, но смотрит в будущее. Гордо создано в Кишиневе, Молдова.</small>
+                <small class="en">Brewing beer that honors tradition, yet embraces tomorrow. Proudly crafted in Chisinau, Moldova.</small>
             </div>
         </div>
         <div class="space">
 
         </div>
         <div class="small-info container">
-            <div class="title">
-                <p>A Decade of LaBRewtory</p>
-                <small>Small Town, Big Dreams.</small>
-            </div>
+            
+          <div class="title">
+            <p class="ro">Un deceniu de LaBRewtory</p>
+            <p class="ru">Десятилетие LaBRewtory</p>
+            <p class="en">A Decade of LaBRewtory</p>
+            <small class="ro">Oraș mic, vise mari.</small>
+            <small class="ru">Маленький город, большие мечты.</small>
+            <small class="en">Small Town, Big Dreams.</small>
+        </div>
+            
 
             <p class="para en" >
               Founded in late 2017, by American couple Bill and DeEva and their hard working Moldovan team, Labrewtory is Moldova's first and only American owned craft microbrewery. The co-founders arrived in Moldova in 2011, and after some years of working here, decided to stay and start a business. Avid craft beer “home brewers” in America, they decided to put that knowledge to the test and Labrewtory Brewing Company was born.
@@ -127,10 +153,14 @@
         </div>
             <div class="medium-info container">
                 
-                <div class="title">
-                  <p>EVENTS</p>
-                  <h1>ENJOY OUR ATMOSPHERE</h1>
-                </div>
+              <div class="title">
+                <p class="ro">EVENIMENTE</p>
+                <p class="ru">СОБЫТИЯ</p>
+                <p class="en">EVENTS</p>
+                <h1 class="ro">BUCURĂ-TE DE AMBIANȚA NOASTRĂ</h1>
+                <h1 class="ru">НАСЛАЖДАЙТЕСЬ НАШЕЙ АТМОСФЕРОЙ</h1>
+                <h1 class="en">ENJOY OUR ATMOSPHERE</h1>
+            </div>
                 <div id="events" class="events">
                   
                 </div>
@@ -138,12 +168,18 @@
         <div class="space">
           
         </div>
+        <div class="space space-hidden">
+
+        </div>
         <div class="tour container">
-            <div class="title">
-                <p>TOUR</p>
-                <small>VISIT OUR BREWERY</small>
-                <!-- <a href="">BOOK A TOUR</a> -->
-            </div>
+          <div class="title">
+            <p class="ro">TUR</p>
+            <p class="ru">ТУР</p>
+            <p class="en">TOUR</p>
+            <small class="ro">VIZITEAZĂ BERĂRIA NOASTRĂ</small>
+            <small class="ru">ПОСЕТИТЕ НАШ ПИВОВАРЕННЫЙ ЗАВОД</small>
+            <small class="en">VISIT OUR BREWERY</small>
+        </div>
             <div class="images">
                 <img src="images/visit1.JPG" alt="" class="special">
                 <img src="images/visit2.JPG" alt="" class="max">
@@ -159,27 +195,29 @@
             <div class="image">
                 <img src="images/bbq.jpg" alt="">
             </div>
-            <div class="text en">
-                <p>CHISINAU MD</p>
-                <h1>Cleanest little city with a heart as big as Texas</h1>
-                <small>Whether you're hosting a backyard party, a corporate event, or a family gathering, our professional BBQ catering service brings the sizzle to your celebration with perfectly grilled meats, mouthwatering sides, and top-tier service, ensuring that you and your guests enjoy a stress-free, flavor-packed experience without lifting a finger.</small>
-            </div>
-            <div class="text ro">
-                <p>CHISINAU MD</p>
-                <h1>Cleanest little city with a heart as big as Texas</h1>
-                <small>Whether you're hosting a backyard party, a corporate event, or a family gathering, our professional BBQ catering service brings the sizzle to your celebration with perfectly grilled meats, mouthwatering sides, and top-tier service, ensuring that you and your guests enjoy a stress-free, flavor-packed experience without lifting a finger.</small>
-            </div>
-            <div class="text ru">
-                <p>CHISINAU MD</p>
-                <h1>Cleanest little city with a heart as big as Texas</h1>
-                <small>Whether you're hosting a backyard party, a corporate event, or a family gathering, our professional BBQ catering service brings the sizzle to your celebration with perfectly grilled meats, mouthwatering sides, and top-tier service, ensuring that you and your guests enjoy a stress-free, flavor-packed experience without lifting a finger.</small>
-            </div>
+            <div class="text">
+              <p class="ro">CHIȘINĂU MD</p>
+              <p class="ru">КИШИНЁВ MD</p>
+              <p class="en">CHISINAU MD</p>
+              <h1 class="ro">Cel mai curat oraș mic, cu o inimă la fel de mare ca Texas</h1>
+              <h1 class="ru title">Самый чистый маленький город с сердцем, таким же большим, как Техас</h1>
+              <h1 class="en">Cleanest little city with a heart as big as Texas</h1>
+              <small class="ro">Fie că organizezi o petrecere în curte, un eveniment corporate sau o reuniune de familie, serviciul nostru de catering BBQ aduce savoarea...</small>
+              <small class="ru">Независимо от того, устраиваете ли вы вечеринку во дворе, корпоративное мероприятие или семейную встречу, наша услуга кейтеринга BBQ...</small>
+              <small class="en">Whether you're hosting a backyard party, a corporate event, or a family gathering, our professional BBQ catering service brings the sizzle...</small>
+          </div>
+          
         </div>
         <div class="crew ">
             <div class="container">
                 <div class="title">
-                    <p>LABREWTORY CREW</p>
-                    <small>OUR PRIDE, ENJOY!</small>
+                  <p class="ro">ECHIPA LABREWTORY</p>
+                  <p class="ru">КОМАНДА LABREWTORY</p>
+                  <p class="en">LABREWTORY CREW</p>
+                  
+                    <small class="ro">MÂNDRIA NOASTRĂ, BUCURĂ-TE!</small>
+                    <small class="ru">НАША ГОРДОСТЬ, НАСЛАЖДАЙТЕСЬ!</small>
+                    <small class="en">OUR PRIDE, ENJOY!</small>
                 </div>
                 
             <div class="people">
@@ -189,7 +227,9 @@
                     </div>
                     
                     <p>Bill</p>
-                    <small>Founder</small>
+                    <small class="ro">Fondator</small>
+                    <small class="ru">Основатель</small>
+                    <small class="en">Founder</small>
                 </div>
                 <div class="box">
                     <div>
@@ -197,7 +237,9 @@
                     </div>
                     
                     <p>DeEva</p>
-                    <small>CEO</small>
+                    <small class="ro">Director general</small>
+                      <small class="ru">Генеральный директор</small>
+                      <small class="en">CEO</small>
                 </div>
                 <div class="box">
                     <div>
@@ -205,7 +247,9 @@
                     </div>
                     
                     <p>Maxim</p>
-                    <small>Brewmaster</small>
+                    <small class="ro">Maestru berar</small>
+                    <small class="ru">Главный пивовар</small>
+                    <small class="en">Brewmaster</small>
                 </div>
                 <div class="box">
                     <div>
@@ -213,7 +257,9 @@
                     </div>
                     
                     <p>Vitalie</p>
-                    <small>Brewmaster</small>
+                    <small class="ro">Maestru berar</small>
+                    <small class="ru">Главный пивовар</small>
+                    <small class="en">Brewmaster</small>
                 </div>
 
             </div>
@@ -228,60 +274,91 @@
       
         <div class="test container">
           <div class="top">
-            <h1>Connect with Labrewtory</h1>
+            <h1 class="en">Connect with Labrewtory</h1>
+            <h1 class="ro">CONECTEAZĂ-TE CU Labrewtory</h1>
+            <h1 class="ru">СВЯЗАТЬСЯ С Labrewtory</h1>
             <div class="links">
-              <div>
+              <a href="https://www.instagram.com/labrewtorybrewingmd/">
                 <i class="fa-brands fa-instagram"></i>
-              </div>
-              <div>
+              </a>
+              <a href="https://www.facebook.com/LabrewtoryBrewingCo">
                 <i class="fa-brands fa-facebook-f"></i>
-              </div>
-              <div>
+              </a>
+              <a href="https://x.com/labrewtorymd?lang=en">
                 <i class="fa-brands fa-x-twitter"></i>
-              </div>
+              </a>
             </div>
           </div>
       
-
+          <!-- <div style="height: 70px;"></div> -->
       
           <div class="middle">
             <div class="box">
               <div>
-                <h1>Pages</h1>
+                <h1 class="en">Pages</h1>
+                <h1 class="ro">Pagini</h1>
+                <h1 class="ru">Страницы
+                </h1>
               </div>
               <div class="service">
-                <a href="index.html">Home</a>
-                <a href="catalog.html">Beers</a>
-                <a href="aboutus.html">About us</a>
-                <a href="contact.html">Contact</a>
+                <a href="index.html" class="ro">Acasa</a>
+                  <a href="index.html" class="ru">Главная </a>
+                  <a href="index.html" class="en">Home </a>
+                  <a href="catalog.html" class="ro">Beri</a>
+                  <a href="catalog.html" class="ru">Пиво</a>
+                  <a href="catalog.html" class="en">Beers</a>
+                  <a href="aboutus.html" class="ro">Despre noi</a>
+                  <a href="aboutus.html" class="ru">О нас</a>
+                  <a href="aboutus.html" class="en">About us</a>
+                  <a href="contact.html" class="ro">Contacte</a>
+                  <a href="contact.html" class="ru">Контакты</a>
+                  <a href="contact.html" class="en">Contact</a>
                 
                 
               </div>
             </div>
             <div class="box">
               <div>
-                <h1>Beers</h1>
+                
+                <h1 class="ro">Beri</h1>
+                <h1 class="ru">Пиво</h1>
+                <h1 class="en">Beers</h1>
               </div>
               <div class="service">
-                <p>Brune</p>
-                <p>Blonde</p>
+                <p class="ro">Brune</p>
+                <p class="ru">Тёмное</p>
+                <p class="en">Brune</p>
+  
+                <p class="ro">Blonde</p>
+                <p class="ru">Светлое</p>
+                <p class="en">Blonde</p>
               </div>
             </div>
             <div class="box">
               <div>
-                <h1>Services</h1>
+                <h1 class="ro">Servicii</h1>
+                <h1 class="ru">Услуги</h1>
+                <h1 class="en">Services</h1>
+                
               </div>
               
               <div class="service">
-                <p>BBQs</p>
-                <p>Visits</p>
-                <p>Events</p>
-                
+                <p class="ro">Grătare</p>
+                <p class="ru">Барбекю</p>
+                <p class="en">BBQs</p>
+                <p class="ro">Vizite</p>
+                <p class="ru">Визиты</p>
+                <p class="en">Visits</p>
+                <p class="ro">Evenimente</p>
+                <p class="ru">События</p>
+                <p class="en">Events</p>
               </div>
             </div>
             <div class="box">
               <div>
-                <h1>Contact</h1>
+                <h1 class="en">Contact</h1>
+                <h1 class="ro">Contact</h1>
+                <h1 class="ru">Контакты</h1>
               </div>
               <div class="service">
                 <p>Șoseaua Muncești 77</p>
@@ -295,12 +372,20 @@
           <div class="end">
             <div class="upper">
               <!-- <p>Privacy</p> -->
-              <a href="policy.html">Policy</a>
-              <p>Do not sell our information</p>
+              <a href="policy.html" class="en">Policy</a>
+              <a href="policy.html" class="ro">Politica</a>
+              <a href="policy.html" class="ru">Политика</a>
+              <p class="en">Do not sell our information</p>
+              <p class="ro">Nu vindeți informațiile noastre</p>
+              <p class="ru">Не продавайте нашу информацию</p>
             </div>
             <p>© 2025 Slash</p>
           </div>
-
+  
+      
+          
+        </div>
+  
       
           
         </div>

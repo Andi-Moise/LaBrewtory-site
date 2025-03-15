@@ -6,6 +6,7 @@ const nav= document.getElementById("nav")
 const apiUrl = 'https://679b802733d3168463241458.mockapi.io/beers';
 // FILTRE + CATALOG
 const openCart = document.getElementById("openCart")
+const openCart2 = document.getElementById("openCart2")
 const closeCart = document.getElementById("closeCart")
 const cartContainer = document.getElementById("cart-container")
 const alcoholFilterDiv = document.getElementById("alcohol-filter")
@@ -16,6 +17,7 @@ const maxPriceInput = document.getElementById("max-price")
 const cartMain = document.getElementById("cart-main")
 const cartBuyBtn = document.getElementById("cart-buy-btn")
 const totalPrice = document.getElementById("total-price")
+const totalPrice2 = document.getElementById("total-price2")
 const dotCart = document.getElementById("dot-cart")
 const added = document.getElementById("added")
 // SELECT
@@ -31,39 +33,52 @@ const closeHalfNavbarBtn = document.getElementById("close-half-navbar")
 const halfNavbar = document.getElementById("half-navbar")
 const filterDisappear = document.getElementById("filter-disappear")
 const disappear = document.getElementById("disappear")
-
+// CHECKOUT
+const cartItemsCheckout = document.getElementById("cartItemsCheckout")
+const checkout = document.getElementById("checkout")
+const placeOrder =document.getElementById("placeOrder")
+const checkoutBack =document.getElementById("checkoutBack")
+const nameForm = document.getElementById('name');
+const surname = document.getElementById('surname');
+const address = document.getElementById('address');
+const email = document.getElementById('email');
+const number = document.getElementById('number');
+const form = document.getElementById('form');
+const error = document.getElementById('error');
 // filterDisappear.addEventListener("click", ()=>{
 //   disappear.classList.toggle("hidden")
 // })
 
+// checkout.classList.add("hidden")
+
+// form.addEventListener("submit", (e) => {
+//   let messages = []
+//   if(nameForm.value ==='' || nameForm.value == null){
+//     messages.push('Name is required')
+//   }
+//   if(messages.length > 0){
+//     e.preventDefault()
+//     error.innerText = messages.join(' ')
+//   }
+// })
+  
+  // const errorMessage = document.getElementById('errorMessage');
+
+  
+
 document.addEventListener("DOMContentLoaded", () => {
-  const langSelector = document.getElementById("langSelector");
-
-  // Load language from localStorage
-  const savedLang = localStorage.getItem("selectedLanguage");
-  if (savedLang) {
-    langSelector.value = savedLang;
-    applyLanguage(savedLang);
+  const checkout = document.getElementById("checkout");
+  if (checkout) {
+      checkout.classList.add("hidden");
   }
+});
 
-  // Event listener for language change
-  langSelector.addEventListener("change", (event) => {
-    const selectedLang = event.target.value;
-    localStorage.setItem("selectedLanguage", selectedLang);
-    applyLanguage(selectedLang);
-  });
 
-  function applyLanguage(lang) {
-    console.log(`Language changed to: ${lang}`);
-    // You can add logic here to dynamically update text content if needed
-  }})
 
 burgerBtn.addEventListener("click", ()=>{
   halfNavbar.classList.toggle("hidden")
 })
-closeHalfNavbarBtn.addEventListener("click", ()=>{
-  halfNavbar.classList.toggle("hidden")
-})
+
 
 
 faqs.forEach(faq =>{
@@ -73,13 +88,8 @@ faqs.forEach(faq =>{
 })
 
 
-openCart.addEventListener("click", ()=>{
-  cartContainer.classList.toggle("hidden")
-})
 
-closeCart.addEventListener("click", ()=>{
-  cartContainer.classList.toggle("hidden")
-})
+
 
 
   
@@ -148,14 +158,14 @@ fetch(apiUrl)
     const beerImage = document.getElementById("beerImage")
 
 
-    data.slice(0, 5).forEach((beer, index) => {
+    data.forEach((beer, index) => {
       const button = document.createElement("button")
       button.className = "indicator"
 
       button.addEventListener("click", () => {
         imageIndex = index
         updateSlider()
-        resetTimer()
+        // resetTimer()
       });
 
       // indicators.appendChild(button);
@@ -176,8 +186,9 @@ fetch(apiUrl)
     }
 
     function nextSlide() {
-      imageIndex = (imageIndex + 1) % Math.min(data.length, 5)
+      imageIndex = (index + 1) % Math.min(data.length, 5)
       updateSlider()
+     
     }
 
     let sliderInterval = setInterval(nextSlide, 4000)
@@ -221,8 +232,10 @@ fetch(apiUrl)
             </div>
             <div class="info">
                 <div class="title">
-                    <h2 class="card-title">${item.name.split(" ")[0]}</h2>
-                <h2 class="card-title">${item.name.split(" ").slice(1).join(" ")}</h2>
+                    <div class="column">
+                      <h2 class="card-title">${item.name.split(" ")[0]}</h2>
+                      <h2 class="card-title">${item.name.split(" ").slice(1).join(" ")}</h2>
+                    </div>
                 </div>
                 <div class="details">
                     <div class="column">
@@ -258,12 +271,16 @@ fetch(apiUrl)
             <div class="images">
                 <img src=${item.catalogimg} alt="Flying Mamaliga" class="beer"/>
                 <img src="images/banner.png" class="banner" />
-                <p class="special-one">SPECIAL ONE</p>
+                
             </div>
             <div class="info">
                 <div class="title">
-                    <h2 class="card-title">${item.name.split(" ")[0]}</h2>
-                <h2 class="card-title">${item.name.split(" ").slice(1).join(" ")}</h2>
+                    <div class="column">
+                      <h2 class="card-title">${item.name.split(" ")[0]}</h2>
+                      <h2 class="card-title">${item.name.split(" ").slice(1).join(" ")}</h2>
+                    </div>
+                    <p class="special-one">SPECIAL ONE</p>
+                    
                 </div>
                 <div class="details">
                     <div class="column">
@@ -442,6 +459,7 @@ fetch(apiUrl)
             }, 1400);
 
             displayCart()
+            displayCheckoutCart()
             console.log(cart)
         })
       })
@@ -475,12 +493,22 @@ fetch(apiUrl)
         getDeleteBtns()
 
         totalPrice.textContent = `Total: ${calculateTotalPrice() +50} MDL`
-
+      
     }
     function calculateTotalPrice() {
       return cart.reduce((total, item) => total + (item.quantity * item.price), 0);
   }
-
+  function displayCheckoutCart() {
+    let cartItemCheckoutHTML = cart.map(cartItem => ` 
+      <div class="text cart-item" data-cart-item-id='${cartItem.id}'>
+          <p>${cartItem.name}</p>
+          <p>${cartItem.quantity} x ${cartItem.price} mdl</p>
+      </div>
+    `).join(""); // Join the array into a string
+  
+    cartItemsCheckout.innerHTML = cartItemCheckoutHTML;
+    totalPrice2.textContent = `Total: ${calculateTotalPrice() +50} MDL`
+}
 
     function getAllMinusBtns(){
       const minusBtns = cartMain.querySelectorAll(".cart-btn-minus")
@@ -499,6 +527,7 @@ fetch(apiUrl)
                   return item
               })
               displayCart()
+              displayCheckoutCart()
           })
       })
     }
@@ -527,6 +556,7 @@ fetch(apiUrl)
             })
             
             displayCart()
+            // displayCheckoutCart()
         })
     })
     }
@@ -538,20 +568,42 @@ fetch(apiUrl)
             let id = +btn.closest(".cart-item").getAttribute("data-cart-item-id")
               cart = cart.filter(item => item.id != id)
               displayCart()
+              // displayCheckoutCart()
           })
       })
   }
-  
+
   cartBuyBtn.addEventListener("click", () => {
     if (cart.length === 0) {
-        alert("Order cannot be placed. Reason: cart is empty");
-        return;
-    }
+      alert("Order cannot be placed. Reason: cart is empty");
+      return;
+  }
+  // cart = []
+  dotCart.classList.add("hidden");
+  displayCart();
+  checkout.classList.remove("hidden")
+  displayCheckoutCart();
+  
 
-    alert("Order placed successfully");
-    cart = []; 
-    dotCart.classList.add("hidden")
-    displayCart();
+});
+placeOrder.addEventListener("click", (event) => {
+  event.preventDefault()
+  const name = document.getElementById("name").value.trim()
+  const surname = document.getElementById("surname").value.trim()
+  const address = document.getElementById("address").value.trim()
+  const email = document.getElementById("email").value.trim()
+  const number = document.getElementById("number").value.trim()
+
+
+  if (name && surname && address && email && number) {
+    alert("Order is placed")
+    checkout.classList.add("hidden")
+    cart = []
+    displayCart()
+    cartContainer.classList.toggle("hidden")
+  } else {
+    alert("Please fill out all fields before placing the order.")
+  }
 });
   
   
@@ -644,94 +696,158 @@ fetch(apiUrl)
     return response.json();
   })
   .then(data => {
-    const dataHTML = data.slice(0,4).map((item) =>`
-                  <div class="box">
-                      <img src="${item.img}" alt="">
-                      <p onClick="document.getElementById('more').classList.remove('hidden')" id="vm-events" class="link">View More</p>
-                      <div class="back"></div>
-                  </div>
-
-<div class="more hidden" id="more">
-    
-    <div class="view-more">
-        
-          <div class="headings">
-              <div>
-                  <h1>7th AnniBEERsary</h1>
-                  <p class="description">${item.description}</p>
-              </div>
-             
-          </div>
-          
-          <div class="tabel">
-            <div class="element">
-              <small>Where</small>
-              <p>sos Muncesti 77, Chisinau, Moldova</p>
-            </div>
-            <div class="element">
-              <small>Where</small>
-              <p>Gratuită</p>
-            </div>
-            <div class="element">
-              <small>Where</small>
-              <p>Info</p>
-            </div>
-            <div class="element">
-              <small>Where</small>
-              <p>Info</p>
-            </div>
-          </div>
-          <i class="fa-solid fa-xmark" onClick="document.getElementById('more').classList.add('hidden')" id="close"></i>
+    const dataHTML = data.slice(-4).reverse().map((item, index) => {
+      const uniqueId = `more-${index}`; // Create a unique ID for each event modal
+      return `
+        <div class="box">
+            <img src="${item.img}" alt="">
+            <p onClick="document.getElementById('${uniqueId}').classList.remove('hidden')" class="link en hidden">View More</p>
+            <p onClick="document.getElementById('${uniqueId}').classList.remove('hidden')" class="link ro">Vezi mai mult</p>
+            <p onClick="document.getElementById('${uniqueId}').classList.remove('hidden')" class="link ru hidden">Посмотреть Больше</p>
+            <div class="back"></div>
         </div>
-        
     
-    <div class="blur"></div>
-</div>
-
-
-                
-
-                  
-    `)
+        <div class="more hidden" id="${uniqueId}">
+            <div class="view-more">
+                <div class="headings">
+                    <div>
+                        <h1>${item.name}</h1>
+                        <p class="description">${item.description}</p>
+                    </div>
+                </div>
+    
+                <div class="tabel">
+                    <div class="element">
+                        <small>Where</small>
+                        <p>${item.place}</p>
+                    </div>
+                    <div class="element">
+                        <small>When</small>
+                        <p>${item.date}</p>
+                    </div>
+                    <div class="element">
+                        <small>Entry</small>
+                        <p>${item.entry}</p>
+                    </div>
+                    <div class="element">
+                        <small>Start-End</small>
+                        <p>${item.startEnd}</p>
+                    </div>
+                </div>
+    
+                <i class="fa-solid fa-xmark closeEvent" onClick="document.getElementById('${uniqueId}').classList.add('hidden')"></i>
+            </div>
+            <div class="blur"></div>
+        </div>
+      `;
+    })
     events.innerHTML = dataHTML.join("")
   })
   .catch(error => {
     console.log('Error:')
   });
 
-  function changeLanguage(languageCode) {
-    Array.from(document.getElementsByClassName('lang')).forEach(function (elem) {
-        if (elem.classList.contains('lang-' + languageCode)) {
-             elem.style.display = 'initial';
-        }
-        else {
-             elem.style.display = 'none';
-        }
-    });
-}
+//   function changeLanguage(languageCode) {
+//     Array.from(document.getElementsByClassName('lang')).forEach(function (elem) {
+//         if (elem.classList.contains('lang-' + languageCode)) {
+//              elem.style.display = 'initial';
+//         }
+//         else {
+//              elem.style.display = 'none';
+//         }
+//     });
+// }
 
+document.addEventListener("DOMContentLoaded", () => {
+  const selectElement = document.getElementById("langSelector");
+
+  // Get the saved language from localStorage, default to "en"
+  const savedLang = localStorage.getItem("selectedLanguage") || "en";
+  selectElement.value = savedLang; // Set the dropdown to the saved value
+  updateVisibility(savedLang); // Update UI based on saved language
+
+  // Event listener to update selection and save to localStorage
+  selectElement.addEventListener("change", (event) => {
+    const selectedLang = event.target.value;
+    localStorage.setItem("selectedLanguage", selectedLang); // Save selected language
+    updateVisibility(selectedLang); // Update UI
+  });
+});
 
 function updateVisibility(selectedValue) {
-  const elementsEn = document.getElementsByClassName("en")
-  const elementsRo = document.getElementsByClassName("ro")
-  const elementsRu = document.getElementsByClassName("ru")
+  const elementsEn = document.getElementsByClassName("en");
+  const elementsRo = document.getElementsByClassName("ro");
+  const elementsRu = document.getElementsByClassName("ru");
 
+  // Hide all language elements
+  Array.from(elementsEn).forEach(element => element.classList.add("hidden"));
+  Array.from(elementsRo).forEach(element => element.classList.add("hidden"));
+  Array.from(elementsRu).forEach(element => element.classList.add("hidden"));
 
-  Array.from(elementsEn).forEach(element => element.classList.add("hidden"))
-  Array.from(elementsRo).forEach(element => element.classList.add("hidden"))
-  Array.from(elementsRu).forEach(element => element.classList.add("hidden"))
-
-
+  // Show only the selected language elements
   if (selectedValue === "en") {
-      Array.from(elementsEn).forEach(element => element.classList.remove("hidden"))
+    Array.from(elementsEn).forEach(element => element.classList.remove("hidden"));
   } else if (selectedValue === "ro") {
-      Array.from(elementsRo).forEach(element => element.classList.remove("hidden"))
+    Array.from(elementsRo).forEach(element => element.classList.remove("hidden"));
   } else if (selectedValue === "ru") {
-      Array.from(elementsRu).forEach(element => element.classList.remove("hidden"))
+    Array.from(elementsRu).forEach(element => element.classList.remove("hidden"));
   }
 }
-selectElement.value = "en"
-updateVisibility(selectElement.value)
-selectElement.addEventListener('change', function () {
-  updateVisibility(this.value)
-});
+function updateButtonSelection(selectedValue) {
+  // Remove the 'selected' class from all buttons
+
+  document.getElementById("btn-en").classList.remove("selected");
+  document.getElementById("btn-ro").classList.remove("selected");
+  document.getElementById("btn-ru").classList.remove("selected");
+
+  // Add the 'selected' class to the button corresponding to the selected language
+  if (selectedValue === "en") {
+    document.getElementById("btn-en").classList.add("selected");
+  } else if (selectedValue === "ro") {
+    document.getElementById("btn-ro").classList.add("selected");
+  } else if (selectedValue === "ru") {
+    document.getElementById("btn-ru").classList.add("selected");
+  }
+}
+closeHalfNavbarBtn.addEventListener("click", ()=>{
+  halfNavbar.classList.toggle("hidden")
+})
+
+function selectLanguage(languageCode) {
+  // Save the selected language in localStorage
+  localStorage.setItem("selectedLanguage", languageCode);
+
+  // Update the UI based on the selected language
+  updateVisibility(languageCode);
+  updateButtonSelection(languageCode);
+}
+
+
+
+checkoutBack.addEventListener("click", ()=>{
+  checkout.classList.toggle("hidden");
+})
+  
+// const selectElement = document.getElementById('langSelector')
+
+
+// selectElement.value = "en"
+
+
+// updateVisibility(selectElement.value)
+
+
+// selectElement.addEventListener('change', function () {
+//     updateVisibility(this.value)
+// });
+openCart.addEventListener("click", ()=>{
+  cartContainer.classList.toggle("hidden")
+})
+openCart2.addEventListener("click", ()=>{
+  cartContainer.classList.toggle("hidden")
+})
+
+closeCart.addEventListener("click", ()=>{
+  cartContainer.classList.toggle("hidden")
+})
+

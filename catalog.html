@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="styles.css">
     <!-- <script defer src="catalog.js"></script> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" type="image/x-icon" href="images/pageicon.png">
     <script defer src="js/app.js"></script>
 </head>
 <body>
@@ -14,25 +15,35 @@
     <div class="cart-container hidden" id="cart-container">
         <div class="cart">
             <i class="fa-solid fa-xmark" id="closeCart"></i>
-            <h1>Your Cart</h1>
+            <h1 class="ro">Coșul tău</h1>
+            <h1 class="ru">Ваша корзина</h1>
+            <h1 class="en">Your Cart</h1>
             <div class="line"></div>
             <div class="elements" id="cart-main">
                 
             </div>
             <div class="line"></div>
             <div class="cont">
-                <h2>Livrare:</h2>
+                
+                <h2 class="ro">Livrare</h2>
+                <h2 class="ru">Доставка</h2>
+                <h2 class="en">Delivery</h2>
+
                 <h2 class="strong">MDL 50</h2>
             </div>
             <div class="line"></div>
             <div class="cont">
-                <h2>Subtotal:</h2>
+              <h2 class="ro">Totalul</h2>
+              <h2 class="ru">Итого</h2>
+              <h2 class="en">Total</h2>
                 <h2 class="strong" id="total-price"></h2>
             </div>
             <div class="line"></div>
             <div class="end">
                 <div class="pay" id="cart-buy-btn">
-                    <p>Ready to Checkout</p>
+                  <p class="ro">Pregătit pentru finalizare</p>
+                  <p class="ru">Готово к оформлению</p>
+                  <p class="en">Ready to Checkout</p>
                 </div>
             </div>
             
@@ -47,28 +58,45 @@
     <header>
         <div class="contact-us">
             <nav  class="pages" class="navigation">
-              <i class="fa-solid fa-bars burger-btn" id="burger-btn"></i>
+             
+                
+                
+                <div class="half-div">
+                   <img src="images/logo.png" id="" class="logoNavMini" alt="" >
+                  <div class="cart-icon cart2">
+                    <i class="fa-solid fa-cart-shopping" id="openCart2"></i>
+                    <div class="dot hidden" id="dot-cart2"></div>
+                  </div>
+                  <i class="fa-solid fa-bars burger-btn" id="burger-btn"></i>
+                </div>
+              
+              
                 <div class="container navbar">
                     
-                    <div class="left">
-                        <a href="catalog.html">Beers</a>
-                        <a href="aboutus.html">About us</a>
-                        <!-- <a href="">Gallery</a> -->
-                    </div>
+                  <div class="left">
+                    <a href="catalog.html" class="ro">Beri</a>
+                    <a href="catalog.html" class="ru">Пиво</a>
+                    <a href="catalog.html" class="en">Beers</a>
+                    <a href="aboutus.html" class="ro">Despre noi</a>
+                    <a href="aboutus.html" class="ru">О нас</a>
+                    <a href="aboutus.html" class="en">About us</a>
+                    <!-- <a href="">Gallery</a> -->
+                </div>
                     <a class="center" href="index.html">
                         <img src="images/logo.png"  class="logoNav pagesNav" alt="" >
                     </a>
                     <div class="right">
                         
-                        <a href="contact.html">Contact</a>
+                      <a href="contact.html" class="ro">Contacte</a>
+                      <a href="contact.html" class="ru">Контакты</a>
+                      <a href="contact.html" class="en">Contact</a>
                         <select id="langSelector" class="langSelector">
-                            <option value="en">En</option>
-                            <option value="ro" >Ro</option>
-                            <option value="ru">Ru</option>
-                            
-                            
+                          <option value="ro" >Ro</option>
+                          <option value="ru">Ру</option>
+                          <option value="en">En</option>
+
                         </select>
-                        <div class="cart-icon">
+                        <div class="cart-icon cart1">
                             <i class="fa-solid fa-cart-shopping" id="openCart"></i>
                             <div class="dot hidden" id="dot-cart"></div>
                         </div>
@@ -80,12 +108,20 @@
             <div class="half-navbar  hidden" id="half-navbar">
               <i class="fa-solid fa-xmark close" id="close-half-navbar"></i>
               <div class="links">
-                <a href="index.html">Home </a>
-                <a href="catalog.html">Beers</a>
-                <a href="aboutus.html">About us</a>
-                <a href="contact.html">Contact</a>
+                <a href="index.html" class="ro">Acasă</a>
+                <a href="index.html" class="ru">Главная</a>
+                <a href="index.html" class="en">Home</a>
+                <a href="catalog.html" class="ro">Beri</a>
+                <a href="catalog.html" class="ru">Пиво</a>
+                <a href="catalog.html" class="en">Beers</a>
+                <a href="aboutus.html" class="ro">Despre noi</a>
+                <a href="aboutus.html" class="ru">О нас</a>
+                <a href="aboutus.html" class="en">About us</a>
+                <a href="contact.html" class="ro">Contacte</a>
+                <a href="contact.html" class="ru">Контакты</a>
+                <a href="contact.html" class="en">Contact</a>
                 <div class="language-options">
-                  <button onclick="selectLanguage('en')" class="selected">En</button>
+                  <button onclick="selectLanguage('en')" >En</button>
                   <button onclick="selectLanguage('ro')">Ro</button>
                   <button onclick="selectLanguage('ru')">Ru</button>
               </div>
@@ -102,7 +138,9 @@
         <div class="catalog-page container">
             <div class="side">
                 <section class="filters">
-                    <h2 id="filter-disappear">Filters <i class="fa-solid fa-filter"></i></h2>
+                  <h2 id="filter-disappear" class="ro">Filtre <i class="fa-solid fa-filter"></i></h2>
+                  <h2 id="filter-disappear" class="ru">Фильтры <i class="fa-solid fa-filter"></i></h2>
+                  <h2 id="filter-disappear" class="en">Filters <i class="fa-solid fa-filter"></i></h2>
                     <!-- <div class="filter">
                         <h3>Alcohol</h3>
                         <div id="alcohol-filter" class="filter-options">
@@ -111,7 +149,10 @@
                     </div> -->
                     <div id="disappear">
                       <div class="filter type" >
-                        <h3>Type</h3>
+                        <h3 class="ro">Tip</h3>
+                        <h3 class="ru">Тип</h3>
+                        <h3 class="en">Type</h3>
+
                         <div id="type-filter" class="filter-options">
         
                         </div>
@@ -125,12 +166,14 @@
                     </div>   -->
                     
                     <div class="filter price">
-                        <h3>Price</h3>
+                      <h3 class="ro">Preț</h3>
+                      <h3 class="ru">Цена</h3>
+                      <h3 class="en">Price</h3>
                         <div class="price-filter">
                             <input type="number" id="min-price" placeholder="min">
                             <p>-</p>
                             <input type="number" id="max-price" placeholder="max">
-                            <p>lei</p>
+                            <p>mdl</p>
                         </div>
                     </div>
                     </div>
@@ -152,30 +195,42 @@
         <img src="" alt="" />
         <div class='text'>
             <div class="heading">
-              <h1>THIRSTY</h1>
-              <h1>YET ?</h1>
+              <div class="heading">
+                <h1 class="ro">ÎȚI ESTE</h1>
+                <h1 class="ro">SETE?</h1>
+              
+                <h1 class="ru">ТЫ</h1>
+                <h1 class="ru">ХОЧЕШЬ ПИТЬ?</h1>
+              
+                <h1 class="en">THIRSTY</h1>
+                <h1 class="en">YET?</h1>
+              </div>
             </div>
-            <p class="button">COME TO GET A BEER</p>
+            <p class="button ro">VINO SĂ BEI O BERE</p>
+<p class="button ru">ПРИХОДИ НА ПИВО</p>
+<p class="button en">COME TO GET A BEER</p>
         </div>
       </div>
       <footer>
         <img src="images/Test.png" alt="" class="back">
-
+  
         <!-- <div style="height: 40px;"></div> -->
       
         <div class="test container">
           <div class="top">
-            <h1>Connect with Labrewtory</h1>
+            <h1 class="en">Connect with Labrewtory</h1>
+            <h1 class="ro">CONECTEAZĂ-TE CU Labrewtory</h1>
+            <h1 class="ru">СВЯЗАТЬСЯ С Labrewtory</h1>
             <div class="links">
-              <div>
+              <a href="https://www.instagram.com/labrewtorybrewingmd/">
                 <i class="fa-brands fa-instagram"></i>
-              </div>
-              <div>
+              </a>
+              <a href="https://www.facebook.com/LabrewtoryBrewingCo">
                 <i class="fa-brands fa-facebook-f"></i>
-              </div>
-              <div>
+              </a>
+              <a href="https://x.com/labrewtorymd?lang=en">
                 <i class="fa-brands fa-x-twitter"></i>
-              </div>
+              </a>
             </div>
           </div>
       
@@ -184,41 +239,70 @@
           <div class="middle">
             <div class="box">
               <div>
-                <h1>Pages</h1>
+                <h1 class="en">Pages</h1>
+                <h1 class="ro">Pagini</h1>
+                <h1 class="ru">Страницы
+                </h1>
               </div>
               <div class="service">
-                <a href="index.html">Home</a>
-                <a href="catalog.html">Beers</a>
-                <a href="aboutus.html">About us</a>
-                <a href="contact.html">Contact</a>
-                
+                <a href="index.html" class="ro">Acasa</a>
+                  <a href="index.html" class="ru">Главная </a>
+                  <a href="index.html" class="en">Home </a>
+                  <a href="catalog.html" class="ro">Beri</a>
+                  <a href="catalog.html" class="ru">Пиво</a>
+                  <a href="catalog.html" class="en">Beers</a>
+                  <a href="aboutus.html" class="ro">Despre noi</a>
+                  <a href="aboutus.html" class="ru">О нас</a>
+                  <a href="aboutus.html" class="en">About us</a>
+                  <a href="contact.html" class="ro">Contacte</a>
+                  <a href="contact.html" class="ru">Контакты</a>
+                  <a href="contact.html" class="en">Contact</a>
+                  
                 
               </div>
             </div>
             <div class="box">
               <div>
-                <h1>Beers</h1>
+                
+                <h1 class="ro">Beri</h1>
+                <h1 class="ru">Пиво</h1>
+                <h1 class="en">Beers</h1>
               </div>
               <div class="service">
-                <p>Brune</p>
-                <p>Blonde</p>
+                <p class="ro">Brune</p>
+                <p class="ru">Тёмное</p>
+                <p class="en">Brune</p>
+  
+                <p class="ro">Blonde</p>
+                <p class="ru">Светлое</p>
+                <p class="en">Blonde</p>
               </div>
             </div>
             <div class="box">
               <div>
-                <h1>Services</h1>
+                <h1 class="ro">Servicii</h1>
+                <h1 class="ru">Услуги</h1>
+                <h1 class="en">Services</h1>
+                
               </div>
               
               <div class="service">
-                <p>BBQs</p>
-                <p>Visits</p>
-                <p>Events</p>
-                
+                <p class="ro">Grătare</p>
+                <p class="ru">Барбекю</p>
+                <p class="en">BBQs</p>
+                <p class="ro">Vizite</p>
+                <p class="ru">Визиты</p>
+                <p class="en">Visits</p>
+                <p class="ro">Evenimente</p>
+                <p class="ru">События</p>
+                <p class="en">Events</p>
               </div>
             </div>
             <div class="box">
               <div>
-                <h1>Contact</h1>
+                <h1 class="en">Contact</h1>
+                <h1 class="ro">Contact</h1>
+                <h1 class="ru">Контакты</h1>
               </div>
               <div class="service">
                 <p>Șoseaua Muncești 77</p>
@@ -232,16 +316,20 @@
           <div class="end">
             <div class="upper">
               <!-- <p>Privacy</p> -->
-              <a href="policy.html">Policy</a>
-              <p>Do not sell our information</p>
+              <a href="policy.html" class="en">Policy</a>
+              <a href="policy.html" class="ro">Politica</a>
+              <a href="policy.html" class="ru">Политика</a>
+              <p class="en">Do not sell our information</p>
+              <p class="ro">Nu vindeți informațiile noastre</p>
+              <p class="ru">Не продавайте нашу информацию</p>
             </div>
             <p>© 2025 Slash</p>
           </div>
-
+  
       
           
         </div>
-
+  
       
           
         </div>
@@ -251,5 +339,107 @@
       <div class="end">
 
       </div>
+
+      <div class="checkout hidden" id="checkout">
+        <div class="grid container">
+            <div class="form">
+              <i class="fa-solid fa-arrow-left" id="checkoutBack"></i>
+                <h1 class="ro">Datele livrării</h1>
+                <h1 class="ru">Данные доставки</h1>
+                <h1 class="en">Delivery Details</h1>
+                <div id="error"></div>
+                <form action="" id="form">
+                    <div class="top">
+                        <div>
+                            <label for="fname" class="ro">Numele:</label>
+                            <label for="fname" class="ru">Имя:</label>
+                            <label for="fname" class="en">First Name:</label>
+                            <input type="text" id="name" name="fname" placeholder="Vlad" required>
+                        </div>
+                        <div>
+                            <label for="lname" class="ro">Prenumele:</label>
+                            <label for="lname" class="ru">Фамилия:</label>
+                            <label for="lname" class="en">Last Name:</label>
+                            <input type="text" id="surname" name="fname" placeholder="Morarescu" required>
+                        </div>
+                   
+                    </div>
+                    <div class="center">
+                        <label for="address" class="ro">Adresa:</label>
+                        <label for="address" class="ru">Адрес:</label>
+                        <label for="address" class="en">Address:</label>
+                        <input type="text" id="address" name="fname" placeholder="Strada Hanul Morii 86" required>
+                    </div>
+                 
+                    <div class="bottom">
+                        <div>
+                            <label for="email" class="ro">Email:</label>
+                            <label for="email" class="ru">Эл. почта:</label>
+                            <label for="email" class="en">Email:</label>
+                            
+                            <input type="email" id="email" name="fname" placeholder="name@gmail.com" required>
+                        </div>
+                        <div>
+                            <label for="number" class="ro">Număr de telefon:</label>
+                            <label for="number" class="ru">Номер телефона:</label>
+                            <label for="number" class="en">Phone Number:</label>
+                            <input type="number" id="number" name="quantity" placeholder="+373 6969696" required>
+                        </div>
+                        
+                    </div>
+                    <!-- <button type="submit">Plaseaza Comanda</button> -->
+                
+
+            </div>
+            <div class="cart-details">
+                <div class="box">
+                    
+                    
+                    <small class="ro">Comanda dvs.</small>
+                    <small class="ru">Ваш заказ</small>
+                    <small class="en">Your Order</small>
+                    <div class="items" id="cartItemsCheckout">
+                        
+                        
+                    </div>
+                    <!-- <div class="line"></div> -->
+                    
+                    
+                </div>
+               <div class="box">
+                <!-- <div class="line2"></div> -->
+                <div class="text">
+                            
+                    <small class="ro">Livrare</small>
+                    <small class="ru">Доставка</small>
+                    <small class="en">Delivery</small>
+                    <small>50 MDL</small>
+                        </div>
+                        <div class="line2"></div>
+                <div class="total">
+                    
+                  <small class="ro">Totalul</small>
+                  <small class="ru">Итого</small>
+                  <small class="en">Total</small>
+                    <small id="total-price2"></small>
+                </div>
+                <!-- <div class="line2"></div> -->
+                <a href="policy.html" class="policy-para ro">
+                  Prin plasarea comenzii, sunteți de acord cu politica de confidențialitate și condițiile de utilizare ale companiei noastre.
+                </a>
+                <a href="policy.html" class="policy-para ru">
+                  Размещая заказ, вы соглашаетесь с нашей политикой конфиденциальности и условиями использования.
+                </a>
+                <a href="policy.html" class="policy-para en">
+                  By placing an order, you agree to our privacy policy and terms of use.
+                </a>
+                <button type="submit" id="placeOrder" class="ro">Plasează Comanda</button>
+                <button type="submit" id="placeOrder" class="ru">Оформить заказ</button>
+                <button type="submit" id="placeOrder" class="en">Place Order</button>
+               </div>
+              </form>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
