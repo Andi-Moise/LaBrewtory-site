@@ -1083,7 +1083,7 @@ flex-direction: column;
 color: var(--black);
 font-family: var(--oswald);
 font-weight: 100;
-font-size: var(--text-8xl);
+font-size: var(--text-6xl);
 /* line-height: 1; */
 width: 100%;
 display: flex;
@@ -2954,6 +2954,7 @@ width: 100%;
     }
     .more .view-more .headings h1{
       font-size: var(--text-4xl);
+      padding-top: 70px; 
     }
     .more .view-more .headings .description{
       width: 100%;
@@ -3437,7 +3438,11 @@ font-size: var(--text-lg);
 
     gap: 25px;
   }
-  
+  .view-more {
+    min-height: 100vh;
+    max-height: 100%;
+    overflow: auto;
+  }
 .crew .container .title{
   display: flex;
   justify-content: center;
