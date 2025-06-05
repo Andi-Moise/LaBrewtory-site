@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LaBrewtory</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/css/test.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="icon" type="image/x-icon" href="images/pageicon.png">
-    <script defer src="js/aboutus.js"></script>
+    <script defer src="about.js"></script>
 </head>
 <body>
     <header>
@@ -28,23 +28,55 @@
               </div>
                 <div class="container navbar rest">
                     
-                  <div class="left">
-                    <a href="catalog.html" class="ro">Beri</a>
-                    <a href="catalog.html" class="ru">Пиво</a>
-                    <a href="catalog.html" class="en">Beers</a>
-                    <a href="aboutus.html" class="ro">Despre noi</a>
-                    <a href="aboutus.html" class="ru">О нас</a>
-                    <a href="aboutus.html" class="en">About us</a>
+                                  <div class="left">
+                  <a href="/catalog" class="en">Beers</a>
+                  <a href="/catalog" class="ro">Beri</a>
+                  <a href="/catalog" class="ru">Пиво</a>
+                  <a href="/aboutus" class="en">About us</a>
+                  <a href="/aboutus" class="ro">Despre noi</a>
+                  <a href="/aboutus" class="ru">О нас</a>
+                  <a href="/contact" class="en">Contact</a>
+                  <a href="/contact" class="ro">Contacte</a>
+                  <a href="/contact" class="ru">Контакты</a>
                     <!-- <a href="">Gallery</a> -->
                 </div>
-                <a class="center" href="index.html">
+                <a class="center" href="/">
                     <img src="images/logo.png" id="logoNav2" class="logoNav pagesNav" alt="" >
                 </a>
                 <div class="right">
                     
-                  <a href="contact.html" class="ro">Contacte</a>
-                  <a href="contact.html" class="ru">Контакты</a>
-                  <a href="contact.html" class="en">Contact</a>
+                  <% if (name) { %>
+                      <div class="item-container">
+  <i class="fa-solid fa-user iconUser" id="iconUser"  onclick="toggleHoverBox()"></i>
+  <div class="hover-box  hidden " id="hoverBox">
+    <div class="text">
+      <p class="en">Hello <%= name  %>!</p>
+    <p class="ro">Bună <%= name  %>!</p>
+    <p class="ru">Привет <%= name  %>!</p>
+    <small class="en">Points: 4000</small>
+    <small class="ro">Puncte: 4000</small>
+    <small class="ru">Баллы: 4000</small>
+    </div>
+    
+
+    <form action="/logout?_method=DELETE" method="POST" class="logout">
+
+      <button type="submit" class="en">    <i class="fa-solid fa-right-from-bracket"></i>  
+</button>
+      <button type="submit" class="ro">Deconectare</button>
+      <button type="submit" class="ru">Выйти</button>
+    </form>
+  </div>
+</div>
+    
+    
+    
+  <% } else { %>
+     <a href="/login" class="en"><i class="fa-solid fa-right-to-bracket"></i></a>
+                    <a href="/login" class="ro">Autentificare</a>
+                    <a href="/login" class="ru">Войти</a>
+    <!-- <a href="/login">Login</a> -->
+  <% } %>
                     
                     <!-- <label for="langSelector">Choose a language:</label> -->
                     <select id="langSelector" class="langSelector2">
@@ -57,7 +89,10 @@
                         <i class="fa-solid fa-cart-shopping" id="openCart"></i>
                         <div class="dot hidden" id="dot-cart"></div>
                     </div> -->
-
+                     <div class="cart-icon cart1">
+                            <i class="fa-solid fa-cart-shopping" id="openCart"></i>
+                            <div class="dot hidden" id="dot-cart"></div>
+                        </div>
                 </div>
                     
                 </div>

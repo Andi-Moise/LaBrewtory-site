@@ -1,0 +1,77 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Log In</title>
+  <link rel="icon" type="image/x-icon" href="images/pageicon.png">
+  <link rel="stylesheet" href="/css/test.css">
+     <script defer src="/test.js"></script>
+</head>
+<body class="login-body">
+  <!-- <div class="login">
+      <h1>Login</h1>
+<% if (messages.error) { %>
+  <%= messages.error %>
+<% } %>
+<form action="/login" method="POST">
+  <div>
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" required>
+  </div>
+  <div>
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password" required>
+  </div>
+  <button type="submit">Login</button>
+</form>
+<a href="/register">Register</a>
+
+
+  </div> -->
+   <div class="login-container">
+    <form class="login-card"  action="/login" method="POST">
+      <h2 class="en">Login to your account</h2>
+      <!-- <h2 class="ro">Autentificare în contul tău</h2>
+      <h2 class="ru">Войдите в свой аккаунт</h2> -->
+      <h2 class="error-message">
+        <% if (messages.error) { %>
+  <%= messages.error %>
+<% } %>
+      </h2>
+      
+      <label for="email" class="en">Email</label>
+      <!-- <label for="email" class="ro">Email</label>
+      <label for="email" class="ru">Электронная почта</label> -->
+      <input type="email" id="email" name="email" required placeholder="Enter your email">
+
+      <div class="password-label">
+        <label for="password" class="en">Password</label>
+        <!-- <label for="password" class="ro">Parolă</label>
+        <label for="password" class="ru">Пароль</label> -->
+        
+      </div>
+      <div class="password-input">
+        <input type="password" id="password" name="password" required placeholder="Enter your password">
+        
+        
+      </div>
+
+      <button type="submit" class="en">Login now</button>
+      <!-- <button type="submit" class="ro">Autentificare</button>
+      <button type="submit" class="ru">
+        Войти
+      </button> -->
+
+
+
+      <p class="signup-text en">Don't Have An Account? <a href="/register">Sign Up</a></p>
+      <!-- <p class="signup-text ro">Nu ai un cont? <a href="/register">Înregistrează-te</a></p>
+      <p class="signup-text ru">Нет аккаунта? <a href="/register">Зарегистрироваться</a></p> -->
+
+    </form>
+  </div>
+</body>
+</html>

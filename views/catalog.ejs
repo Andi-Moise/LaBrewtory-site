@@ -4,11 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LaBrewtory</title>
-    <link rel="stylesheet" href="styles.css">
+     <link rel="stylesheet" href="/css/test.css">
     <!-- <script defer src="catalog.js"></script> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="icon" type="image/x-icon" href="images/pageicon.png">
-    <script defer src="js/app.js"></script>
+    <script defer src="test.js"></script>
+    <script defer src="https://smtpjs.com/v3/smtp.js"></script>
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init({
+        publicKey: "YOUR_PUBLIC_KEY",
+      });
+   })();
+</script>
 </head>
 <body>
 
@@ -76,28 +87,80 @@
                 <div class="container navbar">
                     
                   <div class="left">
-                    <a href="catalog.html" class="ro">Beri</a>
-                    <a href="catalog.html" class="ru">Пиво</a>
-                    <a href="catalog.html" class="en">Beers</a>
-                    <a href="aboutus.html" class="ro">Despre noi</a>
-                    <a href="aboutus.html" class="ru">О нас</a>
-                    <a href="aboutus.html" class="en">About us</a>
+                    <a href="/catalog" class="en">Beers</a>
+                  <a href="/catalog" class="ro">Beri</a>
+                  <a href="/catalog" class="ru">Пиво</a>
+                  <a href="/aboutus" class="en">About us</a>
+                  <a href="/aboutus" class="ro">Despre noi</a>
+                  <a href="/aboutus" class="ru">О нас</a>
+                  <a href="/contact" class="en">Contact</a>
+                  <a href="/contact" class="ro">Contacte</a>
+                  <a href="/contact" class="ru">Контакты</a>
                     <!-- <a href="">Gallery</a> -->
                 </div>
-                    <a class="center" href="index.html">
+                    <a class="center" href="/">
                         <img src="images/logo.png"  class="logoNav pagesNav" alt="" >
                     </a>
                     <div class="right">
-                        
-                      <a href="contact.html" class="ro">Contacte</a>
-                      <a href="contact.html" class="ru">Контакты</a>
-                      <a href="contact.html" class="en">Contact</a>
-                        <select id="langSelector" class="langSelector">
-                          <option value="ro" >Ro</option>
-                          <option value="ru">Ру</option>
-                          <option value="en">En</option>
+                        <% if (name) { %>
+                      <div class="item-container">
+                  <i class="fa-solid fa-user iconUser" id="iconUser"  onclick="toggleHoverBox()"></i>
+                  <div class="hover-box  hidden " id="hoverBox">
+                  <div class="profile-card">
+                  <div class="profile-header">
+                    <div class="avatar"></div>
+                    <div class="user-info">
+                      <div class="name-points">
+                        <span class="name"><%= name  %></span>
+                        <span class="points"><%= points %> Points</span>
+                      </div>
+                      <div class="email"><%= email %></div>
+                    </div>
+                  </div>
+                  <hr />
+                  <div class="menu">
+                    <div class="menu-item">
+                      <span class="icon"><i class="fa-solid fa-ribbon"></i></span>
+                      <span class="text">Bonus Shop</span>
+                    </div>
+                    <div class="menu-item">
+                      <span class="icon"><i class="fa-solid fa-clock-rotate-left"></i></span>
+                      <span class="text">Order History</span>
+                    </div>
+                    <hr />
+                    <div class="menu-item sign-out">
+                      <form action="/logout?_method=DELETE" method="POST" class="logout">
 
-                        </select>
+                      <button type="submit" class="en">    <i class="fa-solid fa-right-from-bracket" class="icon"> </i>  Sign Out
+                </button>
+                      <button type="submit" class="ro"> <i class="fa-solid fa-right-from-bracket" class="icon"> </i>Deconectare</button>
+                      <button type="submit" class="ru"><i class="fa-solid fa-right-from-bracket" class="icon"> </i>Выйти</button>
+                    </form>
+                    </div>
+                  </div>
+                </div>
+                    
+
+                    
+                  </div>
+                  
+                </div>
+                        
+    
+ <% } else { %>
+     <a href="/login" class="en"><i class="fa-solid fa-right-to-bracket"></i></a>
+                    <a href="/login" class="ro">Autentificare</a>
+                    <a href="/login" class="ru">Войти</a>
+    <!-- <a href="/login">Login</a> -->
+  <% } %>
+                  
+                    <select id="langSelector" class="langSelector">
+                      <option value="en">En</option>
+                      <option value="ro" >Ro</option>
+                      <option value="ru">Ру</option>
+                      
+                      
+                  </select>
                         <div class="cart-icon cart1">
                             <i class="fa-solid fa-cart-shopping" id="openCart"></i>
                             <div class="dot hidden" id="dot-cart"></div>
@@ -350,49 +413,55 @@
                 <h1 class="ru">Данные доставки</h1>
                 <h1 class="en">Delivery Details</h1>
                 <div id="error"></div>
-                <form action="" id="form">
-                    <div class="top">
-                        <div>
-                            <label for="fname" class="ro">Numele:</label>
-                            <label for="fname" class="ru">Имя:</label>
-                            <label for="fname" class="en">First Name:</label>
-                            <input type="text" id="name" name="fname" placeholder="Vlad" required>
-                        </div>
-                        <div>
-                            <label for="lname" class="ro">Prenumele:</label>
-                            <label for="lname" class="ru">Фамилия:</label>
-                            <label for="lname" class="en">Last Name:</label>
-                            <input type="text" id="surname" name="fname" placeholder="Morarescu" required>
-                        </div>
-                   
-                    </div>
-                    <div class="center">
-                        <label for="address" class="ro">Adresa:</label>
-                        <label for="address" class="ru">Адрес:</label>
-                        <label for="address" class="en">Address:</label>
-                        <input type="text" id="address" name="fname" placeholder="Strada Hanul Morii 86" required>
-                    </div>
-                 
-                    <div class="bottom">
-                        <div>
-                            <label for="email" class="ro">Email:</label>
-                            <label for="email" class="ru">Эл. почта:</label>
-                            <label for="email" class="en">Email:</label>
-                            
-                            <input type="email" id="email" name="fname" placeholder="name@gmail.com" required>
-                        </div>
-                        <div>
-                            <label for="number" class="ro">Număr de telefon:</label>
-                            <label for="number" class="ru">Номер телефона:</label>
-                            <label for="number" class="en">Phone Number:</label>
-                            <input type="number" id="number" name="quantity" placeholder="+373 6969696" required>
-                        </div>
-                        
-                    </div>
-                    <!-- <button type="submit">Plaseaza Comanda</button> -->
-                
+              <form action="" id="form">
+  <div class="top">
+    <div>
+      <label for="name" class="ro">Numele:</label>
+      <label for="name" class="ru">Имя:</label>
+      <label for="name" class="en">First Name:</label>
+      <input type="text" id="name" name="name" placeholder="Vlad" required>
+    </div>
+    <div>
+      <label for="surname" class="ro">Prenumele:</label>
+      <label for="surname" class="ru">Фамилия:</label>
+      <label for="surname" class="en">Last Name:</label>
+      <input type="text" id="surname" name="surname" placeholder="Morarescu" required>
+    </div>
+  </div>
 
-            </div>
+  <div class="center">
+    <label for="address" class="ro">Adresa:</label>
+    <label for="address" class="ru">Адрес:</label>
+    <label for="address" class="en">Address:</label>
+    <input type="text" id="address" name="address" placeholder="Strada Hanul Morii 86" required>
+  </div>
+
+  <div class="bottom">
+    <div>
+      <label for="email" class="ro">Email:</label>
+      <label for="email" class="ru">Эл. почта:</label>
+      <label for="email" class="en">Email:</label>
+      <input type="email" id="email" name="email" placeholder="name@gmail.com" required>
+    </div>
+    <div>
+      <label for="number" class="ro">Număr de telefon:</label>
+      <label for="number" class="ru">Номер телефона:</label>
+      <label for="number" class="en">Phone Number:</label>
+      <input type="tel" id="number" name="number" placeholder="+373 6969696" required>
+    </div>
+  </div>
+
+ <div id="pointsSection" class="">
+  <p>You have <span id="userPoints"><%= points %> pts</span></p>
+  <label><input type="checkbox" id="usePointsCheckbox"> Use my points</label>
+</div>
+
+
+  <button type="submit" id="placeOrder" class="ro">Plasează Comanda </button>
+  <button type="submit" id="placeOrder" class="ru">Оформить заказ</button>
+  <button type="submit" id="placeOrder" class="en">Place Order</button>
+</form>
+</div>
             <div class="cart-details">
                 <div class="box">
                     
@@ -435,13 +504,16 @@
                 <a href="policy.html" class="policy-para en">
                   By placing an order, you agree to our privacy policy and terms of use.
                 </a>
-                <button type="submit" id="placeOrder" class="ro">Plasează Comanda</button>
+                <!-- <button type="submit" id="placeOrder" class="ro">Plasează Comanda</button>
                 <button type="submit" id="placeOrder" class="ru">Оформить заказ</button>
-                <button type="submit" id="placeOrder" class="en">Place Order</button>
+                <button type="submit" id="placeOrder" class="en">Place Order</button> -->
                </div>
-              </form>
+              
+
             </div>
         </div>
     </div>
+
+    
 </body>
 </html>

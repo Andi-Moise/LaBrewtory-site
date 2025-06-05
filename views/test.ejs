@@ -1,85 +1,205 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>User Auth</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 2rem;
+      background: #f5f5f5;
+    }
+    form {
+      background: white;
+      padding: 1rem;
+      margin-bottom: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      max-width: 300px;
+    }
+    input {
+      display: block;
+      margin-bottom: 1rem;
+      padding: 0.5rem;
+      width: 100%;
+    }
+    button {
+      padding: 0.5rem 1rem;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <form action="/users" method="POST" class="register-form">
+    <h1>Register</h1>
+    <input type="text" name="name" placeholder="Name" required>
+    <input type="password" name="password" placeholder="Password" required>
+    <button type="submit">Register</button>
+  </form>
+
+  <form action="/users/login" method="POST" class="login-form">
+    <h1>Login</h1>
+    <input type="text" name="name" placeholder="Name" required>
+    <input type="password" name="password" placeholder="Password" required>
+    <button type="submit">Login</button>
+  </form>
+</body>
+</html> -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LaBrewtory</title>
-    <link rel="stylesheet" href="styles.css">
+   <link rel="stylesheet" href="/css/test.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="icon" type="image/x-icon" href="images/pageicon.png">
-    <script defer src="js/app.js"></script>
+    <!-- <script defer src="app.js"></script> -->
+    <script defer src="/test.js"></script>
 </head>
 <body>
     <!-- <div class="cart-container hidden" id="cart-container"> -->
         <div class="cart-container hidden" id="cart-container">
-            <div class="cart">
-                <i class="fa-solid fa-xmark" id="closeCart"></i>
-                <h1>Your Cart</h1>
-                <div class="line"></div>
-                <div class="elements" id="cart-main">
-                    
-                </div>
-                <div class="line"></div>
-                <div class="cont">
-                    <h2>Livrare:</h2>
-                    <h2 class="strong">MDL 50</h2>
-                </div>
-                <div class="line"></div>
-                <div class="cont">
-                    <h2>Subtotal:</h2>
-                    <h2 class="strong" id="total-price"></h2>
-                </div>
-                <div class="line"></div>
-                <div class="end">
-                    <div class="pay" id="cart-buy-btn">
-                        <p>Ready to Checkout</p>
-                    </div>
-                </div>
-                
+        <div class="cart">
+            <i class="fa-solid fa-xmark" id="closeCart"></i>
+            <h1 class="ro">Coșul tău</h1>
+            <h1 class="ru">Ваша корзина</h1>
+            <h1 class="en">Your Cart</h1>
+            <div class="line"></div>
+            <div class="elements" id="cart-main">
                 
             </div>
+            <div class="line"></div>
+            <div class="cont">
+                
+                <h2 class="ro">Livrare</h2>
+                <h2 class="ru">Доставка</h2>
+                <h2 class="en">Delivery</h2>
+
+                <h2 class="strong">MDL 50</h2>
+            </div>
+            <div class="line"></div>
+            <div class="cont">
+              <h2 class="ro">Totalul</h2>
+              <h2 class="ru">Итого</h2>
+              <h2 class="en">Total</h2>
+                <h2 class="strong" id="total-price"></h2>
+            </div>
+            <div class="line"></div>
+            <div class="end">
+                <div class="pay" id="cart-buy-btn">
+                  <p class="ro">Pregătit pentru finalizare</p>
+                  <p class="ru">Готово к оформлению</p>
+                  <p class="en">Ready to Checkout</p>
+                </div>
+            </div>
+            
+            
         </div>
-        <div class="added hidden" id="added">
-            <i class="fa-solid fa-check"></i>
-            <h2>Item added succesfully in the cart </h2>
-    
-        </div>
+    </div>
+    <div class="added hidden" id="added">
+        <i class="fa-solid fa-check"></i>
+        <h2 class="ro">Articol adăugat cu succes în coș</h2>
+<h2 class="ru">Товар успешно добавлен в корзину</h2>
+<h2 class="en">Item added successfully to the cart</h2>
+
+    </div>
     
     <div class="header">
         
-        <div class="back">
+        <!-- <div class="back">
             <img src="images/headerBack.png"  alt="beeer-craft">
-        </div>
+        </div> -->
         
         <nav id="nav">
           <div class="half-div">
-                
-              <!-- <div class="cart-icon">
-                <i class="fa-solid fa-cart-shopping" id="openCart"></i>
-                <div class="dot hidden" id="dot-cart"></div>
-              </div> -->
-              <img src="images/logo.png" id="" class="logoNavMini" alt="" >
-            <i class="fa-solid fa-bars burger-btn" id="burger-btn"></i>
-          </div>
+                   <img src="images/logo.png" id="" class="logoNavMini" alt="" >
+                  <div class="cart-icon cart2">
+                    <i class="fa-solid fa-cart-shopping" id="openCart2"></i>
+                    <div class="dot hidden" id="dot-cart2"></div>
+                  </div>
+                  <i class="fa-solid fa-bars burger-btn" id="burger-btn"></i>
+                </div>
             <div class="container navbar">
                 
                 <div class="left">
-                  <a href="catalog.html" class="en">Beers</a>
-                  <a href="catalog.html" class="ro">Beri</a>
-                  <a href="catalog.html" class="ru">Пиво</a>
-                  <a href="aboutus.html" class="en">About us</a>
-                  <a href="aboutus.html" class="ro">Despre noi</a>
-                  <a href="aboutus.html" class="ru">О нас</a>
+                  <a href="/catalog" class="en">Beers</a>
+                  <a href="/catalog" class="ro">Beri</a>
+                  <a href="/catalog" class="ru">Пиво</a>
+                  <a href="/aboutus" class="en">About us</a>
+                  <a href="/aboutus" class="ro">Despre noi</a>
+                  <a href="/aboutus" class="ru">О нас</a>
+                  <a href="/contact" class="en">Contact</a>
+                  <a href="/contact" class="ro">Contacte</a>
+                  <a href="/contact" class="ru">Контакты</a>
                     <!-- <a href="">Gallery</a> -->
                 </div>
-                <a class="center" href="index.html">
+                <a class="center" href="/">
                     <img src="images/logo.png" id="logoNav" class="logoNav pagesNav" alt="" >
                 </a>
                 <div class="right">
-                    
-                  <a href="contact.html" class="en">Contact</a>
-                  <a href="contact.html" class="ro">Contacte</a>
-                  <a href="contact.html" class="ru">Контакты</a>
+                    <!-- <a href="/login" class="en">Sign In</a>
+                    <a href="" class="ro">Autentificare</a>
+                    <a href="" class="ru">Войти</a> -->
+
+                    <% if (name) { %>
+                      <div class="item-container">
+  <i class="fa-solid fa-user iconUser" id="iconUser"  onclick="toggleHoverBox()"></i>
+  <div class="hover-box  hidden " id="hoverBox">
+   <div class="profile-card">
+  <div class="profile-header">
+    <div class="avatar"></div>
+    <div class="user-info">
+      <div class="name-points">
+        <span class="name"><%= name  %></span>
+        <span class="points"><%= points %> Points</span>
+      </div>
+      <div class="email"><%= email %></div>
+    </div>
+  </div>
+  <hr />
+  <div class="menu">
+    <div class="menu-item">
+      <span class="icon"><i class="fa-solid fa-ribbon"></i></span>
+      <span class="text">Bonus Shop</span>
+    </div>
+    <div class="menu-item">
+      <span class="icon"><i class="fa-solid fa-clock-rotate-left"></i></span>
+      <span class="text">Order History</span>
+    </div>
+    <hr />
+    <div class="menu-item sign-out">
+      <form action="/logout?_method=DELETE" method="POST" class="logout">
+
+      <button type="submit" class="en">    <i class="fa-solid fa-right-from-bracket" class="icon"> </i>  Sign Out
+</button>
+      <button type="submit" class="ro"> <i class="fa-solid fa-right-from-bracket" class="icon"> </i>Deconectare</button>
+      <button type="submit" class="ru"><i class="fa-solid fa-right-from-bracket" class="icon"> </i>Выйти</button>
+    </form>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </div>
+  
+</div>
+    
+    
+    
+  <% } else { %>
+     <a href="/login" class="en"><i class="fa-solid fa-right-to-bracket"></i></a>
+                    <a href="/login" class="ro">Autentificare</a>
+                    <a href="/login" class="ru">Войти</a>
+    <!-- <a href="/login">Login</a> -->
+  <% } %>
+                  
                     <select id="langSelector" class="langSelector">
                       <option value="en">En</option>
                       <option value="ro" >Ro</option>
@@ -87,10 +207,11 @@
                       
                       
                   </select>
-                    <!-- <div class="cart-icon">
-                        <i class="fa-solid fa-cart-shopping" id="openCart"></i>
-                        <div class="dot hidden" id="dot-cart"></div>
-                    </div> -->
+                <div class="cart-icon cart1">
+                            <i class="fa-solid fa-cart-shopping" id="openCart"></i>
+                            <div class="dot hidden" id="dot-cart"></div>
+                        </div>
+              
 
                 </div>
                 
@@ -119,8 +240,25 @@
           </div>
           </div>
         </div>
-        <img src="images/logo.png" id="logo" class="logo" alt="">
-        <img src="images/logo.png"  class="logo2" alt="">
+        <!-- <img src="images/logo.png" id="logo" class="logo" alt=""> -->
+        <!-- <img src="images/logo.png"  class="logo2" alt=""> -->
+        <div class="content container">
+          <div class="box">
+            <h1 class="en">Moldova’s pioneer in American-style craft brewing</h1>
+            <h1 class="ro">Pionierul berii artizanale de stil american din Moldova</h1>
+            <h1 class="ru">Пионер американского крафтового пивоварения в Молдове</h1>
+            
+            
+            <div class="buttons">
+              <a href="catalog.html" class="button en">EXPLORE OUR BEERS <i class="fa-solid fa-arrow-right"></i></a>
+              <a href="catalog.html" class="button ro">EXPLORAȚI BERILE NOASTRE <i class="fa-solid fa-arrow-right"></i></a>
+              <a href="catalog.html" class="button ru">ИССЛЕДУЙТЕ НАШИ СОРТА ПИВА <i class="fa-solid fa-arrow-right"></i></a>
+              </div>
+          </div>
+          <div class="box">
+            <img src="images/headerMain.png" alt="">
+          </div>
+        </div>
     </div>
     <main>
         <div class="about">
@@ -132,7 +270,7 @@
                   <h1 class="en">Moldova's first American craft beer</h1>
                     <h1 class="ro">Prima bere artizanală americană din Moldova</h1>
                     <h1 class="ru">Первое американское крафтовое пиво в Молдове</h1>
-                    <a href="test.ejs">dfsd</a>
+                    
                     
                 </div>
                 
@@ -212,7 +350,16 @@
 
         </div> -->
         <div class="space">
-
+<!-- 
+  <% if (name) { %>
+    <p>Hello, <%= name %>!</p>
+    <form action="/logout?_method=DELETE" method="POST">
+      <button type="submit">Logout</button>
+    </form>
+  <% } else { %>
+    <p>You are not logged in.</p>
+    <a href="/login">Login</a>
+  <% } %> -->
         </div>
         
         <!-- <div class="bento">

@@ -48,26 +48,10 @@ const email = document.getElementById('email');
 const number = document.getElementById('number');
 const form = document.getElementById('form');
 const error = document.getElementById('error');
-// filterDisappear.addEventListener("click", ()=>{
-//   disappear.classList.toggle("hidden")
-// })
 
-// checkout.classList.add("hidden")
+const iconUser = document.getElementById("iconUser")
+const hoverBox= document.getElementById("hoverBox")
 
-// form.addEventListener("submit", (e) => {
-//   let messages = []
-//   if(nameForm.value ==='' || nameForm.value == null){
-//     messages.push('Name is required')
-//   }
-//   if(messages.length > 0){
-//     e.preventDefault()
-//     error.innerText = messages.join(' ')
-//   }
-// })
-  
-  // const errorMessage = document.getElementById('errorMessage');
-
-  
 
 document.addEventListener("DOMContentLoaded", () => {
   const checkout = document.getElementById("checkout");
@@ -96,53 +80,54 @@ faqs.forEach(faq =>{
 
 
   
-window.addEventListener('scroll', () => {
-  logoNav.style.display = 'none'
-  const scrollPosition = window.scrollY;
-  logoNav.style.display = 'none'
-  if (scrollPosition > 30 && scrollPosition < 250 ) {
-    logo.style.transform = 'translate(-50%, -100%)'
-    logo.classList.add("logoHeightAfter")
-    logo.style.transition = '1s'
-    logoNav.style.transition = '1s'
-     nav.style.background = "none"
-     logo.style.display = 'flex'
-    curt1.style.width = "100%"
-    curt2.style.width = "100%"
+// window.addEventListener('scroll', () => {
+
+//   const scrollPosition = window.scrollY;
+ 
+//    nav.style.background = "#110701"
+//   if (scrollPosition > 30 && scrollPosition < 250 ) {
+//     logo.style.transform = 'translate(-50%, -100%)'
+//     logo.classList.add("logoHeightAfter")
+//     logo.style.transition = '1s'
+//     logoNav.style.transition = '1s'
+//      nav.style.background = "none"
+//      logo.style.display = 'flex'
+//     curt1.style.width = "100%"
+//     curt2.style.width = "100%"
     
    
-  } else if(scrollPosition > 250 && scrollPosition < 2600 ){
-    logoNav.style.display = 'flex'
-    logoNav.style.zIndex = "2"
-    logo.style.display = 'none'
-    nav.style.background = "#1b1b1b"
-    curt1.style.width = "100%"
-    curt2.style.width = "100%"
+//   } else if(scrollPosition > 250 && scrollPosition < 2600 ){
+//     logoNav.style.display = 'flex'
+//     logoNav.style.zIndex = "2"
+//     logo.style.display = 'none'
+   
+//     curt1.style.width = "100%"
+//     curt2.style.width = "100%"
     
      
 
     
     
-  } else if(scrollPosition > 2600){
-    logoNav.style.display = 'flex'
-    logoNav.style.zIndex = "2"
-    logo.style.display = 'none'
-    nav.style.background = "#1b1b1b"
-    curt1.style.width = "50%"
-        curt1.style.transition = '1s'
-        curt2.style.width = "50%"
-        curt2.style.transition = '1s'
-  }
-  else {
-    logo.style.display = 'flex'
-    logo.style.transform = 'translate(-50%, -50%)'
-    logo.classList.add("logoHeightInitial")
-    logo.classList.remove("logoHeightAfter")
-    logoNav.style.display = 'none'
-    nav.style.background = "none"
-  }
-  console.log(scrollPosition)
-});
+//   } else if(scrollPosition > 2600){
+//     logoNav.style.display = 'flex'
+//     logoNav.style.zIndex = "2"
+//     logo.style.display = 'none'
+//     nav.style.background = "#1b1b1b"
+//     curt1.style.width = "50%"
+//         curt1.style.transition = '1s'
+//         curt2.style.width = "50%"
+//         curt2.style.transition = '1s'
+//   }
+//   else {
+//     logo.style.display = 'flex'
+//     logo.style.transform = 'translate(-50%, -50%)'
+//     logo.classList.add("logoHeightInitial")
+//     logo.classList.remove("logoHeightAfter")
+//     logoNav.style.display = 'none'
+//     nav.style.background = "none"
+//   }
+//   console.log(scrollPosition)
+// });
 
 function toggleMore(button) {
   const beerCard = button.closest('.beer-card'); // Get the whole beer card
@@ -260,7 +245,7 @@ fetch(apiUrl)
                 <div class="details">
                     <div class="column">
                         <small>Type</small>
-                        <p>Bruna</p>
+                        <p>${item.type}</p>
                     </div>
                     
                     <div class="column">
@@ -305,7 +290,7 @@ fetch(apiUrl)
                 <div class="details">
                     <div class="column">
                         <small>Type</small>
-                        <p>Bruna</p>
+                        <p>${item.type}</p>
                     </div>
                     
                     <div class="column">
@@ -529,17 +514,28 @@ function saveCartToLocalStorage() {
     function calculateTotalPrice() {
       return cart.reduce((total, item) => total + (item.quantity * item.price), 0);
   }
-  function displayCheckoutCart() {
-    let cartItemCheckoutHTML = cart.map(cartItem => ` 
-      <div class="text cart-item" data-cart-item-id='${cartItem.id}'>
-          <p>${cartItem.name}</p>
-          <p>${cartItem.quantity} x ${cartItem.price} mdl</p>
-      </div>
-    `).join("")
-  
-    cartItemsCheckout.innerHTML = cartItemCheckoutHTML;
-    totalPrice2.textContent = `Total: ${calculateTotalPrice() +50} MDL`
+function displayCheckoutCart() {
+  let cartItemCheckoutHTML = cart.map(cartItem => ` 
+    <div class="text cart-item" data-cart-item-id='${cartItem.id}'>
+        <p>${cartItem.name}</p>
+        <p>${cartItem.quantity} x ${cartItem.price} mdl</p>
+    </div>
+  `).join("")
+
+  cartItemsCheckout.innerHTML = cartItemCheckoutHTML;
+  // Get checkbox state directly here:
+  const usePointsCheckbox = document.getElementById('usePointsCheckbox');
+  const usePoints = usePointsCheckbox && usePointsCheckbox.checked;
+  const baseTotal = calculateTotalPrice() + 50;
+  const discount = usePoints ? Math.min(userPoints, baseTotal) : 0;
+  totalPrice2.textContent = ` ${baseTotal - discount} MDL`;
 }
+document.addEventListener("DOMContentLoaded", () => {
+  const usePointsCheckbox = document.getElementById('usePointsCheckbox');
+  if (usePointsCheckbox) {
+    usePointsCheckbox.addEventListener('change', displayCheckoutCart);
+  }
+});
 
     function getAllMinusBtns(){
       const minusBtns = cartMain.querySelectorAll(".cart-btn-minus")
@@ -615,6 +611,7 @@ function saveCartToLocalStorage() {
   dotCart.classList.add("hidden");
   displayCart();
   checkout.classList.remove("hidden")
+  // addPlaceOrderListener();
   displayCheckoutCart();
   
 
@@ -627,32 +624,112 @@ function saveCartToLocalStorage() {
 //   else {  
 //     dotCart.classList.add("hidden");
 //   }
-placeOrder.addEventListener("click", (event) => {
-  event.preventDefault()
-  const name = document.getElementById("name").value.trim()
-  const surname = document.getElementById("surname").value.trim()
-  const address = document.getElementById("address").value.trim()
-  const email = document.getElementById("email").value.trim()
-  const number = document.getElementById("number").value.trim()
+// function addPlaceOrderListener() {
+//   const placeOrder = document.getElementById("placeOrder");
+//   if (!placeOrder) {
+//     console.warn("placeOrder button not found");
+//     return;
+//   }
+// console.log(placeOrder);
+// document.addEventListener("DOMContentLoaded", () => {
+let userLoggedIn = false;
 
 
-  if (name && surname && address && email && number) {
-    alert("Order is placed")
-    checkout.classList.add("hidden")
-    cart = []
-    displayCart()
-    cartContainer.classList.toggle("hidden")
-  } else {
-    alert("Please fill out all fields before placing the order.")
+let userPoints = 0;
+let pointsApplied = false;
+fetch("/api/check-auth")
+  .then(res => res.json())
+  .then(data => {
+    userLoggedIn = data.loggedIn;
+    if (data.loggedIn) {
+      userPoints = data.points || 0;
+      document.getElementById("userPoints").textContent = userPoints;
+      document.getElementById("pointsInfo").classList.remove("hidden");
+    }
+  });
+
+document.getElementById('form').addEventListener('submit', async function (e) {
+  // e.preventDefault();
+
+  if (!userLoggedIn) {
+    alert("Order placed successfully! ")
+    cart = [];
+    saveCartToLocalStorage();
+    return;
   }
+
+  const name = document.getElementById('name').value;
+  const surname = document.getElementById('surname').value;
+  const address = document.getElementById('address').value;
+  const email = document.getElementById('email').value;
+  const number = document.getElementById('number').value;
+  const usePoints = document.getElementById('usePointsCheckbox').checked;
+  const pointsToUse = usePoints ? Math.min(userPoints, calculateTotalPrice() + 50) : 0;
+
+  try {
+    const response = await fetch('/place-order', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams({ name, surname, address, email, number, pointsToUse }),
+    });
+
+    const contentType = response.headers.get('content-type');
+
+    if (!contentType || !contentType.includes('application/json')) {
+      const text = await response.text();
+      console.error("Expected JSON, got:", text);
+      alert("Server returned invalid response (HTML). Check if the route exists.");
+      return;
+    }
+
+    const data = await response.json();
+
+    if (data.success) {
+      alert(`Order placed successfully! You now have ${data.points} points.`);
+      cart = [];
+      saveCartToLocalStorage();
+      userPoints = data.points; // Update local points
+      displayCheckoutCart();
+    } else {
+      alert("Order failed: " + data.message);
+    }
+
+  } catch (err) {
+    console.error("Network error:", err);
+    alert("Could not submit order");
+  }
+
 });
-  
-  
+
+// document.getElementById("applyPointsBtn").addEventListener("click", () => {
+//   if (!userLoggedIn || userPoints === 0 || pointsApplied) return;
+
+//   const cartTotal = calculateTotalPrice() + 50;
+//   const discount = Math.min(userPoints, cartTotal); // Max discount is cart total
+
+//   pointsApplied = true;
+
+//   document.getElementById("discountAmount").textContent = discount;
+//   document.getElementById("discountInfo").classList.remove("hidden");
+
+//   const newTotal = cartTotal - discount;
+//   totalPrice2.textContent = `Total: ${newTotal} MDL`;
+// });
+
+
+
+
+
+
+  // });
+   console.log(cart);
     showCatalog(data)
-  cart = JSON.parse(localStorage.getItem("cart")) || [];
+  // localStorage.clear() 
 displayCart();
-displayCheckoutCart();
+// displayCheckoutCart();
 dotCartUpdate();
+ 
+console.log("User points:", userPoints);
 
     // console.log(data);
     // console.log(cart);
@@ -905,11 +982,11 @@ function dotCartUpdate() {
 }
 
 
-placeOrder.addEventListener("click", (event) => {
+ceOrder.addEventListener("click", (event) => {
   // event.preventDefault();
   // const name = document.getElementById("name").value.trim();
   // const surname = document.getElementById("surname").value.trim();
-  // const address = document.getElementById("address").value.trim();
+  // const address = documenplat.getElementById("address").value.trim();
   // const email = document.getElementById("email").value.trim();
   // const number = document.getElementById("number").value.trim();
 
@@ -944,10 +1021,13 @@ function sendEmail(){
   message => alert(message)
 )}
 
-placeOrder.addEventListener("click", (event) => {
-  event.preventDefault();
-  sendEmail();
-})
+// placeOrder.addEventListener("click", (event) => {
+//   event.preventDefault();
+//   sendEmail();
+// })
 
 
-
+ function toggleHoverBox() {
+      const hoverBox = document.getElementById("hoverBox");
+      hoverBox.classList.toggle("hidden");
+    }
